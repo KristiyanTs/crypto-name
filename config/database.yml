@@ -1,5 +1,5 @@
 default: &default
-  host:     localhost
+  host:    localhost
   adapter: postgresql
   pool: 5
   timeout: 5000
@@ -7,7 +7,7 @@ default: &default
 development:
   <<: *default
   encoding: unicode
-  database: FastOrder_development
+  database: CryptoName_development
   username: postgres
   password: 12345678
   template: template0
@@ -15,21 +15,21 @@ development:
 test:
   <<: *default
   encoding: unicode
-  database: FastOrder_test
+  database: CryptoName_test
   username: postgres
   password: 12345678
   template: template0
 
 staging:
   <<: *default
-  database: fullder_staging
+  database: CryptoName_staging
   username: deploy
   password: "krisnikola2016"
   # password: <%= ENV["DATABASE_PASSWORD"] %>
 
 production:
   <<: *default
-  database: fullder_production
+  database: CryptoName_production
   username: deploy
   password: "krisnikola2016"
   # password: <%= ENV["DATABASE_PASSWORD"] %>
