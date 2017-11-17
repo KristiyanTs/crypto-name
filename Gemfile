@@ -38,6 +38,7 @@ gem 'slim-rails'
 gem 'jquery-ui-rails'
 gem 'friendly_id'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

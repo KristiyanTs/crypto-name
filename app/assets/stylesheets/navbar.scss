@@ -1,0 +1,52 @@
+.navbar{
+  position: absolute;
+  background-color: white;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  border-radius: 0px;
+  ul{
+    list-style: none;
+    padding: 10px 0px 0px 0px;
+    li{
+      float: left;
+      margin-right: 10px;
+      a{
+        line-height: 45px;
+        color: $purple;
+        font-weight: bold;
+      }
+      a:hover{
+        text-decoration: none;
+        border-bottom: 2px solid $purple;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .navbar{
+    ul{
+      li{
+        a{
+          padding: 8px;
+          font-size: $s-md;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar{
+    ul{
+      li{
+        a{
+          padding: 15px;
+          font-size: $l-md;
+        }
+      }
+    }
+  }
+}

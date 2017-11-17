@@ -1,3 +1,73 @@
+@import "variables.scss";
 @import "bootstrap-sprockets";
-@import 'bootstrap';
-@import "jquery-ui";
+@import "bootstrap";
+@import "navbar.scss";
+@import "login.scss";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Ubuntu');
+
+body{
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  font-family: 'Ubuntu', sans-serif !important;
+}
+.navbar .pull-left li a{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 25px !important;
+}
+
+.input-group-addon{
+  background-color: transparent;
+}
+.hat{
+  padding: 10px;
+  margin-top: 0px;
+  top: 0px;
+  width: 100vw;
+  min-height: 500px;
+  background-color: $purple;
+  background-image: url("https://www.transparenttextures.com/patterns/pinstripe-dark.png");
+  z-index: -10;
+  padding-top: 70px;
+  overflow: hidden;
+  padding-bottom: 50px;
+  h1{
+    color: white;
+  }
+  h3{
+    color: rgb(210,210,210);
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hat{
+    h1{
+      font-size: $s-xl;
+    }
+    h3{
+      font-size: $s-lg;
+    }
+  }
+  .navbar .pull-left li a{
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hat{
+    h1{
+      font-size: $l-xl;
+    }
+    h3{
+      font-size: $l-lg;
+    }
+  }
+  .navbar .pull-left li a{
+    font-size: 20px;
+  }
+}
+
+.no-margin{
+  top: 80px;
+}
