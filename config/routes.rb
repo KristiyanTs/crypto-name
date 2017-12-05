@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-	root to: 'user#new'
+	root "pages#show", page: "home"
   devise_for :users, controllers: {
         sessions: 'users/sessions'
   }
+	get "/pages/:page" => "pages#show"
 
 end
