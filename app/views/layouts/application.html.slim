@@ -8,4 +8,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render 'layouts/header'
-    = yield
+    main.cd-main-content
+      = render 'layouts/sidenav'
+      .content-wrapper
+        = yield

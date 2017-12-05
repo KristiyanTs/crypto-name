@@ -1,5 +1,4 @@
-.hat
-.col-xs-10.col-md-4.col-xs-offset-1.col-md-offset-4.login-form
+.col-xs-12.col-sm-10.col-sm-offset-1.col-md-4.col-md-offset-4.login-form
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}) do |f|
     h1.text-center Log in
     .form-inputs
@@ -12,20 +11,6 @@
           i.fa.fa-key.fa-fw
         = f.input :password, required: false, label: false, placeholder: 'Password'
     .form-actions
-      = f.button :submit, "Log in", class: 'col-xs-12 submit-btn'
-  = render "devise/shared/links"
+      = f.button :submit, "Log in", class: 'col-xs-4 submit-btn'
+      = render "devise/shared/links"
 
-
-.col-xs-12.advantages
-  .col-xs-12.col-md-4.advantage
-    i.fa.fa-hourglass-half.fa-3x
-    .title Saves your time
-    .description Let's face it. Who wants to do repetative tasks again and again and again...
-  .col-xs-12.col-md-4.advantage
-    .fa.fa-tachometer.fa-3x
-    .title Best practices & performance optimization
-    .description A good base of your project improves scalability and code clarity.
-  .col-xs-12.col-md-4.advantage
-    .fa.fa-cogs.fa-3x
-    .title Up-to-date
-    .description By default, we provide you with the latest stable version. No need to worry about outdated software!

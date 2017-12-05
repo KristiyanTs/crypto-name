@@ -1,7 +1,20 @@
-.navbar
-  ul.pull-left
-    li = link_to 'CryptoName', root_path
-  ul.pull-right
-    - if current_user
-      li = link_to 'Profile', edit_user_registration_path
-      li = link_to 'Logout', destroy_user_session_path, method: :delete
+header.cd-main-header
+  = link_to 'CryptoName', root_path, class: "logo"
+  a.cd-nav-trigger href="#0" 
+    span
+  nav.cd-nav
+    ul.cd-top-nav
+      li
+        a href="#0"  Tour
+      li
+        a href="#0"  Support
+      li.has-children.account
+        a href="#0" 
+          | Account
+        ul
+          li
+            a href="#0"  My Account
+          li
+            a href="#0"  Edit Account
+          li
+            a href="#0"  Logout
