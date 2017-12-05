@@ -12,6 +12,15 @@ body{
   margin-bottom: 50px;
   font-family: 'Ubuntu', sans-serif !important;
   width: 100vw;
+  background-color: transparent;
+}
+.hat{
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 0px;
+	background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
 /* -------------------------------- 
 
@@ -24,13 +33,6 @@ Primary style
 
 html {
   font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #3e454c;
-  background-color: #ffffff;
 }
 body::after {
   clear: both;
@@ -63,11 +65,6 @@ Main Page Content
 .cd-main-content .content-wrapper {
   padding: 45px 5% 3em;
 }
-.cd-main-content .content-wrapper h1 {
-  text-align: center;
-  padding: 3em 0;
-  font-size: 2rem;
-}
 .cd-main-content::before {
   /* never visible - used to check MQ in jQuery */
   display: none;
@@ -78,18 +75,13 @@ Main Page Content
     margin-left: 110px;
     padding-top: 55px;
   }
-  .cd-main-content .content-wrapper h1 {
-    padding: 4em 0;
-    font-size: 3.2rem;
-    font-weight: 300;
-  }
   .cd-main-content::before {
     content: 'tablet';
   }
 }
 @media only screen and (min-width: 1170px) {
   .cd-main-content .content-wrapper {
-    margin-left: 200px;
+    margin-left: 16.6vw;
   }
   .cd-main-content::before {
     content: 'desktop';
@@ -107,11 +99,11 @@ Sidebar
   top: 0;
   width: 100%;
   padding: 45px 0 0;
-	background: #101214;
-	background: -moz-linear-gradient(top, #101214 0%, #2c3136 10%);
-	background: -webkit-linear-gradient(top, #101214 0%,#2c3136 10%);
-	background: linear-gradient(to bottom, #101214 0%,#2c3136 10%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101214', endColorstr='#2c3136',GradientType=0 );
+  background: #303235;
+  background: -moz-linear-gradient(top, #303235 30%, #424242 100%);
+  background: -webkit-linear-gradient(top, #303235 30%,#424242 100%);
+  background: linear-gradient(to bottom, #303235 30%,#424242 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303235', endColorstr='#424242',GradientType=0 );
   visibility: hidden;
   opacity: 0;
   max-height: 100vh;
@@ -154,6 +146,9 @@ Sidebar
   position: relative;
   color: #ffffff;
   font-size: 1.4rem;
+}
+.cd-side-nav a:hover {
+  text-decoration: none;
 }
 .cd-side-nav ul.cd-top-nav > li:last-of-type > a {
   border-bottom: none;
@@ -235,7 +230,6 @@ Sidebar
     position: relative;
     float: left;
     top: auto;
-    width: 110px;
     min-height: 100vh;
     padding-top: 55px;
     /* reset style */
@@ -302,7 +296,7 @@ Sidebar
 }
 @media only screen and (min-width: 1170px) {
   .cd-side-nav {
-    width: 200px;
+    width: 16.6%;
   }
   .cd-side-nav > ul {
     padding: 0.6em 0;

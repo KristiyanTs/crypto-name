@@ -1,21 +1,20 @@
-.hat
 .col-xs-10.col-md-4.col-xs-offset-1.col-md-offset-4.login-form
+  .login-img
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}) do |f|
-    h1.text-center Sign up
     = f.error_notification
     .form-inputs
       .input-group
         span.input-group-addon
           i.fa.fa-envelope-o.fa-fw
-        = f.input :email, required: true, autofocus: true, label: false, placeholder: 'john@email.com'
+        = f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email'
       .input-group
         span.input-group-addon
           i.fa.fa-key.fa-fw
-        = f.input :password, required: true, label: false, placeholder: "Password, at least 6 symbols"
+        = f.input :password, required: true, label: false, placeholder: "Password, > 6 symbols"
       .input-group
         span.input-group-addon
           i.fa.fa-key.fa-fw
-        = f.input :password_confirmation, required: true, label: false, placeholder: "Password again"
+        = f.input :password_confirmation, required: true, label: false, placeholder: "Confirm password"
     .form-actions
-      = f.button :submit, "Sign up", class: 'col-xs-12 submit-btn'
+      = f.button :submit, "Continue", class: 'col-xs-12 submit-btn'
   = render "devise/shared/links"
