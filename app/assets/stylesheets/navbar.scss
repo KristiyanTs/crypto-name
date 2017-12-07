@@ -10,7 +10,6 @@ Header
   left: 0;
   height: 45px;
   width: 100%;
-  /*background: #3e454c;*/
   background: #4c4c4c;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   -webkit-font-smoothing: antialiased;
@@ -27,7 +26,6 @@ Header
     height: 55px;
   }
 }
-
 .logo {
   float: left;
   display: block;
@@ -37,8 +35,9 @@ Header
 }
 @media only screen and (min-width: 768px) {
   .logo {
-    margin: 16px 0 0 36px;
+    margin: 16px 0 0 20px;
     font-size: 18px;
+    text-align: left;
   }
 }
 
@@ -154,22 +153,6 @@ Top Navigation
 .cd-top-nav > li a {
   padding: 1em 5% !important;
 }
-.cd-top-nav img {
-  /* avatar image */
-  position: absolute;
-  left: 1.8em;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  display: none;
-}
 @media only screen and (min-width: 768px) {
   .cd-top-nav {
     height: 100%;
@@ -181,17 +164,22 @@ Top Navigation
   }
   .cd-top-nav > li {
     display: inline-block;
-    margin-right: 1em;
     height: 100%;
   }
   .cd-top-nav > li:last-of-type {
     margin-right: 0;
   }
   .cd-top-nav > li a {
-    padding: 1em .6em !important;
+    padding: 1.2em 1.6em !important;
   }
-  .cd-top-nav img {
-    display: block;
+  .cd-top-nav .account{
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.7);
+  }
+  .cd-top-nav a:hover{
+    color: $orange !important;
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.6);
   }
 }
 @media only screen and (min-width: 1170px) {

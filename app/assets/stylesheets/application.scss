@@ -191,30 +191,11 @@ Sidebar
 .cd-side-nav > ul > li.users > a::before {
   background-position: -16px 0;
 }
-.cd-side-nav .count {
-  /* notification badge */
-  position: absolute;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: calc(5% + 16px + 0.4em);
-  padding: 0.2em 0.4em;
-  background-color: #ff7e66;
-  border-radius: .25em;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-align: center;
-}
 .cd-side-nav .action-btn a {
+  margin-top: 20px !important;
   display: block;
-  margin: 0 5%;
   padding: 1em 0;
-  background-color: #1784c7;
+  background-color: $orange;
   border-radius: .25em;
   border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -224,6 +205,10 @@ Sidebar
 }
 .cd-side-nav .action-btn a::before {
   display: none;
+}
+.cd-side-nav .action-btn a:hover {
+  background-color: white;
+  color: $orange;
 }
 @media only screen and (min-width: 768px) {
   .cd-side-nav {
@@ -253,8 +238,11 @@ Sidebar
     display: none;
   }
   .cd-side-nav a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-align: center;
+  }
+  .cd-side-nav .secondary a{
+    font-size: 1.3rem;
   }
   .cd-side-nav > ul > li > a {
     padding: calc(2.2em + 24px) 0 2.4em;
@@ -444,8 +432,8 @@ Sidebar
   .has-children ul a {
     padding-left: 18px;
   }
-  .has-children.active > ul {
-    /* if the item is active, make the subnavigation visible */
+  .has-children.active > ul, .has-children.open > ul {
+    /* if the item is active/open, make the subnavigation visible */
     position: relative;
     display: block;
     /* reset style */
