@@ -7,38 +7,39 @@ nav.cd-side-nav.col-md-2.col-xs-12
       li.cd-label Main
       li.users
         = link_to "Profile", edit_user_registration_path
-      li.overview.active
+      li.domains.active
         a href="#0"  My Domains
       li.notifications
         a href="#0" Notifications
   - else
     ul
       li.cd-label Main
-      li.users
+      li.login
         = link_to "Log in", new_user_session_path
-      li.users
+      li.signup
         = link_to "Sign up", new_user_registration_path
 
 
 
   ul.secondary
     li.cd-label Secondary
-    li.bookmarks
+    li.faq
       a href="/pages/faq"  FAQ
-    li.bookmarks
+    li.future-work
       a href="/pages/futurework"  Future work
-    li.images
+    li.contacts
       a href="/pages/contacts"  Contacts
-    li.images
+    li.about
       a href="/pages/about"  About
-    li.bookmarks
+    li.document
       a href="/pages/privacy"  Privacy Policy 
-    li.bookmarks
+    li.document
       a href="/pages/terms"  Terms & Conditions
-    li.bookmarks
+    li.credits
       a href="/pages/creadits"  Credits
-    li.users
-      = link_to 'Log out', destroy_user_session_path, method: :delete
+    - if current_user
+      li.logout
+        = link_to 'Log out', destroy_user_session_path, method: :delete
 
 
 

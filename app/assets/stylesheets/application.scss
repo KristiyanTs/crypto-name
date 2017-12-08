@@ -5,6 +5,7 @@
 @import "login.scss";
 @import "font-awesome";
 @import "footer.scss";
+@import "cart.scss";
 @import url('https://fonts.googleapis.com/css?family=Rajdhani|Ubuntu');
 
 body{
@@ -13,14 +14,7 @@ body{
   font-family: 'Ubuntu', sans-serif !important;
   width: 100vw;
   background-color: transparent;
-}
-.hat{
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
-	top: 0px;
-	left: 0px;
-	background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  overflow-x: hidden;
 }
 /* -------------------------------- 
 
@@ -93,7 +87,7 @@ Sidebar
 
 -------------------------------- */
 .cd-side-nav {
-  position: absolute !important;
+  position: absolute;
   z-index: 1;
   left: 0;
   top: 0;
@@ -171,25 +165,55 @@ Sidebar
   transform: translateY(-50%);
   height: 16px;
   width: 16px;
-  background: url(cd-nav-icons.svg) no-repeat 0 0;
-}
-.cd-side-nav > ul > li.overview > a::before {
-  background-position: -64px 0;
-}
-.cd-side-nav > ul > li.notifications > a::before {
-  background-position: -80px 0;
-}
-.cd-side-nav > ul > li.comments > a::before {
-  background-position: -48px 0;
-}
-.cd-side-nav > ul > li.bookmarks > a::before {
-  background-position: -32px 0;
-}
-.cd-side-nav > ul > li.images > a::before {
-  background-position: 0 0;
+  background-color: grey;
 }
 .cd-side-nav > ul > li.users > a::before {
-  background-position: -16px 0;
+  -webkit-mask-image: url(profile.svg);
+  mask-image: url(profile.svg);
+}
+.cd-side-nav > ul > li.domains > a::before {
+  -webkit-mask-image: url(settings-1.svg);
+  mask-image: url(settings-1.svg);
+}
+.cd-side-nav > ul > li.notifications > a::before {
+  -webkit-mask-image: url(speech-bubble.svg);
+  mask-image: url(speech-bubble.svg);
+}
+.cd-side-nav > ul > li.faq > a::before {
+  -webkit-mask-image: url(info.svg);
+  mask-image: url(info.svg);
+}
+.cd-side-nav > ul > li.login > a::before {
+  -webkit-mask-image: url(profile.svg);
+  mask-image: url(profile.svg);
+}
+.cd-side-nav > ul > li.signup > a::before {
+  -webkit-mask-image: url(add.svg);
+  mask-image: url(add.svg);
+}
+.cd-side-nav > ul > li.document > a::before {
+  -webkit-mask-image: url(file.svg);
+  mask-image: url(file.svg);
+}
+.cd-side-nav > ul > li.contacts > a::before {
+  -webkit-mask-image: url(envelope.svg);
+  mask-image: url(envelope.svg);
+}
+.cd-side-nav > ul > li.logout > a::before {
+  -webkit-mask-image: url(logout.svg);
+  mask-image: url(logout.svg);
+}
+.cd-side-nav > ul > li.future-work > a::before {
+  -webkit-mask-image: url(rocket-launch.svg);
+  mask-image: url(rocket-launch.svg);
+}
+.cd-side-nav > ul > li.about > a::before {
+  -webkit-mask-image: url(heart.svg);
+  mask-image: url(heart.svg);
+}
+.cd-side-nav > ul > li.credits > a::before {
+  -webkit-mask-image: url(file.svg);
+  mask-image: url(file.svg);
 }
 .cd-side-nav .action-btn a {
   margin-top: 20px !important;
@@ -212,7 +236,7 @@ Sidebar
 }
 @media only screen and (min-width: 768px) {
   .cd-side-nav {
-    position: relative;
+    position: fixed;
     float: left;
     top: auto;
     min-height: 100vh;
