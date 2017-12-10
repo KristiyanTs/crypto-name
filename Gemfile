@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -31,6 +29,18 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'jquery-turbolinks'
+gem 'devise'
+gem 'cancancan'
+gem 'pg'
+gem 'simple_form'
+gem 'slim-rails'
+gem 'jquery-ui-rails'
+gem 'friendly_id'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

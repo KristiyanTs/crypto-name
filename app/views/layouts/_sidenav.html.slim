@@ -1,0 +1,57 @@
+nav.cd-side-nav.col-md-2.col-xs-12
+  ul
+    li.action-btn
+      a href="#0" Search domains
+  - if current_user
+    ul
+      li.cd-label Main
+      li.users
+        = link_to "Profile", edit_user_registration_path
+      li.domains.active
+        a href="#0"  My Domains
+      li.notifications
+        a href="#0" Notifications
+  - else
+    ul
+      li.cd-label Main
+      li.login
+        = link_to "Log in", new_user_session_path
+      li.signup
+        = link_to "Sign up", new_user_registration_path
+
+
+
+  ul.secondary
+    li.cd-label Secondary
+    li.faq
+      a href="/pages/faq"  FAQ
+    li.future-work
+      a href="/pages/futurework"  Future work
+    li.contacts
+      a href="/pages/contacts"  Contacts
+    li.about
+      a href="/pages/about"  About
+    li.document
+      a href="/pages/privacy"  Privacy Policy 
+    li.document
+      a href="/pages/terms"  Terms & Conditions
+    li.credits
+      a href="/pages/creadits"  Credits
+    - if current_user
+      li.logout
+        = link_to 'Log out', destroy_user_session_path, method: :delete
+
+
+
+/ EXAMPLE
+    / li.has-children.notifications.open
+    /   a href="#0" 
+    /     | Notifications
+    /     span.count 3
+    /   ul
+    /     li
+    /       a href="#0"  All Notifications
+    /     li
+    /       a href="#0"  Friends
+    /     li
+    /       a href="#0"  Other

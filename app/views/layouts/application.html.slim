@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title CryptoName
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = render 'layouts/header'
+    main.cd-main-content
+      = render 'layouts/sidenav'
+      .content-wrapper
+        = yield
+        a.cd-add-to-cart data-price="25.99" href="#0"  Add To Cart
+      = render 'layouts/cart'
