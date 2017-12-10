@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116201857) do
+ActiveRecord::Schema.define(version: 20171210141841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "domains", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "status", default: 0, null: false
+    t.bigint "users_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_domains_on_users_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "users_id"
+    t.string "notes"
+    t.string "remote_checkout"
+    t.string "remote_id"
+    t.string "crypto_currency"
+    t.string "crypto_address"
+    t.decimal "crypto_amount", precision: 8, scale: 2
+    t.decimal "amount", precision: 8, scale: 2
+    t.integer "status"
+    t.string "item_type"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_type", "item_id"], name: "index_transactions_on_item_type_and_item_id"
+    t.index ["users_id"], name: "index_transactions_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
