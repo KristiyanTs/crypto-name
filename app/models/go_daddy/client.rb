@@ -6,10 +6,11 @@ module GoDaddy
     include GoDaddy::Client::Orders
     include GoDaddy::Client::Shoppers
     include GoDaddy::Client::Subscriptions
+    include GoDaddy::Errors
 
     attr_accessor :key, :secret, :url
 
-    def initialize(key = ENV.fetch('GODADDY_KEY'), secret = ENV.fetch('GODADDY_SECRET'), url = ENV['GODADDY_URL'])
+    def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'])
 
       @key = key
       @secret = secret
@@ -23,6 +24,13 @@ module GoDaddy
       end
     end
 
+    def self.method_missing(method, *args)
+      if client.respond_to?(method)
+        client.send(method, *args)
+      else
+        super
+      end
+    end
 
     private
 

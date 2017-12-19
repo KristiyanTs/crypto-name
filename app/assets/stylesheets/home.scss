@@ -1,0 +1,115 @@
+.section1 .half-screen{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  padding: 80px 0px 50px 0px;
+  width: 100vw;
+  height: 70vh;
+  background:     linear-gradient(
+      rgba(255, 255, 255, 0.4), 
+      rgba(255, 255, 255, 1)
+    ), url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .benefits{
+  	margin: 150px 0px 0px 0px;
+  	font-size: 20px;
+  	padding-left: 50px;
+  	text-align: justify;
+
+  }
+
+  .domain-search{
+  	margin-top: 150px;
+    #search{
+      width: 83%;
+      font-size: $s-md;
+      height: 50px;
+      line-height: 50px;
+      border: 0px;
+      background-color: rgba(0,0,0,0.4);
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      color: white;
+      font-size: 18px;
+      padding: 0px 0px 0px 20px;
+      float: left;
+    }
+    .search-btn{
+      width: 5%;
+      height: 50px;
+      line-height: 50px;
+      border: 0px;
+      background-color: $orange;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      color: white;
+      font-size: 18px;
+      padding: 0px 30px;
+      i{
+      	margin-left: -8px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .partial-search{
+    .domain-search{
+      #search{
+        width: 80%;
+      }
+      .search-btn{
+        width: 20%;
+      }
+    }
+  }
+}
+
+
+.view1{
+	padding: 0px;
+	margin: 0px;
+	height: 100vh;
+	width: 100vw;
+	background-color: #4c4c4c;
+
+
+	.title{
+		font-size: 5vh;
+		color: white;
+		position: absolute;
+		top: 45vh;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+
+
+/* -------------------------------- 
+
+Header
+
+-------------------------------- */
+.cd-main-header.custom {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.custom .logo{
+	margin-top: 25px;
+}
+
+

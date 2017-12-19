@@ -1,1 +1,15 @@
-h1 Home
+= render 'pages/custom_navbar'
+
+.section1
+	.half-screen
+		.benefits.col-xs-12.col-md-12
+			.col-xs-6
+				h2 Reliable
+
+			.col-xs-6
+				h2 Easy
+
+		= form_tag root_path, method: 'get', class: 'domain-search col-md-4 col-md-offset-4' do
+			= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name"
+			button.search-btn.col-xs-2 type="submit"
+				= fa_icon "search"
