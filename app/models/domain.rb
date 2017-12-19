@@ -1,5 +1,6 @@
 class Domain < ApplicationRecord
-  has_one :transaction, as: :item
+  belongs_to :user
+  has_many :transactions, as: :item
 
   def buy!
     update(status: :complete)

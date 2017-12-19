@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20171210141841) do
   create_table "domains", force: :cascade do |t|
     t.string "name", null: false
     t.integer "status", default: 0, null: false
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_domains_on_users_id"
+    t.index ["user_id"], name: "index_domains_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.string "notes"
     t.string "remote_checkout"
     t.string "remote_id", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20171210141841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_type", "item_id"], name: "index_transactions_on_item_type_and_item_id"
-    t.index ["users_id"], name: "index_transactions_on_users_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

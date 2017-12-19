@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration[5.1]
   def change
     create_table :transactions do |t|
-      t.references :users, index: true, null: false
+      t.references :user, index: true, null: false
       t.string :notes
       t.string :remote_checkout
       t.string :remote_id, null: false
