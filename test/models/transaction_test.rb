@@ -9,5 +9,16 @@ class TransactionTest < ActiveSupport::TestCase
     transaction.finalize!
 
     assert_equal expected, user.balance
+    assert transaction.complete?
+  end
+
+  test "it raises an error if balance lower than transaction" do
+    transaction = transactions(:pending)
+    user = transaction.user
+    user.update(balance: 0)
+
+    assert_raises {
+      transaction.finalize!
+    }
   end
 end

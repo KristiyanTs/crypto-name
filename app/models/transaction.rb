@@ -1,4 +1,6 @@
 class Transaction < ApplicationRecord
+  class LowBalance < StandardError; end
+
   belongs_to :item, polymorphic: true
   belongs_to :user
 
@@ -6,8 +8,10 @@ class Transaction < ApplicationRecord
 
   def finalize!
     user.with_lock do
-      user.increment!(:balance, -amount)
-      complete! && save
+      raise LowBalance unless user.balance > amount
+      user.increment(:balance, -amount)
+      user.save!
+      complete!
     end
   end
 end
