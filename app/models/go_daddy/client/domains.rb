@@ -6,7 +6,7 @@ module GoDaddy
       end
 
       def domain(name, *args)
-        get("domains/#{name}")
+        get("domains/#{name}", *args)
       end
 
       def update_domain(name, *args)
