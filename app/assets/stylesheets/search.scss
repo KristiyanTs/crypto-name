@@ -1,0 +1,44 @@
+.partial-search{
+  .domain-search{
+    #search{
+      width: 83%;
+      font-size: $s-md;
+      height: 50px;
+      line-height: 50px;
+      border: 0px;
+      background-color: rgba(0,0,0,0.4);
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      color: white;
+      font-size: 18px;
+      padding: 0px 0px 0px 20px;
+      float: left;
+    }
+    .search-btn{
+      width: 5%;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      border: 0px;
+      background-color: $orange;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      color: white;
+      font-size: 18px;
+      padding: 0px 30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .partial-search{
+    .domain-search{
+      #search{
+        width: 80%;
+      }
+      .search-btn{
+        width: 20%;
+      }
+    }
+  }
+}

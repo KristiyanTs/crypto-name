@@ -7,10 +7,14 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render 'layouts/header'
-    main.cd-main-content
-      = render 'layouts/sidenav'
-      .content-wrapper
-        = yield
-        a.cd-add-to-cart data-price="25.99" href="#0"  Add To Cart
-      = render 'layouts/cart'
+    -unless params[:page] && (['home', 'about']).include?(params[:page])
+      = render 'layouts/header'
+      main.cd-main-content
+        = render 'layouts/sidenav' 
+        .content-wrapper
+          = render 'layouts/search'
+          = yield
+          a.cd-add-to-cart data-price="25.99" href="#0"  Add To Cart
+        = render 'layouts/cart'
+    -else
+      = yield

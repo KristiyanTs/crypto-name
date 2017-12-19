@@ -1,7 +1,4 @@
 nav.cd-side-nav.col-md-2.col-xs-12
-  ul
-    li.action-btn
-      a href="#0" Search domains
   - if current_user
     ul
       li.cd-label Main
@@ -18,8 +15,46 @@ nav.cd-side-nav.col-md-2.col-xs-12
         = link_to "Log in", new_user_session_path
       li.signup
         = link_to "Sign up", new_user_registration_path
+  ul.filters
+    li.cd-label Search filter
+    li.cd-label.sublabel Extensions
+    li.filter-topdomain
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label All extensions
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label .com
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label .org
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label .net
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label .eu
+      .pretty.p-icon.p-rotate
+        input type="checkbox" /
+        .state.p-success
+          i.icon.mdi.mdi-check
+          label .co.uk
 
-
+    li.cd-label.sublabel Maximum length
+    li.filter-length
+      .range-slider
+        input.range-slider__range max="20" min="3" type="range" value="4"
+        span.range-slider__value 4
 
   ul.secondary
     li.cd-label Secondary
