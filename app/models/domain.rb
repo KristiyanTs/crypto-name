@@ -1,5 +1,5 @@
 class Domain < ApplicationRecord
-  enum status: { pending: 0, complete: 1, failed: 2 }
+  has_one :transaction, as: :item
 
   def buy!
     update(status: :complete)
