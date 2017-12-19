@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171210141841) do
     t.string "unconfirmed_email"
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
