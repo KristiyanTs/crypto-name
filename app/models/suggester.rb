@@ -7,15 +7,21 @@ class Suggester
 
   def call
     raise 'Could not fetch' unless response.body.present?
-    results = response.body.map { |h| h[KEY] }
-    available(results)
+    raise 'Retry' unless available.body['domains']
+    available.body['domains'].select do |domain|
+      domain['available']
+    end
   end
 
   def response
     @r ||= GoDaddy.suggest(@query)
   end
 
-  def available(names)
-    GoDaddy.available?(names)
+  def suggested
+    @suggested ||= response.body.map { |h| h[KEY] }
+  end
+
+  def available
+    @available ||= GoDaddy.available?(*suggested)
   end
 end

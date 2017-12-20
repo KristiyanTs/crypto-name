@@ -21,7 +21,7 @@ module GoDaddy
         if names.one?
           get("domains/available", domain: names.first)
         else
-          post("domains/available", names)
+          post("domains/available", names.to_json)
         end
       end
 
