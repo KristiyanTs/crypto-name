@@ -1,15 +1,70 @@
 = render 'pages/custom_navbar'
 
 .section1
-	.half-screen
-		.benefits.col-xs-12.col-md-12
-			.col-xs-6
-				h2 Reliable
+	.col-md-1.col-xs-2.col-md-offset-1
+		.question ?
+	.col-md-4.col-xs-10.call
+		h1 
+			b What if your domain name 
+		h2
+			ul
+				li
+					h2 
+						| could be set up in 
+						b less than 5 minutes 
+				li 
+					h2 
+						| was 
+						b secured
+						| ,
+				li
+					h2 
+						| and 
+						b easy to manage
+	.col-xs-12
+	= form_tag root_path, method: 'get', class: 'domain-search col-md-5 col-md-offset-1' do
+		= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name with us"
+		button.search-btn.col-xs-2 type="submit"
+			= fa_icon "search"
 
-			.col-xs-6
-				h2 Easy
+.section2
+	h1.text-center.title Reliable & Easy
+	.benefits.col-xs-12.full-width
+		.col-xs-12.col-md-4.col-md-offset-1.full-width
+			.secure.col-xs-12.full-width
+				.img = image_tag("shield.svg")
+				.description
+					.title Secure
+					.text Your account is secured by a 2-step verification. No one can login into your profile without having access to your mobile phone.
+			.support.col-xs-12.full-width
+				.img = image_tag("support.svg")
+				.description
+					.title Customer Support
+					.text You will find our customer support helpful in the rare cases CryptoName fails to meet your expectations.
 
-		= form_tag root_path, method: 'get', class: 'domain-search col-md-4 col-md-offset-4' do
-			= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name"
-			button.search-btn.col-xs-2 type="submit"
-				= fa_icon "search"
+		.col-xs-12.col-md-4.col-md-offset-2.full-width
+			.dashboard.col-xs-12.full-width
+				.description
+					.title Intuitive Dashboard
+					.text The whole process of finding, buying, and managing a domain is as easy as it will ever be. If struggling, you can find all you need in our extensive FAQ section.
+				.img = image_tag("dashboard.svg")
+			.payment.col-xs-12.full-width
+				.description
+					.title Varied Payments
+					.text You can pay with all your favorite methods, including Bitcoins.
+				.img = image_tag("payment.svg")
+
+.section3
+	h1.text-center.title Transparent Pricing
+	.col-xs-12.col-md-3.col-md-offset-1.benefits
+		= image_tag("price.svg")
+		.description
+			.title Final price
+			.text 
+				| We all hate being fooled around with additional charges on checkout or even worse, after that. CryptoName values your time and money. To note that, we display 
+				b the final price 
+				| for each product on our website. No hidden fees. No * next to each price tag.
+
+.section4
+
+
