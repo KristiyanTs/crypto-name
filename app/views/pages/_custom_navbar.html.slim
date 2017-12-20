@@ -1,6 +1,15 @@
-header.cd-main-header.custom
+header.cd-auto-hide-header.is-hidden
   = link_to 'CryptoName', root_path, class: "logo"
-  a.cd-nav-trigger href="#0" 
-    span
-
-
+  nav.cd-primary-nav
+    a.nav-trigger href="#cd-navigation" 
+      span
+        em aria-hidden="true" 
+        | Menu
+    /! .nav-trigger
+    ul#cd-navigation
+      li
+        a href="#0"  Contact us
+      li
+        a href="#0"  Log in
+      li
+        a.primary href="#0"  Sign up
