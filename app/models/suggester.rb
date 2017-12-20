@@ -8,6 +8,7 @@ class Suggester
   def call
     raise 'Could not fetch' unless response.body.present?
     raise 'Retry' unless available.body['domains']
+
     available.body['domains'].select do |domain|
       domain['available']
     end
@@ -22,6 +23,9 @@ class Suggester
   end
 
   def available
-    @available ||= GoDaddy.available?(*suggested)
+    @available ||= 
+      Retrier.attempt(-> (response) { response&.body['domains'].present? },
+        tries: 3,
+        delay: 0.seconds) { GoDaddy.available?(*suggested) }
   end
 end
