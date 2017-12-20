@@ -31,6 +31,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.datetime :locked_at
 
       t.decimal :balance, precision: 10, scale: 2, null: false, default: 0
+      t.boolean :admin, null: false, default: false
 
       t.timestamps null: false
     end
