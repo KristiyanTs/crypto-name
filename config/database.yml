@@ -28,6 +28,6 @@ staging:
 
 production:
   <<: *default
-  database: CryptoName_production
+  database: <%= ENV["DATABASE_NAME"] %>
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
