@@ -1,16 +1,21 @@
 class PaymentsController < ApplicationController
-  def new
-
-    CreateCoinpaymentsTopup.call(
-      user: context.user,
-      amount: context.amount,
-      minimum_topup: context.user.minimum_topup,
-      callback_url: Rails.application.routes.url_helpers.coinpayments_callback_url(secret: '123', protocol: 'https'),
-      crypto_currency: context.currency
-    )
+  def create
+    transaction = current_user.transactions.create!(transaction_params.merge(topup))
+    Payment.new(transaction).create!
+    # redirect_to 'coinpayments'
+  rescue => err
+    render json: err.message
   end
 
-  def update
-    PaymentCallback.call(body: params, request: request)
+  def transaction_params
+    params.require(:transaction).permit(:amount, :crypto_currency)
+  end
+
+  def topup
+    {
+      status: :pending,
+      type: :topup,
+      notes: { message: "Topup payment" }
+    }
   end
 end

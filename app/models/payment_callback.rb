@@ -15,6 +15,7 @@ class PaymentCallback
   rescue => e
     # report error
     # payment failed
+    mispaid
   end
 
   private
@@ -24,7 +25,7 @@ class PaymentCallback
   end
 
   def paid
-    transaction.buy!
+    transaction.topup!
   end
 
   def pending

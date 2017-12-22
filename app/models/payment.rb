@@ -1,26 +1,19 @@
 class Payment
   class ParsingError < StandardError; end
 
-  attr_reader :user, :amount, :currency
+  attr_reader :transaction
 
-  def initialize(user, amount, currency)
-    @user = user
-    @amount = amount
-    @currency = currency
+  # Pending transaction
+  def initialize(transaction)
+    @transaction = transaction
   end
 
   def create!
-    transaction = user.transactions.create!(
-      amount: amount,
-      status: 0,
-      crypto_currency: crypto_currency
-    )
-
     begin
+      payment
       status_key = parse_status_key!
     rescue ParsingError => e
-      # TODO: Handle Error
-      # transaction_error!
+      raise "Payment failed, try again later..."
     end
 
     transaction.update(
@@ -33,10 +26,6 @@ class Payment
   end
 
   private
-
-  def transaction_error!
-    transaction.failed!
-  end
 
   def parse_status_key!
     parse_error('Expected correct payment', payment) if bad_payment?
@@ -53,12 +42,24 @@ class Payment
   end
 
   def payment
-    return @payment if @payment
-    @payment = self.class.create(transaction: transaction,
-                                crypto_currency: crypto_currency,
-                                amount: amount
-    )
+    @payment ||= Coinpayments.create_transaction(
+      transaction.amount,
+      'USD',
+      transaction.crypto_currency,
+      item_number: transaction.id,
+      buyer_email: transaction.user.email,
+      item_name: "Topup Transaction",
+      ipn_url: Rails.application.routes.url_helpers.payment_callback_url(secret: PaymentCallback.password, protocol: 'https', id: transaction.id)
+)
   end
+
+  def self.accepted_coins
+    Coinpayments&.rates(accepted: 1)
+                &.reject { |_, v| v['accepted'].zero? }
+                &.keys
+  end
+
+  private
 
   def bad_payment?
     return true unless payment.is_a?(Hashie::Mash)
@@ -71,19 +72,5 @@ class Payment
 
   def parse_error(message, reason = nil)
     raise ParsingError, "#{message}, got #{reason.inspect}"
-  end
-
-  def self.accepted_coins
-    Coinpayments&.rates(accepted: 1)
-                &.reject { |_, v| v['accepted'].zero? }
-                &.keys
-  end
-
-  def self.create(transaction:, crypto_currency:, amount:)
-    Coinpayments.create_transaction amount, 'USD', crypto_currency,
-      item_number: transaction.id,
-      buyer_email: transaction.user.email,
-      item_name: "Transaction for Domain",
-      ipn_url: Rails.application.routes.url_helpers.coinpayments_callback_url(secret: 'asdf', protocol: 'https')
   end
 end
