@@ -1,8 +1,9 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
 
-server '77.246.208.12', port: 3000, roles: [:web, :app, :db], primary: true
+server '77.246.208.12', port: 22, roles: [:web, :app, :db], primary: true
 
+set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
