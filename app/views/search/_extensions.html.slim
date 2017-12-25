@@ -1,0 +1,11 @@
+.pretty.p-icon.p-rotate
+  input type="checkbox" class="all"
+  .state.p-success
+    i.icon.mdi.mdi-check
+    label All extensions
+- @extensions.each do |extension|
+  .pretty.p-icon.p-rotate
+    input type="checkbox" class="#{extension}"
+    .state.p-success
+      i.icon.mdi.mdi-check
+      label = extension
