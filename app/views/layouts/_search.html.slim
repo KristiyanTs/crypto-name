@@ -1,7 +1,6 @@
-.box.col-xs-12
-	.col-xs-12.full-width.partial-search
-		= form_tag root_path, method: 'get', class: 'domain-search' do
-		    = text_field_tag :search, params[:name], placeholder: "Key words for your domain name"
-		    button.search-btn.col-xs-2 type="submit"
-		    	center.hidden-lg.hidden-md = fa_icon "search"
-		    	h4.hidden-xs.hidden-sm Search
+.col-xs-12.full-width.domain-search
+	= form_tag search_index_path, remote: true, method: 'get', class: 'domain-search' do
+	    = text_field_tag :name, params[:name], placeholder: "Key words"
+	    button.search-btn type="submit"
+	    	center.hidden-lg.hidden-md = fa_icon "search"
+	    	h4.hidden-xs.hidden-sm Search

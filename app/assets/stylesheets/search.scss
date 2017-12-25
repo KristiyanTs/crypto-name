@@ -1,44 +1,142 @@
-.partial-search{
-  .domain-search{
-    #search{
-      width: 83%;
-      font-size: $s-md;
-      height: 50px;
-      line-height: 50px;
-      border: 0px;
-      background-color: rgba(0,0,0,0.4);
-      border-top-left-radius: 25px;
-      border-bottom-left-radius: 25px;
-      color: white;
-      font-size: 18px;
-      padding: 0px 0px 0px 20px;
-      float: left;
-    }
-    .search-btn{
-      width: 5%;
-      text-align: center;
-      height: 50px;
-      line-height: 50px;
-      border: 0px;
-      background-color: $orange;
-      border-top-right-radius: 25px;
-      border-bottom-right-radius: 25px;
-      color: white;
-      font-size: 18px;
-      padding: 0px 30px;
-    }
+.domain-search{
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  input{
+    padding-left: 15px;
+    width: 80%;
+    font-size: $s-md;
+    height: 50px;
+    border: 0px;
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    font-size: 18px;
+  }
+  .search-btn{
+    padding: 0px !important;
+    width: 20%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    border: 0px;
+    background-color: $orange;
+    color: white;
+    font-size: 18px;
+    padding: 0px 30px;
+    margin: 0px !important;
+  }
+  .search-btn:hover{
+    background-color: $orange_hover;
+  }
+  .search-btn:active{
+    background-color: $orange_clicked;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .partial-search{
-    .domain-search{
-      #search{
-        width: 80%;
-      }
-      .search-btn{
-        width: 20%;
+  .domain-search{
+    padding: 0px 10% 0px 10%;
+    input{
+      width: 85%;
+    }
+    .search-btn{
+      width: 15%;
+    }
+  }
+}
+
+.product{
+  padding: 10px;
+  .content{
+    .clickable{
+      padding: 15px;
+    }
+    border: 1px solid rgba(0,0,0,0.1);
+    .domain{
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    .price{
+      font-size: 18px;
+      color: $orange;
+      text-align: right;
+      font-weight: bold;
+    }
+    .renew-price{
+      font-size: 14px;
+      text-align: right;
+      span, b{
+        color: grey;
       }
     }
   }
+  .content:hover{
+    background-color: rgb(245,245,245);
+    border: 1px solid $orange;
+  }
+
+  .footer{
+    position: absolute;
+    z-index: 20;
+    left: 0px;
+    padding: 10px;
+    width: 100%;
+    .content {
+      background-color: rgb(245,245,245);
+      border: 1px solid $orange;
+      padding: 10px;
+    }
+    .buy-domain{
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      input{
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 90%;
+        font-size: $s-md;
+        height: 50px;
+        border: 0px;
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-size: 18px;
+      }
+      .buy-btn{
+        padding: 0px !important;
+        width: 40%;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        border: 0px;
+        background-color: $orange;
+        color: white;
+        font-size: 18px;
+        padding: 0px 30px;
+        margin: 0px !important;
+      }
+    }
+    .total{
+      padding-top:15px;
+      color: grey;
+      font-size: 20px;
+      text-align: center;
+      .years, .price{
+        display: inline-block;
+      }
+      .years{
+        padding-right: 5px;
+      }
+    }
+  }
+}
+.product.active{
+  .content{
+    background-color: rgb(245,245,245);
+    border: 1px solid $orange;
+  }
+}
+.product.faded{
+  opacity: 0.2;
 }

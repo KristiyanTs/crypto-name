@@ -1,0 +1,9 @@
+= render 'layouts/search'
+
+.info-search.col-xs-12
+	h2 = "We found <b>#{@results.size}</b> free domains for you.".html_safe
+	hr
+
+
+= render partial: 'result', collection: @results, as: :result
+
