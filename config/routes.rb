@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :payments, only: :update
   resources :search, only: :index
-  resources :domains, only: [:index, :create]
+  resources :domains, only: [:index, :show, :create]
 end

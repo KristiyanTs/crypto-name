@@ -1,6 +1,5 @@
 class PaymentsController < ApplicationController
   def new
-
     CreateCoinpaymentsTopup.call(
       user: context.user,
       amount: context.amount,

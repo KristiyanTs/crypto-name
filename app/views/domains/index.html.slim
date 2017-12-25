@@ -1,2 +1,1 @@
-- @domains.each do |domain|
-  = domain.name
+= render partial: 'domain', collection: @domains, as: :domain

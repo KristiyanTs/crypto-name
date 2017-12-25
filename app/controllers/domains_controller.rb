@@ -3,7 +3,10 @@ class DomainsController < ApplicationController
 
   def index
     @domains = current_user.domains
-    byebug
+  end
+
+  def show
+    @domain = current_user.domains.find(params[:id])
   end
 
   def create
@@ -14,7 +17,7 @@ class DomainsController < ApplicationController
   private
 
   def domain_params
-    params.require(:domain).permit(:name).merge(default)
+    params.require(:domain).permit(:name)
   end
 
   #TODO extract:

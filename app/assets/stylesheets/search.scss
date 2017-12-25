@@ -1,4 +1,4 @@
-.domain-search{
+.full-width.domain-search{
   width: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -35,24 +35,16 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .domain-search{
-    padding: 0px 10% 0px 10%;
-    input{
-      width: 85%;
-    }
-    .search-btn{
-      width: 15%;
-    }
-  }
+
 }
 
 .product{
   padding: 10px;
   .content{
+    border: 1px solid rgba(0,0,0,0.2);
     .clickable{
       padding: 15px;
     }
-    border: 1px solid rgba(0,0,0,0.1);
     .domain{
       font-size: 20px;
       font-weight: bold;
@@ -110,11 +102,18 @@
         height: 50px;
         line-height: 50px;
         border: 0px;
+        border-radius: 0px;
         background-color: $orange;
         color: white;
         font-size: 18px;
         padding: 0px 30px;
         margin: 0px !important;
+      }
+      .buy-btn:hover{
+        background-color: $orange_hover;
+      }
+      .buy-btn:active{
+        background-color: $orange_clicked;
       }
     }
     .total{

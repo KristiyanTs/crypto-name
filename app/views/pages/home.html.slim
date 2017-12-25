@@ -22,8 +22,8 @@
 						| and 
 						b easy to manage
 	.col-xs-12
-	= form_tag root_path, method: 'get', class: 'domain-search col-md-5 col-md-offset-1' do
-		= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name with us"
+	= form_tag root_path, method: 'get', class: 'domain-search col-md-5 col-md-offset-1 col-xs-12' do
+		= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name with us", class: 'col-xs-10'
 		button.search-btn.col-xs-2 type="submit"
 			= fa_icon "search"
 
@@ -61,7 +61,7 @@
 		.description
 			.title Final price
 			.text 
-				| We all hate being fooled around with additional charges on checkout or even worse, after that. CryptoName values your time and money. To note that, we display 
+				| We all hate being fooled around with additional charges on checkout or even worse, after that. CryptoName values your time and money. To that note, we display 
 				b the final price 
 				| for each product on our website. No hidden fees. No * next to each price tag.
 

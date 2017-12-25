@@ -12,11 +12,13 @@
 					= "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
 		.footer
 			.content
-				= form_tag search_index_path, remote: true, method: 'get', class: 'buy-domain' do
-				  = hidden_field_tag 'domain', result["domain"]
+				= simple_form_for Domain.new, remote: true, html: { class: 'buy-domain' } do |f|
+				  = f.input :name, as: :hidden, input_html: {value: result["domain"]}
 				  .range-slider
-				    input max="10" min="1" type="range" value="1"
-				  button.buy-btn type="submit" Buy
+				    input max="10" min="1" type="range" value="1" name="domain[duration]"
+				  = f.button :submit, "Buy", class: "buy-btn"
+
+
 				.total
 					.years 1 year for 
 					.price 

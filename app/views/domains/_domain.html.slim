@@ -1,0 +1,9 @@
+= link_to domain_path(domain), class: "domain col-xs-12 col-sm-6 col-lg-4" do
+	.content
+		.name.col-xs-6 = domain.name
+		.expiry.col-xs-6 
+			| Expires: 
+			= Time.new.strftime("%m/%d/%Y")
+		.renew.col-xs-12
+			.automatic.hidden Renews automatically given sufficient credit
+			.manual Manual renewal

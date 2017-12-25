@@ -1,0 +1,43 @@
+.domain{
+  padding: 10px;
+  .content{
+    padding: 10px;
+    position:relative;
+    overflow: auto;
+    border: 1px solid rgba(0,0,0,0.2);
+    .name{
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 10px;
+      color: black;
+    }
+    .expiry{
+      font-size: 18px;
+      color: black;
+      text-align: right;
+      font-weight: bold;
+    }
+    .renew{
+      text-align: right;
+      .automatic{
+        color: green;
+      }
+      .manual{
+        color: red;
+      }
+    }
+  }
+  .content:hover{
+    background-color: rgb(245,245,245);
+    border: 1px solid $orange;
+  }
+}
+.domain.active{
+  .content{
+    background-color: rgb(245,245,245);
+    border: 1px solid $orange;
+  }
+}
+.domain.faded{
+  opacity: 0.2;
+}

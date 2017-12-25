@@ -8,6 +8,7 @@ $('.filter-topdomain .content').html("<%= escape_javascript (render partial: 'ex
 $('.content-wrapper').html("<%= escape_javascript (render partial: 'results') %>");
 $('.product .footer').toggle();
 $('.filter-topdomain input:checkbox').prop('checked', true);
+$('.filters').fadeIn(500);
 
 $('.product .clickable').on("click tap", function(){
 	$('.product .clickable').not(this).each(function(){
@@ -34,7 +35,7 @@ $('.product .clickable').on("click tap", function(){
 });
 
 $('.product .footer').on("click tap", function(event){
-	event.preventDefault();
+	event.stopPropagation();
 });
 
 $('.buy-domain .range-slider input').on('input', function() { 
@@ -90,5 +91,5 @@ function filter(){
 }	
 
 function updateCount(){
-	
+	$('.info-search b').text($('.product:visible').length);
 }
