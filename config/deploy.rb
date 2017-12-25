@@ -4,8 +4,8 @@ lock "~> 3.10.1"
 server '77.246.208.12', port: 22, roles: [:web, :app, :db], primary: true
 
 set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
-set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :puma_threads, [2, 4]
+set :puma_workers, 2
 
 set :application, "crypto_name"
 set :user, 'njichev'
@@ -31,7 +31,7 @@ set :deploy_to, "/home/njichev/www/crypto_name"
 # append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
