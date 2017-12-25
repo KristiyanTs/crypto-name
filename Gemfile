@@ -42,9 +42,6 @@ gem 'friendly_id'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'font-awesome-rails'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Payments
 gem 'coinpayments'
 
@@ -73,6 +70,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-puma'
+  gem 'capistrano-yarn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
