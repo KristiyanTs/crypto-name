@@ -23,13 +23,11 @@ test:
 staging:
   <<: *default
   database: CryptoName_staging
-  username: deploy
-  password: "krisnikola2016"
-  # password: <%= ENV["DATABASE_PASSWORD"] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 production:
   <<: *default
-  database: CryptoName_production
-  username: deploy
-  password: "krisnikola2016"
-  # password: <%= ENV["DATABASE_PASSWORD"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
