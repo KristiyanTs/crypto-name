@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
     create_table :transactions do |t|
       t.references :user, index: true, null: false
       t.string :notes
+      t.json   :info
       t.string :remote_checkout
       t.string :remote_id, null: false
       t.string :crypto_currency

@@ -91,9 +91,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    coinpayments (0.0.3)
-      hashie
-      httparty (~> 0.13.1)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
@@ -120,10 +117,6 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    hashie (3.5.6)
-    httparty (0.13.7)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -154,7 +147,6 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
-    multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -251,6 +243,12 @@ GEM
     sshkit (1.15.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stripe (3.9.1)
+      faraday (~> 0.10)
+    stripe-rails (1.1.2)
+      rails (>= 3)
+      responders
+      stripe
     temple (0.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -294,7 +292,6 @@ DEPENDENCIES
   capistrano3-puma
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
-  coinpayments
   devise
   dotenv-rails
   faraday
@@ -317,6 +314,7 @@ DEPENDENCIES
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe-rails
   therubyracer
   turbolinks (~> 5)
   tzinfo-data
