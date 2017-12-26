@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :payments, only: :update
+  resources :charges, only: [:create]
   resources :search, only: :index
   resources :domains, only: [:index, :show, :create]
 end

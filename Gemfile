@@ -45,7 +45,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'font-awesome-rails'
 
 # Payments
-gem 'coinpayments'
+gem 'stripe-rails'
 
 # Background jobs
 gem 'sidekiq'
