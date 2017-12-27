@@ -99,6 +99,11 @@ $('.buy-btn').on('click tap', function(event){
 
   $('.stripe-button').attr('data-amount', price);
   $('.stripe-button').attr('data-description', "Buy " + domain + " for 1 year");
+
+  var domain = $(this).attr('data-domain');
+  $('#domain_name').val(domain);
+
+>>>>>>> Charging, this time for real.
   $('.stripe-button-el').click();
 
 });

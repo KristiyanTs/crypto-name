@@ -9,6 +9,7 @@ class Domain < ApplicationRecord
   end
 
   def pricing!
-    @price ||= GoDaddy.available?(name).body['domains']
+    #TODO: when resellers, this is fixed instead of fetching it.
+    @price ||= (GoDaddy.available?(name)&.body['price'] / 10000)
   end
 end
