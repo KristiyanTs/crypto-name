@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20171210141841) do
   create_table "domains", force: :cascade do |t|
     t.string "name", null: false
     t.integer "status", default: 0, null: false
+    t.integer "duration", default: 1, null: false
+    t.boolean "renewal", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171210141841) do
     t.datetime "locked_at"
     t.decimal "balance", precision: 10, scale: 2, default: "0.0", null: false
     t.boolean "admin", default: false, null: false
+    t.string "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

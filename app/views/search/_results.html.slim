@@ -5,8 +5,8 @@
 	hr
 = render partial: 'result', collection: @results, as: :result
 
-= simple_form_for Domain.new, remote: true, html: { class: 'buy-domain-stripe hidden' } do |f|
-  = f.input :name, as: :hidden
+= form_tag charges_path, class: 'buy-domain-stripe hidden' do
+  = hidden_field_tag 'domain[name]'
   .range-slider
     input max="10" min="1" type="range" value="1" name="domain[duration]"
   script.stripe-button[src="https://checkout.stripe.com/checkout.js"
