@@ -90,6 +90,9 @@ function filter(){
 	})
 }	
 
-function updateCount(){
-	$('.info-search b').text($('.product:visible').length);
-}
+$('.buy-btn').on('click tap', function(event){
+  event.preventDefault();
+  $(this).prop('disabled', true);
+  $('.stripe-button').attr('data-amount', 300);
+  $('.stripe-button-el').click();
+});

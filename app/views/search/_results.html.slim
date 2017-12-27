@@ -3,6 +3,14 @@
 .info-search.col-xs-12
 	h2 = "<b>#{@results.size}</b> available domains match your criteria.".html_safe
 	hr
-
 = render partial: 'result', collection: @results, as: :result
 
+= simple_form_for Domain.new, remote: true, html: { class: 'buy-domain-stripe hidden' } do |f|
+  = f.input :name, as: :hidden
+  .range-slider
+    input max="10" min="1" type="range" value="1" name="domain[duration]"
+  script.stripe-button[src="https://checkout.stripe.com/checkout.js"
+          data-key=Rails.configuration.stripe[:publishable_key]
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"]

@@ -1,26 +1,24 @@
 .product.col-xs-12.col-sm-4.col-md-4.col-lg-3 class=".#{result['domain'].split('.').drop(1).join('.')} #{result['domain'].split('.')[0].length}"
-	.content
-		.clickable
-			.domain.col-xs-6 = result["domain"]
-			.price.col-xs-6 
-				|$
-				= "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
-			.renew-price 
-				span Renew at 
-				b 
-					|$
-					= "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
-		.footer
-			.content
-				= simple_form_for Domain.new, remote: true, html: { class: 'buy-domain' } do |f|
-				  = f.input :name, as: :hidden, input_html: {value: result["domain"]}
-				  .range-slider
-				    input max="10" min="1" type="range" value="1" name="domain[duration]"
-				  = f.button :submit, "Buy", class: "buy-btn"
-
-
-				.total
-					.years 1 year for 
-					.price 
-						| $
-						= "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
+  .content
+    .clickable
+      .domain.col-xs-6 = result["domain"]
+      .price.col-xs-6 
+        |$
+        = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
+      .renew-price 
+        span Renew at 
+        b 
+          |$
+          = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
+    .footer
+      .content 
+        = simple_form_for Domain.new, remote: true, html: { class: 'buy-domain' } do |f|
+          = f.input :name, as: :hidden, input_html: {value: result["domain"]}
+          .range-slider
+            input max="10" min="1" type="range" value="1" name="domain[duration]"
+          = f.button :submit, "Buy", class: "buy-btn"
+        .total
+          .years 1 year for 
+          .price 
+            | $
+            = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)

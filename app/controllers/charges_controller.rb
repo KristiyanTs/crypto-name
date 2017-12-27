@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
     )
     redirect_to domains_path, notice: 'We have begun processing your domain.'
   rescue => e
-    redirect_to new_charge_path, notice: 'Payment failed.'
+    redirect_to root_path, notice: 'Payment failed.'
   end
 
   private
