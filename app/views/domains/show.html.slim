@@ -1,9 +1,38 @@
-.col-xs-12
-	h1 = @domain.name
-	hr
-	.actions
-    / - automatics renew
-    / - toggle privacy whois
-    / - forwarding
-    / - records
-    / - nameservers
+.col-xs-12.show-domain
+  .actions.col-xs-12
+    h2.col-xs-12 
+      | Information for 
+      b = @domain.name
+    .renew.col-xs-12.col-md-6
+      .content
+        h3 Renew
+    .information.col-xs-12.col-md-6
+      .content
+        h3 Contacts
+
+  .dns-management.col-xs-12
+    h2.col-xs-12 DNS Management
+    .records.col-xs-12.col-md-6
+      .content
+        h3 Records
+        table.table
+          thead
+            tr
+              th Type
+              th Name
+              th Value
+              th TTL 
+          tbody
+            tr
+              td
+              td
+              td
+              td
+
+    .nameservers.col-xs-12.col-md-6
+      .content
+        h3 Nameservers
+
+    .forwarding.col-xs-12.col-md-6
+      .content
+        h3 Forwarding

@@ -41,3 +41,26 @@
 .domain.faded{
   opacity: 0.2;
 }
+
+.show-domain{
+  .actions{
+    .renew, .information{
+      margin-bottom: 15px;
+      .content{
+        padding: 15px;
+        border: 1px solid rgba(0,0,0,0.2);
+        min-height: 200px;
+      }
+    }
+  }
+  .dns-management{
+    .records, .nameservers, .forwarding{
+      margin-bottom: 15px;
+      .content{
+        padding: 15px;
+        border: 1px solid rgba(0,0,0,0.2);
+        min-height: 200px;
+      }
+    }
+  }
+}

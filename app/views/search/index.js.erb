@@ -91,8 +91,14 @@ function filter(){
 }	
 
 $('.buy-btn').on('click tap', function(event){
+  var price = $(this).attr('price');
+  var domain = $(this).attr('domain');
+
   event.preventDefault();
   $(this).prop('disabled', true);
-  $('.stripe-button').attr('data-amount', 300);
+
+  $('.stripe-button').attr('data-amount', price);
+  $('.stripe-button').attr('data-description', "Buy " + domain + " for 1 year");
   $('.stripe-button-el').click();
+
 });

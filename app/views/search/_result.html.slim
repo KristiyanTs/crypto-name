@@ -16,7 +16,7 @@
           = f.input :name, as: :hidden, input_html: {value: result["domain"]}
           .range-slider
             input max="10" min="1" type="range" value="1" name="domain[duration]"
-          = f.button :submit, "Buy", class: "buy-btn"
+          = f.button :submit, "Buy", class: "buy-btn", domain: "#{result["domain"]}", price: "#{result["price"]/10000}"
         .total
           .years 1 year for 
           .price 
