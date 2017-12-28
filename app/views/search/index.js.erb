@@ -90,19 +90,20 @@ function filter(){
 	})
 }	
 
-$('.buy-btn').on('click tap', function(event){
-  var price = $(this).attr('price');
-  var domain = $(this).attr('domain');
-
-  event.preventDefault();
-  $(this).prop('disabled', true);
-
-  $('.stripe-button').attr('data-amount', price);
-  $('.stripe-button').attr('data-description', "Buy " + domain + " for 1 year");
-
-  var domain = $(this).attr('data-domain');
-  $('#domain_name').val(domain);
-
-  $('.stripe-button-el').click();
-
-});
+// $('.buy-btn').on('click tap', function(event){
+//   var price = $(this).attr('data-price');
+//   var domain = $(this).attr('data-domain');
+//
+//   event.preventDefault();
+//   $(this).prop('disabled', true);
+//
+//   url = "/stripe_form?format=js&name=" + domain + "&price=" + price
+//   console.log(url);
+//   $.get(url, function(data) {
+//     console.log(data);
+//     $(".buy-domain-stripe").html(data);
+//     console.log("Load was performed.");
+//   });
+//
+//   $('.stripe-button-el').click();
+// });
