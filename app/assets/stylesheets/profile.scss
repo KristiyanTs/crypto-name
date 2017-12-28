@@ -1,0 +1,51 @@
+.profile-page{
+  .profile{
+    border: 0px;
+    overflow: auto;
+    .content{
+      display: block;
+      padding: 15px;
+      border: 1px solid rgba(0,0,0,0.2);
+      label{
+        display: block;
+      }
+      input{
+        border-radius: 0px;
+        box-shadow: 0px;
+        border: 1px solid rgba(0,0,0,0.2);
+        margin-bottom: 10px;
+        padding-left: 10px;
+        min-width: 400px;
+        line-height: 40px;
+      }
+    }
+  }
+
+  .domain-details{
+    border: 0px;
+    overflow: auto;
+    .content{
+      display: block;
+      padding: 15px;
+      border: 1px solid rgba(0,0,0,0.2);
+      label{
+        display: block;
+      }
+      input{
+        border-radius: 0px;
+        box-shadow: 0px;
+        border: 1px solid rgba(0,0,0,0.2);
+        margin-bottom: 10px;
+        padding-left: 10px;
+        min-width: 400px;
+        line-height: 40px;
+      }
+    }
+    .add-details{
+      border: 1px solid rgba(0,0,0,0.2);
+      color: black;
+      border-radius: 0px;
+      line-height: 40px;
+    }
+  }
+}

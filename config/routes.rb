@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   resources :search, only: :index
   resources :domains, only: [:index, :show, :create]
+  resources :details, only: [:create, :update, :destroy]
 end
