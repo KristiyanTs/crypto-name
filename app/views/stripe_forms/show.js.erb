@@ -1,3 +1,13 @@
 $('#buy-domain-stripe').html("<%= escape_javascript (render partial: 'form') %>");
 
-$('.stripe-button-el').click();
+var button;
+(function myLoop() {          
+   setTimeout(function () { 
+    button = $('.content-wrapper #buy-domain-stripe .stripe-button-el');
+    if(button){
+      button.click();
+    } else{
+      myLoop();
+    } 
+   }, 500)
+})(10);
