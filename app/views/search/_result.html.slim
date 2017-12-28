@@ -12,8 +12,9 @@
           = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
     .footer
       .content 
-        = form_tag charges_path, class: 'buy-domain' do
+        = form_tag stripe_form_path, method: :get, remote: true, class: 'buy-domain' do
           = hidden_field_tag 'name', result['domain']
+          = hidden_field_tag 'price', result['price']
           .range-slider
             input max="10" min="1" type="range" value="1" name="domain[duration]"
           = button_tag "Buy", class: "buy-btn", data: { domain: result['domain'], price: result['price']/10000 }
