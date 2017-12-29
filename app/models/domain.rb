@@ -5,7 +5,7 @@ class Domain < ApplicationRecord
 
   def buy!
     update(status: :complete)
-    #TODO: Buy domain from GoDaddy
+    DomainBuyer.new(self).call
   end
 
   def pricing!
