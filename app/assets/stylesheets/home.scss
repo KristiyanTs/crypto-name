@@ -23,7 +23,7 @@
 
   .domain-search{
   	margin-top: 50px;
-    #search{
+    #name{
       font-size: $s-md;
       height: 50px;
       line-height: 50px;
@@ -41,13 +41,19 @@
       height: 50px;
       line-height: 50px;
       border: 0px;
-      background-color: #f07e1f;
+      background-color: $orange;
       color: white;
       font-size: 18px;
       padding: 0px 30px;
       i{
       	margin-left: -8px;
       }
+    }
+    .search-btn:hover{
+      background-color: $orange_hover;
+    }
+    .search-btn:active{
+      background-color: $orange_clicked;
     }
   }
 }

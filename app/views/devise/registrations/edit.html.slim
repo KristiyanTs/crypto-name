@@ -1,6 +1,8 @@
+h2 Profile
+hr
 .col-xs-12.profile-page
   .col-md-6.col-xs-12
-    h2.col-xs-6 Account details
+    h2.col-xs-6 Edit account details
     .profile.col-xs-12.full-width
       .content
         = simple_form_for registration_path(current_user), method: :put do |f|
@@ -51,7 +53,8 @@
                 br
                 = link_to "", detail_path(detail),
                   {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
-
+              .col-xs-12
+                 = link_to "Activate", activate_detail_path(detail), :method => :put
         .col-xs-12
         button.btn.add-details Add details
         = simple_form_for current_user.details.new, method: :post, html: {class: "details-form hidden"} do |f|

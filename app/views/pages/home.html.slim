@@ -22,8 +22,8 @@
 						| and 
 						b easy to manage
 	.col-xs-12
-	= form_tag root_path, method: 'get', class: 'domain-search col-md-5 col-md-offset-1 col-xs-12' do
-		= text_field_tag :search, params[:name], placeholder: "Find your perfect domain name with us", class: 'col-xs-10'
+	= form_tag search_index_path, method: 'get', class: 'domain-search col-md-5 col-md-offset-1 col-xs-12' do
+		= text_field_tag :name, params[:name], placeholder: "Find your perfect domain name with us", class: 'col-xs-10'
 		button.search-btn.col-xs-2 type="submit"
 			= fa_icon "search"
 

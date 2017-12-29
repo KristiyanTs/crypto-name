@@ -6,14 +6,12 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag "https://js.stripe.com/v3/", "application"
-  body class="#{params[:controller].split('/').last}"
+  body
     -unless params[:page] && (['home', 'about']).include?(params[:page])
       = render 'layouts/header'
       main.cd-main-content
         = render 'layouts/sidenav' 
         .content-wrapper
-          = render 'layouts/search'
           = yield
     -else
       = yield

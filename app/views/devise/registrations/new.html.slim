@@ -16,5 +16,11 @@
           i.fa.fa-key.fa-fw
         = f.input :password_confirmation, required: true, label: false, placeholder: "Confirm password"
     .form-actions
+      input#agree name="user[agree]" type="checkbox" value="check" 
+        .conditions 
+          | I have read and agree to the 
+          a href="/pages/terms" Terms and Conditions 
+          | and 
+          a href="/pages/privacy"Privacy Policy
       = f.button :submit, "Continue", class: 'col-xs-12 submit-btn'
   = render "devise/shared/links"

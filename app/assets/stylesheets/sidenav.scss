@@ -84,6 +84,10 @@ Sidebar
   width: 16px;
   background-color: grey;
 }
+.cd-side-nav > ul > li.search > a::before {
+  -webkit-mask-image: url(search.svg);
+  mask-image: url(search.svg);
+}
 .cd-side-nav > ul > li.users > a::before {
   -webkit-mask-image: url(profile.svg);
   mask-image: url(profile.svg);
@@ -200,7 +204,7 @@ Sidebar
   }
   .cd-side-nav .active > a {
     /* current page */
-    box-shadow: inset 3px 0 0 #1784c7;
+    box-shadow: inset 3px 0 0 $light_blue;
     background-color: #33383e;
   }
   .cd-side-nav .action-btn a {
@@ -387,8 +391,4 @@ Sidebar
     opacity: 1;
     visibility: visible;
   }
-}
-
-ul.filters {
-  display: none;
 }

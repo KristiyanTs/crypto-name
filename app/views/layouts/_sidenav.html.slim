@@ -1,40 +1,42 @@
 nav.cd-side-nav.col-md-2.col-xs-12
-  - if current_user
-    ul
-      li.cd-label Main
-      li.users.registrations
+  ul
+    li.cd-label Main
+    li.search class="#{'active' if controller_name == 'search'}"
+      = link_to "Search domains", search_index_path
+    - if current_user
+      li.users class="#{'active' if controller_name == 'registrations'}"
         = link_to "Profile", edit_user_registration_path
-      li.domains
+      li.domains class="#{'active' if controller_name == 'domains'}"
         = link_to "My Domains", domains_path
-      li.notifications
+      li.notifications 
         a href="#0" Notifications
-  - else
-    ul
-      li.cd-label Main
-      li.login
+    - else
+      li.login class="#{'active' if controller_name == 'sessions'}"
         = link_to "Log in", new_user_session_path
-      li.signup
+      li.signup class="#{'active' if controller_name == 'registrations'}"
         = link_to "Sign up", new_user_registration_path
-  ul.filters
+  ul.filters class="#{'hidden' unless controller_name == 'search'}"
     li.cd-label Filter extensions
     li.filter-topdomain
       .content
+        - if controller_name == "search"
+          = render partial: 'search/extensions'
 
   ul.secondary
     li.cd-label Secondary
-    li.faq
+    li.faq 
       a href="/pages/faq"  FAQ
-    li.future-work
+    li.future-work 
       a href="/pages/futurework"  Future work
-    li.contacts
+    li.contacts 
       a href="/pages/contacts"  Contacts
-    li.about
+    li.about 
       a href="/pages/about"  About
-    li.document
+    li.document 
       a href="/pages/privacy"  Privacy Policy 
-    li.document
+    li.document 
       a href="/pages/terms"  Terms & Conditions
-    li.credits
+    li.credits 
       a href="/pages/creadits"  Credits
     - if current_user
       li.logout

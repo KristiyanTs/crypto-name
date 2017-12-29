@@ -5,11 +5,10 @@ header.cd-auto-hide-header.is-hidden
       span
         em aria-hidden="true" 
         | Menu
-    /! .nav-trigger
     ul#cd-navigation
       li
-        a href="#0"  Contact us
+        a href="/pages/contacts"  Contacts
       li
-        a href="#0"  Log in
+        = link_to "Log in", new_user_session_path
       li
-        a.primary href="#0"  Sign up
+        = link_to "Sign up", new_user_registration_path

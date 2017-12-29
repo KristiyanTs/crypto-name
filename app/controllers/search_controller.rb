@@ -6,6 +6,18 @@ class SearchController < ApplicationController
       else
         []
       end
+
+    @extensions = []
+    @results.each do |result|
+      @extensions << '.' + result["domain"].split('.').drop(1).join('.')
+    end
+    @extensions.uniq!
+
+    respond_to do |format|
+      format.html
+      format.json { render :show, status: :created, location: @detail }
+      format.js
+    end
   end
 
   private
