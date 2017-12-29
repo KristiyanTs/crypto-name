@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :search, only: :index
   resources :domains, only: [:index, :show, :create]
   resources :details, only: [:create, :edit, :update, :destroy]
+  resource :stripe_form, only: :show
 end

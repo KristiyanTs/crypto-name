@@ -33,6 +33,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.decimal :balance, precision: 10, scale: 2, null: false, default: 0
       t.boolean :admin, null: false, default: false
 
+      t.string :customer_id
+
       t.timestamps null: false
     end
 
