@@ -6,6 +6,7 @@ module GoDaddy
     include GoDaddy::Client::Orders
     include GoDaddy::Client::Shoppers
     include GoDaddy::Client::Subscriptions
+    include GoDaddy::Client::Agreements
     include GoDaddy::Errors
 
     attr_accessor :key, :secret, :url

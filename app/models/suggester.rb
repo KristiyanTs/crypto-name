@@ -9,9 +9,7 @@ class Suggester
     raise 'Could not fetch' unless response.body.present?
     raise 'Retry' unless available.body['domains']
 
-    available.body['domains'].select do |domain|
-      domain['available']
-    end
+    available.body['domains']
   end
 
   def response
