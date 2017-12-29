@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
     current_user.domains.create!(domain_params)
     customer = ChargeUser.create_customer(email: params[:stripeEmail], token: params[:stripeToekn])
     current_user.update!(customer_id: customer)
-    BuyDomainJob.perform_later(domain)
+    Domain::BuyJob.perform_later(domain)
 
     redirect_to domains_path, notice: 'We have begun processing your domain.'
   rescue => e

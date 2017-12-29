@@ -29,8 +29,16 @@ module GoDaddy
         get('domains/suggest', query: name)
       end
 
-      def tlds
+      def get_tlds
         get('domains/tlds')
+      end
+
+      def get_domain_agreements(*tlds, privacy)
+        get('domains/agreements', privacy: privacy, tlds: tlds)
+      end
+
+      def get_domain_purchase_schema_tld(tld)
+        get("domains/purchase/schema/#{tld}")
       end
 
       def validate_purchase(*args)
@@ -126,7 +134,7 @@ module GoDaddy
       #     }
       #   }
       # }
-      def purchase(name, *args)
+      def purchase(args)
         #TODO: research arguments
         post("domains/purchase", args)
       end

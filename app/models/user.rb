@@ -5,4 +5,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+
+  def active_details
+    details.find_by(active: true) || Detail::Null
+  end
 end
