@@ -21,17 +21,17 @@
     }
   }
 
-  .domain-details{
+  .domain-details {
     border: 0px;
     overflow: auto;
-    .content{
+    .content {
       display: block;
       padding: 15px;
       border: 1px solid rgba(0,0,0,0.2);
       label{
         display: block;
       }
-      input{
+      input {
         border-radius: 0px;
         box-shadow: 0px;
         border: 1px solid rgba(0,0,0,0.2);
@@ -40,12 +40,26 @@
         min-width: 400px;
         line-height: 40px;
       }
+      .detail {
+        margin: 20px 0px 0px 0px;
+        overflow: auto;
+        .glyphicon{
+          color: black;
+        }
+      }
+      .detail.active {
+        border-left: 3px solid $orange;
+      }
     }
     .add-details{
       border: 1px solid rgba(0,0,0,0.2);
       color: black;
       border-radius: 0px;
       line-height: 40px;
+      margin-top: 20px;
+    }
+    .details-form{
+      margin-top: 20px;
     }
   }
 }

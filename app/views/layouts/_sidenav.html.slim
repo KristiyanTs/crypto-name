@@ -2,9 +2,9 @@ nav.cd-side-nav.col-md-2.col-xs-12
   - if current_user
     ul
       li.cd-label Main
-      li.users
+      li.users.registrations
         = link_to "Profile", edit_user_registration_path
-      li.domains.active
+      li.domains
         = link_to "My Domains", domains_path
       li.notifications
         a href="#0" Notifications

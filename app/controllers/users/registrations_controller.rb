@@ -12,11 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def edit
-    super
-    @details = current_user.details
-    @detail = current_user.details.new
-  end
+  # def edit
+  #   super
+  # end
 
   # PUT /resource
   # def update

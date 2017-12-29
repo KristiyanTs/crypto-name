@@ -1,24 +1,32 @@
 class DetailsController < ApplicationController
   before_action :set_detail, only: [:show, :edit, :update, :destroy]
 
+  def edit
+    @detail = current_user.details.find(params[:id])
+  end
+
   def create
-    @detail = Detail.new(detail_params)
+    @detail = current_user.details.new(detail_params)
+    @detail.activate!
 
     respond_to do |format|
       if @detail.save
-        format.html { redirect_to @detail, notice: 'Detail was successfully created.' }
+        format.html { redirect_to edit_user_registration_path(current_user), notice: 'Detail was successfully created.' }
         format.json { render :show, status: :created, location: @detail }
       else
-        format.html { render :new }
+        format.html { render edit_user_registration_path(current_user) }
         format.json { render json: @detail.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
+    @detail.assign_attributes(detail_params)
+    @detail.activate!
+
     respond_to do |format|
-      if @detail.update(detail_params)
-        format.html { redirect_to @detail, notice: 'Detail was successfully updated.' }
+      if @detail.save
+        format.html { redirect_to edit_user_registration_path(current_user), notice: 'Detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @detail }
       else
         format.html { render :edit }
@@ -30,7 +38,18 @@ class DetailsController < ApplicationController
   def destroy
     @detail.destroy
     respond_to do |format|
-      format.html { redirect_to details_url, notice: 'Detail was successfully destroyed.' }
+      format.html { redirect_to edit_user_registration_path(current_user), notice: 'Detail was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def activate
+    @detail = current_user.details.find(params[:id])
+    current_user.details.update_all(active: false)
+    @detail.update(active: true);
+
+    respond_to do |format|
+      format.html { redirect_to edit_user_registration_path(current_user), notice: 'Detail was selected as default.' }
       format.json { head :no_content }
     end
   end

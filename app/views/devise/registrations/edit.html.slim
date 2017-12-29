@@ -5,7 +5,6 @@
       .content
         = simple_form_for registration_path(current_user), method: :put do |f|
           = f.error_notification
-          = f.input :email, required: true, autofocus: true, placeholder: 'john@email.com'
           = f.input :password, autocomplete: "off", placeholder: "New password", required: false
           = f.input :password_confirmation, required: false, placeholder: "Confirm new password"
           = f.input :current_password, placeholder: "Your current password for confirmation", required: true
@@ -18,18 +17,44 @@
     h2.col-xs-6 Domain details
     .domain-details.col-xs-12.full-width
       .content
-        - if @details&.any?
-          - @details.each do |detail|
-            .detail
-              .name.col-xs-6 = "#{detail.first_name} #{detail.last_name}"
-              .email.col-xs-6 = detail.email
-              .address = "#{detail.address1}"
-        - else 
-          h4 You have no details yet.
-        button.btn.add-details Add details
-        hr
+        - @details = current_user.details
+        h3 Default
+        - if @details.where(active: true).any?
+          - @details.where(active: true).each do |detail|
+            .detail.active
+              .col-xs-10
+                .name.col-xs-12.col-md-6 = "#{detail.first_name} #{detail.last_name}"
+                .email.col-xs-12.col-md-6 = detail.email
+                .address.col-xs-12.col-md-6 = "#{detail.address1}"
+                .number.col-xs-12.col-md-6 = detail.phone
+              .col-xs-2
+                = link_to "", edit_detail_path(detail),
+                  class: "glyphicon glyphicon-pencil col-xs-12"
+                br
+                = link_to "", detail_path(detail),
+                  {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
+        - else
+          h4 You have no default details yet.
 
-        = simple_form_for details_path([@detail]), html: {class: "details-form"} do |f|
+        - if @details.where(active: false).any?
+          h3 Available
+          - @details.where(active: false).each do |detail|
+            .detail
+              .col-xs-10
+                .name.col-xs-12.col-md-6 = "#{detail.first_name} #{detail.last_name}"
+                .email.col-xs-12.col-md-6 = detail.email
+                .address.col-xs-12.col-md-6 = "#{detail.address1}"
+                .number.col-xs-12.col-md-6 = detail.phone
+              .col-xs-2
+                = link_to "", edit_detail_path(detail),
+                  class: "glyphicon glyphicon-pencil col-xs-12"
+                br
+                = link_to "", detail_path(detail),
+                  {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
+
+        .col-xs-12
+        button.btn.add-details Add details
+        = simple_form_for current_user.details.new, method: :post, html: {class: "details-form hidden"} do |f|
           = f.input :first_name, required: true
           = f.input :last_name, required: true
           = f.input :organization

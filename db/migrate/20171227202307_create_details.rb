@@ -14,6 +14,7 @@ class CreateDetails < ActiveRecord::Migration[5.1]
       t.string :city, null: false
       t.string :state
       t.string :postal_code
+      t.boolean :active, default: false
 
       t.timestamps
     end

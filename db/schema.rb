@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171227202307) do
     t.string "city", null: false
     t.string "state"
     t.string "postal_code"
+    t.boolean "active", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_details_on_user_id"
