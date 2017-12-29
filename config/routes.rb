@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   resources :search, only: :index
   resources :domains, only: [:index, :show, :create]
-  resources :details, only: [:create, :edit, :update, :destroy]
-  resources :details do
+  resources :agreements, only: [:index]
+  resources :details, only: [:create, :edit, :update, :destroy] do
     member do
       put :activate
     end

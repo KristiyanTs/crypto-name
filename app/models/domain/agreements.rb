@@ -5,9 +5,7 @@ class Domain::Agreements
 
   def call
     response = GoDaddy.get_domain_agreements(tld, domain.privacy)
-
     raise 'Could not get agreements keys' unless response.success?
-
     response.body
   end
 
