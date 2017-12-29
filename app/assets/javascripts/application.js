@@ -331,6 +331,8 @@
 
 
 jQuery(document).ready(function(){
+  // Change active button
+  // alert($('body').attr('class'));
 	//cache DOM elements
 	var mainContent = $('.cd-main-content'),
 		header = $('.cd-main-header'),

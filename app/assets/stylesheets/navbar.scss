@@ -33,6 +33,10 @@ Header
   color: white;
   font-weight: bold;
 }
+.logo:hover {
+  color: rgb(230,230,230);
+  text-decoration: none;
+}
 @media only screen and (min-width: 768px) {
   .logo {
     margin: 16px 0 0 20px;

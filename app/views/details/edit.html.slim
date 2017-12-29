@@ -1,0 +1,19 @@
+.col-xs-12.profile-page
+  .col-md-6.col-xs-12.col-md-offset-3
+    h2.col-xs-6 Edit domain details
+    .domain-details.col-xs-12.full-width
+      .content
+        = simple_form_for @detail, method: :put, html: {class: "details-form"} do |f|
+          = f.input :first_name, required: true
+          = f.input :last_name, required: true
+          = f.input :organization
+          = f.input :job_title
+          = f.input :email, required: true
+          = f.input :phone, required: true
+          = f.input :fax
+          = f.input :address1, required: true
+          = f.input :address2
+          = f.input :city, required: true
+          = f.input :state, required: true
+          = f.input :postal_code, required: true
+          = f.button :submit
