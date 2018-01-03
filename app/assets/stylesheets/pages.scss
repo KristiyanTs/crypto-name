@@ -2,7 +2,36 @@
   li{
     padding: 10px;
     a{
-      color: rgb(20,20,20);
+      cursor: pointer;
+    }
+    a:hover{
+      text-decoration: underline;
     }
   } 
+}
+
+.tab-content{
+  overflow: auto;
+}
+
+.agreements-search{
+  input{
+    border-radius: 0px;
+    box-shadow: 0px;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    padding-left: 10px;
+    min-width: 400px;
+    line-height: 40px;
+    width: 80%;
+  }
+  button{
+    border-radius: 0px;
+    border: 1px solid rgba(0,0,0,0.2);
+    line-height: 45px;
+    height: 45px;
+    padding: 0px;
+    margin-left: 2%;
+    width: 18%;
+  }
 }

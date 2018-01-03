@@ -13,6 +13,7 @@
 @import "domain";
 @import "profile";
 @import "pages";
+@import "spinner";
 @import url('https://fonts.googleapis.com/css?family=Rajdhani|Ubuntu');
 
 body{
@@ -56,8 +57,12 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.col-xs-12.full-width{
+.col-xs-12, .col-xs-6{
   padding: 0px;
+}
+
+.content-wrapper{
+  overflow: auto;
 }
 
 /* -------------------------------- 

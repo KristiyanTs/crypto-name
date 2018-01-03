@@ -1,2 +1,3 @@
-$('.public').html(<%=j @public.body['content'] %>)
-$('.private').html(<%=j @private.body['content'] %>)
+console.log("Hey");
+$('#top-domains .public').html(<%= j @public.html_safe %>);
+$('#top-domains .private').html(<%= j @private.html_safe %>);

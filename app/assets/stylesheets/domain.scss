@@ -7,7 +7,6 @@
     border: 1px solid rgba(0,0,0,0.2);
     .name{
       font-size: 20px;
-      font-weight: bold;
       padding-bottom: 10px;
       color: black;
     }
@@ -15,7 +14,6 @@
       font-size: 18px;
       color: black;
       text-align: right;
-      font-weight: bold;
     }
     .renew{
       text-align: right;
@@ -42,25 +40,20 @@
   opacity: 0.2;
 }
 
+.info-search{
+  color: rgba(0,0,0,0.5);
+}
+
 .show-domain{
-  .actions{
-    .renew, .information{
-      margin-bottom: 15px;
-      .content{
-        padding: 15px;
-        border: 1px solid rgba(0,0,0,0.2);
-        min-height: 200px;
-      }
+
+  .renew, .information, .records, .nameservers, .forwarding{
+    h4{
+      color: grey;
     }
-  }
-  .dns-management{
-    .records, .nameservers, .forwarding{
-      margin-bottom: 15px;
-      .content{
-        padding: 15px;
-        border: 1px solid rgba(0,0,0,0.2);
-        min-height: 200px;
-      }
+
+    .content{
+      min-height: 200px;
+      overflow: auto;
     }
   }
 }

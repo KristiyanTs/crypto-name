@@ -1,7 +1,8 @@
 class AgreementsController < ApplicationController
   def index
-    @private = GoDaddy.get_domain_agreements(tld, true)
-    @public = GoDaddy.get_domain_agreements(tld, false)
+    @private = GoDaddy.get_domain_agreements(tld, true).body.first.first[1]
+    @public = GoDaddy.get_domain_agreements(tld, false).body.first.first[1]
+
   end
 
   private
