@@ -17,10 +17,11 @@
           = hidden_field_tag 'name', result['domain']
           = hidden_field_tag 'price', result['price']
           = hidden_field_tag 'renew', result['renew'], value: 6000000
+          = hidden_field_tag 'total_price', 10000
           / = hidden_field_tag 'renew', result['renew']
           .range-slider
-            input max="10" min="1" type="range" value="1" name="domain[duration]"
-          = button_tag "Buy", class: "buy-btn", data: { domain: result['domain'], price: result['price']/10000 }
+            input max="10" min="1" type="range" value="1" name="domain[duration]" autocomplete="off" autocorrect="off" onfocus="this.removeAttribute('readonly');"
+          = button_tag "Buy", class: "buy-btn"
         .total
           .years 1 year for 
           .price 

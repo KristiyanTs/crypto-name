@@ -1,4 +1,4 @@
-header.cd-auto-hide-header.is-hidden
+header.cd-auto-hide-header
   = link_to 'CryptoName', root_path, class: "logo"
   nav.cd-primary-nav
     a.nav-trigger href="#cd-navigation" 
@@ -11,4 +11,4 @@ header.cd-auto-hide-header.is-hidden
       li
         = link_to "Log in", new_user_session_path
       li
-        = link_to "Sign up", new_user_registration_path
+        = link_to "Sign up", new_user_registration_path, class: "primary"
