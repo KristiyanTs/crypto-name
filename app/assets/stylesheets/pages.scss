@@ -15,6 +15,7 @@
 }
 
 .agreements-search{
+  display: flex;
   input{
     border-radius: 0px;
     box-shadow: 0px;
@@ -24,14 +25,18 @@
     min-width: 400px;
     line-height: 40px;
     width: 80%;
+    border-right: 0px;
   }
   button{
     border-radius: 0px;
     border: 1px solid rgba(0,0,0,0.2);
     line-height: 45px;
-    height: 45px;
+    height: 44px;
     padding: 0px;
-    margin-left: 2%;
-    width: 18%;
+    width: 20%;
   }
+}
+
+.nav.nav-pills li a{
+  border-radius: 0px !important;
 }

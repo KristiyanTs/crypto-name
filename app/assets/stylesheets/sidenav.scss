@@ -12,8 +12,7 @@ Sidebar
   padding: 45px 0 0 !important;
   visibility: hidden;
   opacity: 0;
-  max-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: opacity 0.2s 0s, visibility 0s 0.2s;
@@ -140,7 +139,7 @@ Sidebar
     /* reset style */
     visibility: visible;
     opacity: 1;
-    overflow: visible;
+    overflow: auto;
     max-height: none;
   }
   .cd-side-nav.nav-is-visible {

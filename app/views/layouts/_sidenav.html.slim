@@ -24,6 +24,9 @@ nav.cd-side-nav.col-md-2.col-xs-12
 
   ul.secondary
     li.cd-label Secondary
+    - if current_user
+      li.logout
+        = link_to 'Log out', destroy_user_session_path, method: :delete
     li.faq 
       a href="/pages/faq"  FAQ
     li.future-work 
@@ -38,9 +41,6 @@ nav.cd-side-nav.col-md-2.col-xs-12
       a href="/pages/terms"  Terms & Conditions
     li.credits 
       a href="/pages/creadits"  Credits
-    - if current_user
-      li.logout
-        = link_to 'Log out', destroy_user_session_path, method: :delete
 
 
 

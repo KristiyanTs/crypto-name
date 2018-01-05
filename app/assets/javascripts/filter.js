@@ -64,7 +64,6 @@ document.addEventListener("turbolinks:load", function() {
       }
     }
     filter();
-    updateCount();
   });
 
   function filter(){

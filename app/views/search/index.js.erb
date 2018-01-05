@@ -1,13 +1,22 @@
+// Render filters
 $('.filter-topdomain .content').html("<%= escape_javascript (render partial: 'extensions') %>");
+
+// Render results
 $('.content-wrapper').html("<%= escape_javascript (render partial: 'results') %>");
+
+// Hide footers
 $('.product .footer').toggle();
+
+// Check all checkboxes
 $('.filter-topdomain input:checkbox').prop('checked', true);
-$('.filters').fadeIn(500);
+
+//On new domain search
 $('.domain-search').submit(function(event){
   $('.product').fadeOut(200);
   $('.cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
 })
 
+// Handle active/faded products
 $('.product .clickable').on("click tap", function(){
 	$('.product .clickable').not(this).each(function(){
 	   var footer = $(this).next('.footer');
@@ -32,28 +41,39 @@ $('.product .clickable').on("click tap", function(){
 
 });
 
+// Prevent footer being closed if clicked on
 $('.product .footer').on("click tap", function(event){
 	event.stopPropagation();
 });
 
+
+// Change displayed price in footer
 $('.buy-domain .range-slider input').on('input', function() { 
 	var period = this.value;
+  var first_year = $(this).parent().parent().find('#price').val()/10000;
+  var renew = $(this).parent().prev('#renew').val()/10000; 
+  var total_price=0;
+
+
 
 	if(period==1){
+    total_price += first_year;
 		period = period + " year for ";
 	}
 	else{
+    total_price += first_year + (period-1)*renew;
 		period = period + " years for ";
 	}
 
+  total_price = (total_price/100).toFixed( 2 )
 	var total = $(this).parent().parent().next();
 	var years = total.children('.years');
 	var price = total.children('.price');
 	years.html(period);
-	price.html(" $14.99");
+	price.html(" $" + total_price);
 });
 
-
+// filter products on checkbox change
 $('.filter-topdomain input').on("click tap", function(){
 	$('.product').removeClass('faded').removeClass('active');
 	$('.product .footer').hide();
@@ -87,3 +107,7 @@ function filter(){
 		});
 	})
 }	
+
+function updateCount(){
+  $('.info-search b').text($('.content-wrapper .product:visible').length);
+}
