@@ -1,76 +1,85 @@
 h2 Profile
 hr
 .col-xs-12.profile-page
-  .col-xs-12.col-md-6
-    h3.col-xs-6 Domain details
-    .domain-details.col-xs-12.full-width
-      .content
-        - @details = current_user.details
-        h4 Default
-        - if @details.where(active: true).any?
-          - @details.where(active: true).each do |detail|
-            .detail.active
-              .col-xs-10
-                .name.col-xs-12.col-md-6 = "#{detail.first_name} #{detail.last_name}"
-                .email.col-xs-12.col-md-6 = detail.email
-                .address.col-xs-12.col-md-6 = "#{detail.address1}"
-                .number.col-xs-12.col-md-6 = detail.phone
-              .col-xs-2
-                = link_to "", edit_detail_path(detail),
-                  class: "glyphicon glyphicon-pencil col-xs-12"
-                br
-                = link_to "", detail_path(detail),
-                  {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
-        - else
-          h4 You have no default details yet.
 
-        - if @details.where(active: false).any?
-          h4 Available
-          - @details.where(active: false).each do |detail|
-            .detail
-              .col-xs-10
-                .name.col-xs-12.col-md-6.full-width = "#{detail.first_name} #{detail.last_name}"
-                .email.col-xs-12.col-md-6.full-width = detail.email
-                .address.col-xs-12.col-md-6.full-width = "#{detail.address1}"
-                .number.col-xs-12.col-md-6.full-width = detail.phone
-              .col-xs-2
-                = link_to "", edit_detail_path(detail),
-                  class: "glyphicon glyphicon-pencil col-xs-12"
-                br
-                = link_to "", detail_path(detail),
-                  {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
-              .col-xs-10
-                 = link_to "Activate", activate_detail_path(detail), :method => :put
-        .col-xs-12
-        button.btn.add-details Add details
-        = simple_form_for current_user.details.new, method: :post, html: {class: "details-form hidden"} do |f|
-          = f.input :first_name, required: true
-          = f.input :last_name, required: true
-          = f.input :organization
-          = f.input :job_title
-          = f.input :email, required: true
-          = f.input :phone, required: true
-          = f.input :fax
-          = f.input :address1, required: true
-          = f.input :address2
-          = f.input :city, required: true
-          = f.input :state, required: true
-          = f.input :postal_code, required: true
-          = f.button :submit
+  .col-xs-12.col-md-3.profile-navigation
+    ul.nav.nav-pills
+      li.active
+        a data-toggle="pill" href="#domain-details" 
+          | Domain details
+      li 
+        a data-toggle="pill" href="#profile-details" 
+          | Profile details
 
-  hr.col-xs-12.col-md-8
-  .col-xs-12
-    h3.col-xs-6 Edit account details
-    .profile.col-xs-12.full-width
-      .content
-        = simple_form_for registration_path(current_user), method: :put do |f|
-          = f.error_notification
-          = f.input :password, autocomplete: "off", placeholder: "New password", required: false, label: false
-          = f.input :password_confirmation, required: false, placeholder: "Confirm new password", label: false
-          = f.input :current_password, placeholder: "Your current password for confirmation", required: true, label: false
-          = f.button :submit, "Update"
 
-          h4 Cancel my account
-          p
-            | Want to quit CryptoName? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-  
+  .tab-content
+    .content.col-xs-12.col-md-8.col-md-offset-1.tab-pane.fade.in.active id="domain-details"
+      .domain-details.col-xs-12.full-width
+        .content
+          - @details = current_user.details
+          h4 Default details
+          - if @details.where(active: true).any?
+            - @details.where(active: true).each do |detail|
+              .detail.active
+                .col-xs-10
+                  .name.col-xs-12.col-md-6 = "#{detail.first_name} #{detail.last_name}"
+                  .email.col-xs-12.col-md-6 = detail.email
+                  .address.col-xs-12.col-md-6 = "#{detail.address1}"
+                  .number.col-xs-12.col-md-6 = detail.phone
+                .col-xs-2
+                  = link_to "", edit_detail_path(detail),
+                    class: "glyphicon glyphicon-pencil col-xs-12"
+                  br
+                  = link_to "", detail_path(detail),
+                    {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
+          - else
+            h4 You have no default details yet.
+
+          - if @details.where(active: false).any?
+            h4 Available details
+            - @details.where(active: false).each do |detail|
+              .detail
+                .col-xs-10
+                  .name.col-xs-12.col-md-6.full-width = "#{detail.first_name} #{detail.last_name}"
+                  .email.col-xs-12.col-md-6.full-width = detail.email
+                  .address.col-xs-12.col-md-6.full-width = "#{detail.address1}"
+                  .number.col-xs-12.col-md-6.full-width = detail.phone
+                .col-xs-2
+                  = link_to "", edit_detail_path(detail),
+                    class: "glyphicon glyphicon-pencil col-xs-12"
+                  br
+                  = link_to "", detail_path(detail),
+                    {confirm: "Are you sure?", method: :delete, class: "glyphicon glyphicon-trash col-xs-12" }
+                .col-xs-10
+                   = link_to "Set to default", activate_detail_path(detail), :method => :put
+          .col-xs-12
+          button.btn.add-details Add details
+          = simple_form_for current_user.details.new, method: :post, html: {class: "details-form hidden"} do |f|
+            = f.input :first_name, required: true
+            = f.input :last_name, required: true
+            = f.input :organization
+            = f.input :job_title
+            = f.input :email, required: true
+            = f.input :phone, required: true
+            = f.input :fax
+            = f.input :address1, required: true
+            = f.input :address2
+            = f.input :city, required: true
+            = f.input :state, required: true
+            = f.input :postal_code, required: true
+            = f.button :submit
+
+    .content.col-xs-12.col-md-8.col-md-offset-1.tab-pane.fade id="profile-details"
+      .profile.col-xs-12.full-width
+        .content
+          = simple_form_for registration_path(current_user), method: :put do |f|
+            = f.error_notification
+            = f.input :password, autocomplete: "off", placeholder: "New password", required: false, label: false
+            = f.input :password_confirmation, required: false, placeholder: "Confirm new password", label: false
+            = f.input :current_password, placeholder: "Your current password for confirmation", required: true, label: false
+            = f.button :submit, "Update"
+
+            h4 Cancel my account
+            p
+              | Want to quit CryptoName? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+    

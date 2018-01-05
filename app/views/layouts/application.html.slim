@@ -7,7 +7,7 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    -unless params[:page] && (['home', 'about']).include?(params[:page])
+    -unless params[:page] && (['home']).include?(params[:page])
       = render 'layouts/header'
       main.cd-main-content
         = render 'layouts/sidenav' 

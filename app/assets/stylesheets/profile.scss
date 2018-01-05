@@ -1,4 +1,16 @@
 .profile-page{
+  .profile-navigation ul {
+    li{
+      float: none;
+      padding: 10px;
+      a{
+        cursor: pointer;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+    } 
+  }
   .profile{
     border: 0px;
     overflow: auto;

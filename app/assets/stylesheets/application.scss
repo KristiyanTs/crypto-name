@@ -65,6 +65,19 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow: auto;
 }
 
+.simple-navigation ul {
+  li{
+    padding: 10px;
+    float: none;
+    a{
+      cursor: pointer;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  } 
+}
+
 /* -------------------------------- 
 
 Main Page Content
