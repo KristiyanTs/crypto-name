@@ -7,7 +7,7 @@ class CreateDomains < ActiveRecord::Migration[5.1]
       t.boolean    :renewal, null: false, default: true
       t.boolean    :privacy, null: false, default: false
 
-      t.string     :auth_code
+      t.string     :unlock_code
 
       t.references :user, index: true, null: false
       t.timestamps

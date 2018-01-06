@@ -11,7 +11,7 @@ class Domain
 
       raise 'Could not get Auth Code.' unless response.successful?
 
-      domain.update!(auth_code: response.body['domain']['authCode'])
+      domain.update!(unlock_code: response.body['domain']['authCode'])
     end
   end
 end
