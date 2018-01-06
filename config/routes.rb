@@ -12,6 +12,4 @@ Rails.application.routes.draw do
   resources :agreements, only: [:index]
   resources :notifications, only: [:index, :destroy]
   resource :details, only: [:update]
-
-  resource :stripe_form, only: :show
 end
