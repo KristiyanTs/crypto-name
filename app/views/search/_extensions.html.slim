@@ -5,7 +5,7 @@
     label All extensions
 - @extensions.each do |extension|
   .pretty.p-icon.p-rotate
-    input type="checkbox" class="#{extension}"
+    input type="checkbox" data-topdomain="#{extension}"
     .state.p-success
       i.icon.mdi.mdi-check
       label = extension

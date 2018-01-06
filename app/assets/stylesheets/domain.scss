@@ -1,5 +1,5 @@
 .domain{
-  padding: 10px;
+  padding: 5px !important;
   .content{
     padding: 10px;
     position:relative;
@@ -42,19 +42,4 @@
 
 .info-search{
   color: rgba(0,0,0,0.5);
-}
-
-.show-domain{
-
-  .renew, .information, .records, .nameservers, .forwarding{
-    h4{
-      color: grey;
-    }
-
-    .content{
-      min-height: 200px;
-      overflow: auto;
-      padding: 20px;
-    }
-  }
 }

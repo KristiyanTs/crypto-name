@@ -1,3 +1,18 @@
 h2 My domains
 hr
-= render partial: 'domain', collection: @domains, as: :domain
+
+.col-xs-12.col-md-3.simple-navigation
+  ul.nav.nav-pills
+    li.active
+      a data-toggle="pill" href="#domains" 
+        | My domains
+    li 
+      a data-toggle="pill" href="#transfer" 
+        | Transfer a domain to Moonhythe
+
+
+.tab-content.col-md-8
+  .content.col-xs-12.renew.tab-pane.fade.in.active id="domains"
+    = render partial: 'domain', collection: @domains, as: :domain
+
+  .content.col-xs-12.tab-pane.fade id="transfer"

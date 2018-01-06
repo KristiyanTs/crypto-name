@@ -1,79 +1,12 @@
-.profile-page{
-  .profile-navigation ul {
-    li{
-      float: none;
-      padding: 10px;
-      a{
-        cursor: pointer;
-      }
-      a:hover{
-        text-decoration: underline;
-      }
-    } 
-  }
-  .profile{
-    border: 0px;
+#domain-details {
+  .detail {
+    margin: 30px 0px 30px 0px;
     overflow: auto;
-    .content{
-      display: block;
-      label{
-        display: block;
-      }
-      input{
-        border-radius: 0px;
-        box-shadow: 0px;
-        border: 1px solid rgba(0,0,0,0.2);
-        margin-bottom: 10px;
-        padding-left: 10px;
-        min-width: 400px;
-        line-height: 40px;
-      }
-      .btn{
-        width: 200px;
-        min-width: 100px;
-      }
-    }
-  }
-
-  .domain-details {
-    border: 0px;
-    overflow: auto;
-    .content {
-      display: block;
-      h4{
-        color: grey;
-      }
-      label{
-        display: block;
-      }
-      input {
-        border-radius: 0px;
-        box-shadow: 0px;
-        border: 1px solid rgba(0,0,0,0.2);
-        margin-bottom: 10px;
-        padding-left: 10px;
-        min-width: 400px;
-        line-height: 40px;
-      }
-      .detail {
-        margin: 30px 0px 30px 0px;
-        overflow: auto;
-        .glyphicon{
-          color: black;
-        }
-      }
-    }
-    .add-details{
-      border: 1px solid rgba(0,0,0,0.2);
+    .glyphicon{
       color: black;
-      border-radius: 0px;
-      line-height: 40px;
-      margin-top: 20px;
-      min-width: 200px;
-      width: 200px;
     }
-    .details-form{
-      margin-top: 20px;
-    }
+  }
+  .details-form{
+    margin-top: 20px;
   }
 }

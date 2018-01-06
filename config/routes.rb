@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :charges, only: [:create]
   resources :search, only: :index
-  resources :domains, only: [:index, :show, :create]
+  resources :domains, only: [:index, :show, :create, :update]
   resources :agreements, only: [:index]
+  resources :notifications, only: [:index, :destroy]
   resources :details, only: [:create, :edit, :update, :destroy] do
     member do
       put :activate

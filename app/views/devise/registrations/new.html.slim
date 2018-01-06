@@ -3,19 +3,9 @@
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}) do |f|
     = f.error_notification
     .form-inputs
-      .input-group
-        span.input-group-addon
-          i.fa.fa-envelope-o.fa-fw
-        = f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email'
-      .input-group
-        span.input-group-addon
-          i.fa.fa-key.fa-fw
-        = f.input :password, required: true, label: false, placeholder: "Password, > 6 symbols"
-      .input-group
-        span.input-group-addon
-          i.fa.fa-key.fa-fw
-        = f.input :password_confirmation, required: true, label: false, placeholder: "Confirm password"
-    .form-actions
+      = f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email'
+      = f.input :password, required: true, label: false, placeholder: "Password, > 6 symbols"
+      = f.input :password_confirmation, required: true, label: false, placeholder: "Confirm password"
       input#agree name="user[agree]" type="checkbox" value="check" 
         .conditions 
           | I have read and agree to the 

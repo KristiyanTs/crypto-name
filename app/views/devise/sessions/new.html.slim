@@ -2,15 +2,8 @@
   .login-img
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}) do |f|
     .form-inputs
-      .input-group
-        span.input-group-addon
-          i.fa.fa-envelope-o.fa-fw
-        = f.input :email, required: false, label: false, size: 20, placeholder: 'Email'
-      .input-group
-        span.input-group-addon
-          i.fa.fa-key.fa-fw
-        = f.input :password, required: false, label: false, placeholder: 'Password'
-    .form-actions
+      = f.input :email, required: false, label: false, size: 20, placeholder: 'Email'
+      = f.input :password, required: false, label: false, placeholder: 'Password'
       = f.button :submit, "Continue", class: 'col-xs-4 submit-btn'
       = render "devise/shared/links"
 

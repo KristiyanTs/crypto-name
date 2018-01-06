@@ -22,6 +22,7 @@ body{
   background-color: transparent;
   overflow-x: hidden;
 }
+
 /* -------------------------------- 
 
 Primary style
@@ -38,6 +39,15 @@ body::after {
   clear: both;
   content: "";
   display: table;
+}
+
+@media only screen and (max-width: 768px) {
+  h1{
+    font-size: 22px;
+  }
+  h2{
+    font-size: 20px;
+  }
 }
 
 a {
@@ -67,15 +77,57 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .simple-navigation ul {
   li{
-    padding: 10px;
+    padding: 10px 10px 10px 0px;
     float: none;
+    border-radius: 0px;
+    background-color: transparent !important;
     a{
+      font-size: 16px;
+      min-width: 300px;
       cursor: pointer;
+      border-radius: 0px; 
+      display: inline-block;
     }
     a:hover{
-      text-decoration: underline;
+      text-decoration: none;
     }
   } 
+  li.active{
+    margin-left: 0px;
+    a{
+      background-color: $blue;
+      display: inline-block;
+    }
+    a:hover{
+      background-color: $blue;
+    }
+  }
+}
+
+.tab-content{
+  padding-left: 0px;
+}
+
+.btn:not(.submit-btn){
+  padding: 10px;
+  min-width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  max-width: 300px;
+}
+
+div input:not([type='checkbox']) {
+  border-radius: 0px;
+  box-shadow: 0px;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  padding-left: 10px;
+  min-width: 400px;
+  line-height: 40px;
+}
+
+label{
+  display: block;
 }
 
 /* -------------------------------- 
@@ -83,15 +135,6 @@ input[type="search"]::-webkit-search-results-decoration {
 Main Page Content
 
 -------------------------------- */
-.box{
-  margin-top: 15px;
-  background-color: rgba(0,0,0,0.7);
-  border-radius: 0px;
-  padding: 35px;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
-  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.1);
-}
 .cd-main-content .content-wrapper {
   padding: 45px 15px 3em;
 }

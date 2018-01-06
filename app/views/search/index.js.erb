@@ -101,9 +101,9 @@ function filter(){
 
 	$('.product').hide();
 	inputs.each(function(){
-		extension = $(this).attr("class");
+		extension = $(this).attr("data-topdomain");
 		$('.product').each(function(){
-			if($(this).hasClass(extension)){
+			if($(this).attr("data-topdomain") == extension){
 				$(this).show();
 			}
 		});

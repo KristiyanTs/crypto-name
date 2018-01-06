@@ -7,7 +7,7 @@ default: &default
 development:
   <<: *default
   encoding: unicode
-  database: CryptoName_development
+  database: moonhythe_development
   username: postgres
   password: 12345678
   template: template0
@@ -15,14 +15,14 @@ development:
 test:
   <<: *default
   encoding: unicode
-  database: CryptoName_test
+  database: moonhythe_test
   username: postgres
   password: 12345678
   template: template0
 
 staging:
   <<: *default
-  database: CryptoName_staging
+  database: moonhythe_staging
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
 

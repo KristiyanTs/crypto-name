@@ -1,6 +1,6 @@
 header.cd-auto-hide-header
-  = link_to 'CryptoName', root_path, class: "logo"
-  nav.cd-primary-nav
+  = link_to 'Moonhythe', '/search', class: "logo"
+  nav.cd-primary-nav.hidden-xs
     a.nav-trigger href="#cd-navigation" 
       span
         em aria-hidden="true" 
@@ -8,7 +8,8 @@ header.cd-auto-hide-header
     ul#cd-navigation
       li
         a href="/pages/contacts"  Contacts
-      li
-        = link_to "Log in", new_user_session_path
-      li
-        = link_to "Sign up", new_user_registration_path, class: "primary"
+      - unless current_user
+        li
+          = link_to "Log in", new_user_session_path
+        li
+          = link_to "Sign up", new_user_registration_path, class: "primary"

@@ -1,0 +1,32 @@
+h2 Notifications
+hr
+
+.col-xs-12.col-md-4.simple-navigation
+  ul.nav.nav-pills
+    li.active
+      a data-toggle="pill" href="#notifications" 
+        | Notifications
+    li 
+      a data-toggle="pill" href="#preferences" 
+        | Preferences
+
+.tab-content
+  .content.col-xs-12.col-md-8.col-md-offset-1.tab-pane.fade.in.active id="notifications"
+
+    table
+      thead
+        tr
+          th
+          th
+          th
+
+      tbody
+        - @notifications.each do |notification|
+          tr
+            td = notification.title
+            td = notification.body
+            td = link_to 'Destroy', notification, data: { confirm: 'Are you sure?' }, method: :delete
+
+    br
+
+  .content.col-xs-12.col-md-8.col-md-offset-1.tab-pane.fade id="preferences"

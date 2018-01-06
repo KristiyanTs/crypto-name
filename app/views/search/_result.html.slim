@@ -1,8 +1,8 @@
-.product.col-xs-12.col-sm-4.col-md-4 class=".#{result['domain'].split('.').drop(1).join('.')} #{result['domain'].split('.')[0].length}"
+.product.col-xs-12.col-sm-4.col-md-4 data-topdomain=".#{result['domain'].split('.').drop(1).join('.')}"
   .content
     .clickable
-      .domain.col-xs-6 = result["domain"]
-      .price.col-xs-6 
+      .domain.col-md-6.col-xs-12 = result["domain"]
+      .price.col-xs-2.col-md-6 
         |$
         = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
       .renew-price 

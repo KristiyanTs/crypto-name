@@ -8,8 +8,8 @@ nav.cd-side-nav.col-md-2.col-xs-12
         = link_to "Profile", edit_user_registration_path
       li.domains class="#{'active' if controller_name == 'domains'}"
         = link_to "My Domains", domains_path
-      li.notifications 
-        a href="#0" Notifications
+      li.notifications class="#{'active' if controller_name == 'notifications'}"
+        = link_to "Notifications", notifications_path
     - else
       li.login class="#{'active' if controller_name == 'sessions'}"
         = link_to "Log in", new_user_session_path
@@ -27,20 +27,20 @@ nav.cd-side-nav.col-md-2.col-xs-12
     - if current_user
       li.logout
         = link_to 'Log out', destroy_user_session_path, method: :delete
-    li.faq 
+    li.faq class="#{'active' if params[:page] == 'faq'}"
       a href="/pages/faq"  FAQ
-    / li.future-work 
-    /   a href="/pages/futurework"  Future work
-    li.contacts 
+    li.support class="#{'active' if params[:page] == 'support'}"
+      a href="/pages/support"  Support
+    li.contacts class="#{'active' if params[:page] == 'contacts'}"
       a href="/pages/contacts"  Contacts
-    li.about 
+    li.about class="#{'active' if params[:page] == 'about'}"
       a href="/pages/about"  About
-    li.document 
+    li.document class="#{'active' if params[:page] == 'privacy'}"
       a href="/pages/privacy"  Privacy Policy 
-    li.document 
+    li.document class="#{'active' if params[:page] == 'terms'}"
       a href="/pages/terms"  Terms & Conditions
-    li.credits 
-      a href="/pages/creadits"  Credits
+    li.credits class="#{'active' if params[:page] == 'credits'}"
+      a href="/pages/credits"  Credits
 
 
 

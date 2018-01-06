@@ -1,9 +1,9 @@
 class Detail::Null::GoDaddy
   def self.to_details
     {
-      "nameFirst"      => "CryptoName",
+      "nameFirst"      => "Moonhythe",
       "nameLast"       => "Protected",
-      "organization"   => "CryptoName",
+      "organization"   => "Moonhythe",
       "email"          => "moonhythe@gmail.com",
       "phone"          => "359885955926",
       "addressMailing" =>

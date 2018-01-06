@@ -2,60 +2,72 @@ h2
   | Manage 
   = @domain.name
 hr
-.col-xs-12.show-domain
+.col-xs-12.col-md-4.simple-navigation
+  ul.nav.nav-pills
+    li.active
+      a data-toggle="pill" href="#renew" 
+        | Renew
+    li 
+      a data-toggle="pill" href="#contacts" 
+        | Contacts
+    li 
+      a data-toggle="pill" href="#records" 
+        | Records
+    li 
+      a data-toggle="pill" href="#nameservers" 
+        | Nameservers
+    li 
+      a data-toggle="pill" href="#forwarding" 
+        | Forwarding
+    li 
+      a data-toggle="pill" href="#transfer" 
+        | Transfer away
 
-  .col-xs-12.col-md-3.simple-navigation
-    ul.nav.nav-pills
-      li.active
-        a data-toggle="pill" href="#renew" 
-          | Renew
-      li 
-        a data-toggle="pill" href="#contacts" 
-          | Contacts
-      li 
-        a data-toggle="pill" href="#records" 
-          | Records
-      li 
-        a data-toggle="pill" href="#nameservers" 
-          | Nameservers
-      li 
-        a data-toggle="pill" href="#forwarding" 
-          | Forwarding
+.tab-content.col-md-8
+  .content.col-xs-12.renew.tab-pane.fade.in.active id="renew"
+    .content
+      h4 Renew
+      .description Automatic renewal protects you from losing your domain.
+      = simple_form_for @domain, method: :put, remote: true do |f|
+        = f.input :renewal, as: :radio_buttons, label: false
+        = f.button :submit
 
-  .tab-content
-    .content.col-xs-12.col-md-8.col-md-offset-1.renew.tab-pane.fade.in.active id="renew"
-      .content
-        h4 Renew
+  .content.col-xs-12.information.tab-pane.fade id="contacts"
+    .content
+      h4 Contacts
 
-    .content.col-xs-12.col-md-8.col-md-offset-1.information.tab-pane.fade id="contacts"
-      .content
-        h4 Contacts
+  .content.col-xs-12.records.tab-pane.fade id="records"
+    .content
+      h4 Records
+      table.table
+        thead
+          tr
+            th Type
+            th Name
+            th Value
+            th TTL 
+        tbody
+          tr
+            td
+            td
+            td
+            td
 
-    .content.col-xs-12.col-md-8.col-md-offset-1.records.tab-pane.fade id="records"
-      .content
-        h4 Records
-        table.table
-          thead
-            tr
-              th Type
-              th Name
-              th Value
-              th TTL 
-          tbody
-            tr
-              td
-              td
-              td
-              td
+  .content.col-xs-12.nameservers.tab-pane.fade id="nameservers"
+    .content
+      h4 Nameservers
 
-    .content.col-xs-12.col-md-8.col-md-offset-1.nameservers.tab-pane.fade id="nameservers"
-      .content
-        h4 Nameservers
+  .content.col-xs-12.forwarding.tab-pane.fade id="forwarding"
+    .content
+      h4 Forwarding
 
-    .content.col-xs-12.col-md-8.col-md-offset-1.forwarding.tab-pane.fade id="forwarding"
-      .content
-        h4 Forwarding
-
+  .content.col-xs-12.forwarding.tab-pane.fade id="transfer"
+    .content
+      h4 Transfer
+      h5 We hope you had a great experience with us! Following are the steps on how to transfer your domain:
+      ol
+        li Unlock you domain
+        li 
 
 
 
