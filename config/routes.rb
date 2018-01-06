@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   resources :search, only: :index
   resources :domains, only: [:index, :show, :create, :update]
+  resources :transfers, only: :create
   resources :agreements, only: [:index]
   resources :notifications, only: [:index, :destroy]
   resources :details, only: [:create, :edit, :update, :destroy] do

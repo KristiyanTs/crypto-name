@@ -12,11 +12,7 @@ class Domain::Buyer
         period: domain.duration,
         renewAuto: domain.renewal,
         privacy: domain.privacy,
-        consent: {
-          agreementKeys: domain.agreement_keys,
-          agreedBy: user.last_sign_in_ip,
-          agreedOn: user.confirmed_at
-        },
+        consent: consent,
         contactRegistrant: detail,
         contantBilling: Detail::Null::GoDaddy.to_details
       }
@@ -31,5 +27,9 @@ class Domain::Buyer
 
   def detail
     @detail ||= user.active_details.to_details
+  end
+
+  def consent
+    @consent ||= Consent.new(user, domain).call
   end
 end
