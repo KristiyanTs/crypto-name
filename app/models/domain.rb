@@ -1,7 +1,7 @@
 class Domain < ApplicationRecord
   belongs_to :user
   has_many :transactions, as: :item
-  #TODO: validate domain name
+  # TODO: validate domain name
 
   enum status: { pending: 0, complete: 1, failed: 2 }
 
@@ -13,8 +13,8 @@ class Domain < ApplicationRecord
   end
 
   def pricing!
-    #TODO: when resellers, this is fixed instead of fetching it.
-    @price ||= (GoDaddy.available?(name)&.body['price'] / 10000)
+    # TODO: when resellers, this is fixed instead of fetching it.
+    @price ||= (GoDaddy.available?(name).body['price'] / 10_000)
   end
 
   def agreements
