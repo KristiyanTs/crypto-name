@@ -1,0 +1,32 @@
+h3 
+  | Buy 
+  = @domain.name
+hr
+
+= simple_form_for @detail, url: details_path, method: :put, remote: true, html: {class: "details-form"} do |f|
+  .col-xs-12.col-md-6
+    = f.input :first_name, required: true
+    = f.input :last_name, required: true
+    = f.input :organization
+    = f.input :job_title
+    = f.input :email, required: true
+    = f.input :phone, required: true
+  .col-xs-12.col-md-6
+    = f.input :fax
+    = f.input :address1, required: true
+    = f.input :address2
+    = f.input :city, required: true
+    = f.input :state, required: true
+    = f.input :postal_code, required: true
+  = f.button :submit, 'Continue'
+
+#buy-domain-stripe.hidden
+  = form_tag charges_path do
+    = hidden_field_tag 'domain[name]', @domain.name
+    script.stripe-button[
+            src="https://checkout.stripe.com/checkout.js"
+            data-key=Rails.configuration.stripe[:publishable_key]
+            data-description="Payment for #{@domain.name} domain."
+            data-bitcoin=true
+            data-amount=@price
+            data-locale="auto"]

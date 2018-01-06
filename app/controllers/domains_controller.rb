@@ -5,6 +5,12 @@ class DomainsController < ApplicationController
     @domains = current_user.domains
   end
 
+  def new
+    @detail = current_user.detail || Detail.new
+    @domain = Domain.new(name: params[:domain_name])
+    @price = @domain.pricing!
+  end
+
   def show
     @domain = current_user.domains.find(params[:id])
   end

@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   has_many :transactions
   has_many :domains
-  has_many :details
+  has_one :detail
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   def active_details
-    details.find_by(active: true) || Detail::Null
+    detail || Detail::Null
   end
 
   protected

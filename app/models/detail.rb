@@ -1,11 +1,6 @@
 class Detail < ApplicationRecord
   belongs_to :user
 
-  def activate!
-    user.details.update_all(active: false)
-    self.update(active: true)
-  end
-
   def to_details
     {
       "email"          => user.email,
@@ -22,11 +17,5 @@ class Detail < ApplicationRecord
         "country"     => 'BG'
       }  
     }
-  end
-
-  private
-
-  def details
-    user.active_details
   end
 end
