@@ -4,7 +4,7 @@ nav.cd-side-nav.col-md-2.col-xs-12
     li.search class="#{'active' if controller_name == 'search'}"
       = link_to "Search domains", search_index_path
     - if current_user
-      li.users class="#{'active' if controller_name == 'registrations'}"
+      li.users.visible-xs class="#{'active' if controller_name == 'registrations'}"
         = link_to "Profile", edit_user_registration_path
       li.domains class="#{'active' if controller_name == 'domains'}"
         = link_to "My Domains", domains_path

@@ -22,7 +22,7 @@ $('.product .clickable').on("click tap", function(){
 	   var footer = $(this).next('.footer');
 	   var product = $(this).parent().parent();
 
-	   footer.hide();
+	   footer.hide(); 
 	   product.removeClass('faded').removeClass('active');
 	});
 
@@ -50,29 +50,28 @@ $('.product .footer').on("click tap", function(event){
 // Change displayed price in footer
 $('.buy-domain .range-slider input').on('input', function() { 
 
-  var form = $(this).parent().parent();
-  var total_price_field = form.find('#total_price');
-  var first_year        = form.find('#price').val()/10000;
-  var renew             = form.find('#renew').val()/10000; 
-  var total             = form.next('.total');
-  var years             = total.children('.years');
-  var price             = total.children('.price');
+  var content           = $(this).parent().parent().parent();
+  var first_year        = content.attr('data-price');
+  var renew             = content.attr('data-renew');
+  var buy_btn           = content.find('.buy-btn');
+  var years_string      = content.find('.years');
+  var price_string      = content.find('.price');
 
-  var period = this.value;
+  var duration = this.value;
   var total_price=0;
+  buy_btn.attr('href', buy_btn.attr('href').slice(0, -1)+duration);
 
-	if(period==1){
-    total_price = (first_year/100).toFixed(2);
-		period = period + " year for ";
+	if(duration==1){
+    total_price = (first_year/10000000).toFixed(2);
+		duration = duration + " year for ";
 	}
 	else{
-    total_price = ((first_year + (period-1)*renew)/100).toFixed(2);
-		period = period + " years for ";
+    total_price = ((first_year + (duration-1)*renew)/10000000).toFixed(2);
+		duration = duration + " years for ";
 	}
 
-	years.html(period);
-	price.html(" $" + total_price);
-  total_price_field.val(total_price*100);
+	years_string.html(duration);
+	price_string.html(" $" + total_price);
 });
 
 // filter products on checkbox change
