@@ -7,7 +7,9 @@ class Domain
     end
 
     def call
-      GoDaddy.update_domain(domain.name, { locked: false })
+      response = GoDaddy.update_domain(domain.name, { locked: false })
+
+      raise 'Could not unlock domain, try again later!' unless response.success?
     end
   end
 end
