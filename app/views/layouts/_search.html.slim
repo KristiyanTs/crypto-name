@@ -1,6 +1,6 @@
 .col-xs-12.full-width.domain-search
 	= form_tag search_index_path, remote: true, method: 'get', class: 'domain-search col-xs-12 col-md-8' do
-	    = text_field_tag :name, params[:name], placeholder: "Keywords", class: 'col-xs-10'
+	    = text_field_tag :name, params[:name], placeholder: "Keywords", class: 'col-xs-10', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
 	    button.search-btn.col-xs-2 type="submit"
 	    	center.hidden-lg.hidden-md = fa_icon "search"
 	    	h4.hidden-xs.hidden-sm Search

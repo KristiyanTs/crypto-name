@@ -1,6 +1,10 @@
 header.cd-main-header
   = link_to 'Moonhythe', root_path, class: "logo"
-  a.cd-nav-trigger href="#0" 
+  a.cd-nav-trigger.visible-xs href="#0" 
     span
+  - if current_user
+    .pull-right
+      = link_to current_user.email, edit_user_registration_path, class: 'profile'
+
 
 

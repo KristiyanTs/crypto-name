@@ -9,14 +9,13 @@
         span Renew at 
         b 
           |$
-          = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
-          / = "%.2f" % Rational(result["renew"].to_i/10000.to_i,100)
+          = "%.2f" % Rational(result["renew"].to_i/10000.to_i,100)
     .footer
-      .content 
+      .content data-price="#{result['price']}" data-renew="#{result["renew"]}"
         .buy-domain
           .range-slider
-            input max="10" min="1" type="range" value="1" name="domain[duration]" autocomplete="off" autocorrect="off" onfocus="this.removeAttribute('readonly');"
-            = link_to 'Buy', new_domain_path(domain_name: result["domain"]), class: 'buy-btn'
+            input max="10" min="1" type="range" value="1" name="domain[duration]" 
+          = link_to 'Buy', new_domain_path(domain_name: result["domain"], duration: "1"), class: 'buy-btn'
         .total
           .years 1 year for 
           .price 

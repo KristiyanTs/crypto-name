@@ -109,11 +109,12 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn:not(.submit-btn){
-  padding: 10px;
   min-width: 200px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0px;
   max-width: 300px;
+  line-height: 30px;
+  margin-top: 10px;
 }
 
 div input:not([type='checkbox']) {

@@ -12,6 +12,13 @@ Header
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  .profile{
+    padding: 20px 30px 10px 10px;
+    line-height: 50px;
+    color: #4c4c4c;
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 .cd-main-header::after {
   clear: both;
