@@ -33,9 +33,4 @@ class DomainsController < ApplicationController
   def domain_params
     params.require(:domain).permit(:name, :renewal)
   end
-
-  #TODO extract:
-  def login
-    redirect_to new_user_session_path unless current_user.present?
-  end
 end

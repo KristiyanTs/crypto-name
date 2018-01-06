@@ -17,6 +17,10 @@ module GoDaddy
         delete("domains/#{name}")
       end
 
+      def transfer_domain(name, *args)
+        post("domains/#{name}/transfer", *args)
+      end
+
       def available?(*names)
         if names.one?
           get("domains/available", domain: names.first)
@@ -135,7 +139,6 @@ module GoDaddy
       #   }
       # }
       def purchase(args)
-        #TODO: research arguments
         post("domains/purchase", args)
       end
     end
