@@ -8,7 +8,7 @@ class Domain < ApplicationRecord
   def buy!
     Domain::Buyer.new(self).call
     update(status: :complete)
-  rescue => e
+  rescue StandardError
     update(status: :failed) # :'(
   end
 

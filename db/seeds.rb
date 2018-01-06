@@ -6,7 +6,7 @@ end
 
 user.domains.create!(name: 'test.com')
 
-detail = user.details.new(
+Detail.new.create(
   first_name: 'Kristiyan',
   last_name: 'Tsvetanov',
   organization: 'Moonhythe',
@@ -14,7 +14,6 @@ detail = user.details.new(
   email: 'kris@example.com',
   phone: '0812345678',
   address1: 'Svobada str.',
-  city: 'Sofia'
+  city: 'Sofia',
+  user: user
 )
-detail.activate!
-detail.save

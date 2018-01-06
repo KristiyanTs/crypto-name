@@ -2,8 +2,11 @@ class ChargesController < ApplicationController
   before_action :validate_purchase, only: :create
 
   def create
-    current_user.domains.create!(domain_params)
-    customer = ChargeUser.create_customer(email: params[:stripeEmail], token: params[:stripeToekn])
+    domain = current_user.domains.create!(domain_params)
+    customer = ChargeUser.create_customer(
+      email: params[:stripeEmail],
+      token: params[:stripeToken]
+    )
     current_user.update!(customer_id: customer)
     Domain::BuyJob.perform_later(domain)
 
@@ -16,10 +19,6 @@ class ChargesController < ApplicationController
 
   def amount
     domain.pricing!
-  end
-
-  def domain
-    @domain ||= current_user.domains.create!(domain_params)
   end
 
   # TODO: this is only item
