@@ -26,7 +26,7 @@ class DomainsController < ApplicationController
 
     respond_to do |format|
       if @domain.save
-        format.js { flash.now[:notice] = "Here is my flash notice" }
+        format.js { flash[:suceess] = "Successfully updated." }
       else
         format.html { render :show }
         format.json { render json: @domain.errors, status: :unprocessable_entity }

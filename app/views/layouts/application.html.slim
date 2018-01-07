@@ -9,6 +9,7 @@ html
   body
     -unless params[:page] && (['home']).include?(params[:page])
       = render 'layouts/header'
+      #flash
       main.cd-main-content
         = render 'layouts/sidenav' 
         .content-wrapper

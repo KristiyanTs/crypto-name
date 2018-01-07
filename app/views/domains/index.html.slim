@@ -29,10 +29,12 @@ hr
         li Unlock your domain from your current registrar
         li 
           | Enter your domain name, e.g. domain.com
+          br
           = f.text_field :name, label: false, placeholder: 'Domain'
         li 
           | You will be sent an email with an authorization code
-          = f.text_field :unlock_code, label: false, placeholder: 'Key'
-      = f.submit 'Transfer'
+          br
+          = f.text_field :unlock_code, label: false, placeholder: 'Authorization code'
+        li = f.submit 'Transfer'
     hr
     h4 Incoming transfers

@@ -1,0 +1,9 @@
+#flash-messages
+  -flash.each do |key, value|
+    = content_tag(:div, value, :class => "flash #{key}") 
+
+javascript:
+  setTimeout(function(){
+       $('#flash-messages').fadeOut();
+  },5000);
+

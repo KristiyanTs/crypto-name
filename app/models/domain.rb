@@ -35,6 +35,7 @@ class Domain < ApplicationRecord
     name.split('.').last
   end
 
+  # TODO: Check if the domains is already unlocked
   def unlocked?
     false
   end

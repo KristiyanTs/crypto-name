@@ -62,11 +62,11 @@ $('.buy-domain .range-slider input').on('input', function() {
   buy_btn.attr('href', buy_btn.attr('href').slice(0, -1)+duration);
 
 	if(duration==1){
-    total_price = (first_year/10000000).toFixed(2);
+    total_price = (first_year).toFixed(2);
 		duration = duration + " year for ";
 	}
 	else{
-    total_price = ((first_year + (duration-1)*renew)/10000000).toFixed(2);
+    total_price = ((first_year + (duration-1)*renew)).toFixed(2);
 		duration = duration + " years for ";
 	}
 

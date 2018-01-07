@@ -9,9 +9,9 @@
         span Renew at 
         b 
           |$
-          = "%.2f" % Rational(result["renew"])
+          = "%.2f" % Rational(result["price"])
     .footer
-      .content data-price="#{result['price']}" data-renew="#{result["renew"]}"
+      .content data-price="#{result['price']}" data-renew="#{result["price"]}"
         .buy-domain
           .range-slider
             input max="10" min="1" type="range" value="1" name="domain[duration]" 

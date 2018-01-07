@@ -66,14 +66,16 @@ hr
       h4 Transfer
       h5 We hope you had a great experience with us! Following are the steps on how to transfer your domain:
       ol
-        li 
-          | Unlock you domain
+        li
+          | To continue transfering, unlock your domain
+          br
           - if @domain.unlocked?
             a.btn.btn-success Unlocked
           - else
-            = simple_form_for domain_unlock_path(@domain), remote: true, method: :put do |f|
-              = f.button :submit, "Unlock"
-        li When the domain is unlocked, we will send you an email with a key. Your new registrar will need that key to transfer the domain.
+            = form_with url: domain_unlock_path(@domain), remote: true, method: :put do |f|
+              = f.submit "Unlock", class: 'btn'
+          br
+        li When the domain is unlocked, we will send you an email with an authorization code. Your new registrar will need it to transfer the domain.
 
 
 
