@@ -13,10 +13,6 @@ class Domain::Agreements
 
   private
 
-  def name
-    domain.name
-  end
-
   def tld
     domain.tld
   end

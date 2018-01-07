@@ -8,19 +8,17 @@ class Domain::Buyer
   end
 
   def call
-    GoDaddy.validate_purchase(
-      {
-        domain: domain.name,
-        period: domain.duration,
-        renewAuto: domain.renewal,
-        privacy: domain.privacy,
-        consent: consent,
-        nameServers: [],
-        contactRegistrant: detail,
-        contactAdmin: Detail::Null::GoDaddy.to_details,
-        contactBilling: Detail::Null::GoDaddy.to_details,
-        contactTech: Detail::Null::GoDaddy.to_details
-      }
+    GoDaddy.purchase(
+      domain: domain.name,
+      period: domain.duration,
+      renewAuto: domain.renewal,
+      privacy: domain.privacy,
+      consent: consent,
+      nameServers: [],
+      contactRegistrant: detail,
+      contactAdmin: Detail::Null::GoDaddy.to_details,
+      contactBilling: Detail::Null::GoDaddy.to_details,
+      contactTech: Detail::Null::GoDaddy.to_details
     )
   end
 
