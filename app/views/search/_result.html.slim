@@ -4,12 +4,12 @@
       .domain.col-md-6.col-xs-12 = result["domain"]
       .price.col-xs-2.col-md-6 
         |$
-        = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
+        = "%.2f" % Rational(result["price"])
       .renew-price 
         span Renew at 
         b 
           |$
-          = "%.2f" % Rational(result["renew"].to_i/10000.to_i,100)
+          = "%.2f" % Rational(result["renew"])
     .footer
       .content data-price="#{result['price']}" data-renew="#{result["renew"]}"
         .buy-domain
@@ -20,4 +20,4 @@
           .years 1 year for 
           .price 
             | $
-            = "%.2f" % Rational(result["price"].to_i/10000.to_i,100)
+            = "%.2f" % Rational(result["price"])

@@ -14,7 +14,13 @@ class Domain < ApplicationRecord
 
   def pricing!
     # TODO: when resellers, this is fixed instead of fetching it.
-    @price ||= (GoDaddy.available?(name).body['price'] / 10_000)
+    @price ||= begin
+                 remote_price = GoDaddy.available?(name).body['price']
+                 normalized = remote_price / 10_000
+                 floating = normalized.to_f / 100
+                 price = Price.new(floating).call
+                 SpecialPrice.new(price, tld).call
+               end
   end
 
   def agreements
@@ -23,5 +29,9 @@ class Domain < ApplicationRecord
 
   def agreement_keys
     agreements.map { |agreement| agreement['agreementKeys'] }
+  end
+
+  def tld
+    name.split('.').last
   end
 end
