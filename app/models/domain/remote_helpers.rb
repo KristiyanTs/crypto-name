@@ -1,7 +1,8 @@
 class Domain
   module RemoteHelpers
     def unlocked?
-      GoDaddy.domain(name).response.body['status'] == 'UNLOCKED'
+      # GoDaddy.domain(name).response.body['status'] == 'UNLOCKED'
+      false
     end
   end
 end

@@ -18,6 +18,7 @@ module GoDaddy
       end
 
       def transfer_domain(name, *args)
+        byebug
         post("domains/#{name}/transfer", *args)
       end
 
@@ -49,8 +50,8 @@ module GoDaddy
         post('domains/purchase/validate', *args)
       end
 
-      def purchase(args)
-        post("domains/purchase", args)
+      def purchase(*args)
+        post("domains/purchase", *args)
       end
     end
   end

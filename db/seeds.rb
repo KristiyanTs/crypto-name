@@ -6,14 +6,16 @@ end
 
 user.domains.create!(name: 'test.com')
 
-Detail.new.create(
+Detail.create(
   first_name: 'Kristiyan',
   last_name: 'Tsvetanov',
   organization: 'Moonhythe',
   job_title: 'CEO',
   email: 'kris@example.com',
-  phone: '0812345678',
+  phone: '+359812345678',
   address1: 'Svobada str.',
   city: 'Sofia',
+  state: 'Sofia',
+  postal_code: '1220',
   user: user
 )

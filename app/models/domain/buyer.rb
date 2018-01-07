@@ -1,3 +1,5 @@
+require_dependency 'detail/null/go_daddy'
+
 class Domain::Buyer
   attr_reader :domain
 
@@ -6,15 +8,18 @@ class Domain::Buyer
   end
 
   def call
-    GoDaddy.purchase(
+    GoDaddy.validate_purchase(
       {
         domain: domain.name,
         period: domain.duration,
         renewAuto: domain.renewal,
         privacy: domain.privacy,
         consent: consent,
+        nameServers: [],
         contactRegistrant: detail,
-        contantBilling: Detail::Null::GoDaddy.to_details
+        contactAdmin: Detail::Null::GoDaddy.to_details,
+        contactBilling: Detail::Null::GoDaddy.to_details,
+        contactTech: Detail::Null::GoDaddy.to_details
       }
     )
   end

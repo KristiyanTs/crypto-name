@@ -4,16 +4,18 @@ class Domain
 
     def initialize(user, name, unlock_code)
       @user = user
-      @domain = user.domains.new(name: name, renewal: true)
+      @domain = user.domains.new(name: name, renewal: true, privacy: true)
       @unlock_code = unlock_code
     end
 
     def call
       GoDaddy.transfer_domain(
         domain.name,
-        authCode: unlock_code,
-        renewAuto: true,
-        consent: consent
+        {
+          authCode: unlock_code,
+          renewAuto: true,
+          consent: consent
+        }
       )
     end
 
