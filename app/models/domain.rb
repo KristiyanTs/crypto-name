@@ -1,4 +1,6 @@
 class Domain < ApplicationRecord
+  include Domain::RemoteHelpers
+
   belongs_to :user
   has_many :transactions, as: :item
   # TODO: validate domain name
@@ -28,15 +30,15 @@ class Domain < ApplicationRecord
   end
 
   def agreement_keys
-    agreements.map { |agreement| agreement['agreementKeys'] }
+    agreements.map { |agreement| agreement['agreementKey'] }
+  end
+
+  def agreement_keys!
+    @agreements = nil
+    agreement_keys
   end
 
   def tld
-    name.split('.').last
-  end
-
-  # TODO: Check if the domains is already unlocked
-  def unlocked?
-    false
+    name.split('.').drop(1).join('.')
   end
 end

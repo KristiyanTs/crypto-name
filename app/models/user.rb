@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   def active_details
-    detail || Detail::Null
+    detail || Detail::Null::GoDaddy
   end
 
   protected

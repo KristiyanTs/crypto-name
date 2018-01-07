@@ -4,16 +4,16 @@ class Detail < ApplicationRecord
   def to_details
     {
       "email"          => user.email,
-      "nameFirst"      => details.first_name,
-      "nameLast"       => details.last_name,
-      "organization"   => details.organization,
-      "phone"          => details.phone,
+      "nameFirst"      => first_name,
+      "nameLast"       => last_name,
+      "organization"   => organization,
+      "phone"          => phone,
       "addressMailing" =>
       {
-        "address1"    => details.address1,
-        "city"        => details.city,
-        "state"       => details.state,
-        "postal_code" => details.code,
+        "address1"    => address1,
+        "city"        => city,
+        "state"       => state,
+        "postalCode" => postal_code,
         "country"     => 'BG'
       }  
     }

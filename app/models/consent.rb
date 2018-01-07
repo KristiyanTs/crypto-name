@@ -8,9 +8,9 @@ class Consent
 
   def call
     {
-      agreementKeys: domain.agreement_keys,
-      agreedBy: user.last_sign_in_ip,
-      agreedOn: user.confirmed_at
+      'agreementKeys' => domain.agreement_keys,
+      'agreedBy' => user.last_sign_in_ip,
+      'agreedAt' =>  user.confirmed_at.iso8601
     }
   end
 end

@@ -5,15 +5,16 @@ class Detail::Null::GoDaddy
       "nameLast"       => "Protected",
       "organization"   => "Moonhythe",
       "email"          => "moonhythe@gmail.com",
-      "phone"          => "359885955926",
+      "phone"          => '+359.885955926',
       "addressMailing" =>
       {
         "address1"    => "j.k. Svoboda 42",
         "city"        => "Sofia",
         "state"       => "Sofia",
-        "postal_code" => "1220",
+        "postalCode"  => "1220",
         "country"     => 'BG'
       }  
     }
   end
 end
+# \359\-8\8\5\9\5\5\9\2\6\
