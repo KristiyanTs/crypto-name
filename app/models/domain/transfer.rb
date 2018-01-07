@@ -2,8 +2,9 @@ class Domain
   class Transfer
     attr_reader :domain
 
-    def initialize(name, unlock_code)
-      @domain = Domain.new(name: name)
+    def initialize(user, name, unlock_code)
+      @user = user
+      @domain = user.domains.new(name: name, renewal: true)
       @unlock_code = unlock_code
     end
 

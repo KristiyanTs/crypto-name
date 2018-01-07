@@ -3,7 +3,7 @@ class TransfersController < ApplicationController
   before_action :require_params
 
   def create
-    Domain::Transfer.new(name, unlock_code).call # Maybe in background
+    Domain::Transfer.new(current_user, name, unlock_code).call # Maybe in background
     redirect domains_path
   end
 
