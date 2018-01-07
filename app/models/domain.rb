@@ -1,4 +1,6 @@
 class Domain < ApplicationRecord
+  include RemoteHelpers
+
   belongs_to :user
   has_many :transactions, as: :item
   # TODO: validate domain name
