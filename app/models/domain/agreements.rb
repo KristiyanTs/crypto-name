@@ -1,4 +1,6 @@
 class Domain::Agreements
+  attr_reader :domain
+
   def initialize(domain)
     @domain = domain
   end
@@ -10,6 +12,10 @@ class Domain::Agreements
   end
 
   private
+
+  def name
+    domain.name
+  end
 
   def tld
     name.split('.').last

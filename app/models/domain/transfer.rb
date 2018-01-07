@@ -1,6 +1,6 @@
 class Domain
   class Transfer
-    attr_reader :domain
+    attr_reader :domain, :user, :unlock_code
 
     def initialize(user, name, unlock_code)
       @user = user

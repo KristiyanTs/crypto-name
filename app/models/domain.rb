@@ -34,4 +34,8 @@ class Domain < ApplicationRecord
   def tld
     name.split('.').last
   end
+
+  def unlocked?
+    false
+  end
 end

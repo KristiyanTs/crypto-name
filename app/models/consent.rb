@@ -1,4 +1,6 @@
 class Consent
+  attr_reader :user, :domain
+  
   def initialize(user, domain)
     @user = user
     @domain = domain

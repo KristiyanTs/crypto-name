@@ -23,4 +23,16 @@ hr
         a href="/search" buy a new domain.
 
   .content.col-xs-12.tab-pane.fade id="transfer"
-    h4 Transfer domains
+    h4 Transfer your domain
+    = form_with url: transfers_path, remote: true, method: :post do |f|
+      ol
+        li Unlock your domain from your current registrar
+        li 
+          | Enter your domain name, e.g. domain.com
+          = f.text_field :name, label: false, placeholder: 'Domain'
+        li 
+          | You will be sent an email with an authorization code
+          = f.text_field :unlock_code, label: false, placeholder: 'Key'
+      = f.submit 'Transfer'
+    hr
+    h4 Incoming transfers
