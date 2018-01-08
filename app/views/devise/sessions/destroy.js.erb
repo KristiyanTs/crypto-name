@@ -1,9 +1,7 @@
 $('.cd-main-header').remove();
 $('body').prepend("<%= escape_javascript (render partial: 'layouts/header') %>");
-$('.cd-main-content .content-wrapper').html('');
 $('.cd-side-nav').remove();
 $('.cd-main-content').prepend("<%= escape_javascript (render partial: 'layouts/sidenav') %>");
-$('.cd-main-content .content-wrapper').append("<%= escape_javascript (render partial: 'layouts/search') %>");
 $('ul.filters').removeClass('hidden');
 $('#flash').append("<%= escape_javascript (render partial: 'layouts/notice') %>");
 $('.cd-side-nav .login').removeClass('active');
