@@ -4,6 +4,6 @@
 
 javascript:
   setTimeout(function(){
-       $('body #flash-messages').fadeOut();
-  },2000);
+      $('body #flash-messages').fadeOut();
+  },($('body #flash-messages .flash').text().length)*70);
 
