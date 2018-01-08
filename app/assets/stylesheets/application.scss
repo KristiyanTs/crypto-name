@@ -131,9 +131,19 @@ label{
   display: block;
 }
 #flash-messages{
+  position: absolute;
+  top: 10px;
+  width: 600px;
+  text-align: center;
+  padding: 5px;
+  left: calc(50% - 300px);
   font-weight: bold;
   font-size: 16px;
-  color: green;
+  color: white;
+  background-color: $blue;
+  .flash.alert{
+    margin-bottom: 0px;
+  }
 }
 
 /* -------------------------------- 

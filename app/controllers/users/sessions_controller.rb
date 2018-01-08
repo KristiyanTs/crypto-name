@@ -1,27 +1,24 @@
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def create
+    resource = User.find_for_database_authentication(email: params[:user][:email])
+    return invalid_login_attempt unless resource
 
-def create
-  resource = User.find_for_database_authentication(email: params[:user][:email])
-  return invalid_login_attempt unless resource
+    if resource.valid_password?(params[:user][:password])
+      set_flash_message(:alert, :signed_in)
+      sign_in :user, resource
+      return render nothing: true
+    end
 
-  if resource.valid_password?(params[:user][:password])
-    sign_in :user, resource
-    return render nothing: true
+    invalid_login_attempt
   end
 
-  invalid_login_attempt
- end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    set_flash_message(:alert, :signed_out) if signed_out
+    yield if block_given?
+    respond_to_on_destroy
+  end
   
   private 
 
@@ -29,15 +26,21 @@ def create
     search_index_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    search_index_path
+  end
+
+  def respond_to_on_destroy
+    respond_to do |format|
+      format.js
+      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
+    end
+end
+
   protected
 
   def invalid_login_attempt
     set_flash_message(:alert, :invalid)
     render json: flash[:alert], status: 401
   end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 end

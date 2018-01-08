@@ -6,7 +6,7 @@ hr
       a data-toggle="pill" href="#profile-details" 
         | Profile details
     li
-      = link_to 'Log out', destroy_user_session_path, method: :delete
+      = link_to 'Log out', destroy_user_session_path, method: :delete, remote: true
 
 .tab-content.col-md-8.col-xs-12
 
