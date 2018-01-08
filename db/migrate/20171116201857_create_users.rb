@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :first_name,         null: false, default: ""
       t.string :last_name,          null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.boolean :terms_of_service,  null: false, default: false
 
       ## Recoverable
       t.string   :reset_password_token

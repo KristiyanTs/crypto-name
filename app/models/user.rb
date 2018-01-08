@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :terms_of_service, acceptance: true
+
   has_many :transactions
   has_many :domains
   has_one :detail
