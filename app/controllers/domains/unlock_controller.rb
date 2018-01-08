@@ -5,6 +5,7 @@ class Domains::UnlockController < ApplicationController
     @domain = Domain.find(params[:domain_id])
     Domain::Unlocker.new(@domain).call
 
+    #TODO: Check if successfully unlocked
     respond_to do |format|
       format.js { flash[:success] = "#{@domain.name} successfully unlocked." }
     end
