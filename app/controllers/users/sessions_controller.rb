@@ -35,7 +35,7 @@ class Users::SessionsController < Devise::SessionsController
       format.js
       format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
     end
-end
+  end
 
   protected
 

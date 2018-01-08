@@ -6,6 +6,8 @@ $('.cd-main-content').prepend("<%= escape_javascript (render partial: 'layouts/s
 $('.cd-main-content .content-wrapper').append("<%= escape_javascript (render partial: 'layouts/search') %>");
 $('ul.filters').removeClass('hidden');
 $('#flash').append("<%= escape_javascript (render partial: 'layouts/notice') %>");
+$('.cd-side-nav .login').removeClass('active');
+$('.cd-side-nav .search').addClass('active');
 $('body .domain-search').submit(function(event){
   $('.product').fadeOut(200);
   $('.cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
