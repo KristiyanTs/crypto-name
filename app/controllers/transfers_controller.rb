@@ -3,7 +3,7 @@ class TransfersController < ApplicationController
   before_action :require_params
 
   def create
-    Domain::Transfer.new(current_user, name, unlock_code).call # Maybe in background
+    Domain::Transfer.new(current_user, name, unlock_code, privacy).call # Maybe in background
     redirect domains_path
   end
 
@@ -15,6 +15,10 @@ class TransfersController < ApplicationController
 
   def unlock_code
     params[:unlock_code]
+  end
+
+  def privacy
+    !!params[:privacy] # TODO: front end should ask for this
   end
 
   def require_params
