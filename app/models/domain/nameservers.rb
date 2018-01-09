@@ -11,6 +11,8 @@ class Domain
       response = GoDaddy.update_domain(domain.name, { nameServers: nameserver })
 
       raise 'Could not update nameservers of domain, try again later!' unless response.success?
+
+      domain.update!(nameservers: nameservers)
     end
   end
 end

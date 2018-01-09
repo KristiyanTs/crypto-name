@@ -1,6 +1,8 @@
 class Domain < ApplicationRecord
   include Domain::RemoteHelpers
 
+  serialize :nameservers, Array
+
   belongs_to :user
   has_many :transactions, as: :item
   # TODO: validate domain name
