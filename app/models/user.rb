@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  validates :terms_of_service, acceptance: true
+  validates :first_name, :last_name, presence: true
+
   has_many :transactions
   has_many :domains
   has_one :detail
@@ -8,15 +11,5 @@ class User < ApplicationRecord
 
   def active_details
     detail || Detail::Null::GoDaddy
-  end
-
-  protected
-
-  def after_sign_in_path_for
-    search_index_path
-  end
-
-  def after_sign_out_path_for(resource_or_scope)
-    request.referrer
   end
 end

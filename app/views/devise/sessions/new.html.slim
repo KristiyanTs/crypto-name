@@ -1,9 +1,1 @@
-.col-xs-12.col-md-4.col-md-offset-5.login-form
-  .login-img
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}) do |f|
-    .form-inputs
-      = f.input :email, required: false, label: false, size: 20, placeholder: 'Email'
-      = f.input :password, required: false, label: false, placeholder: 'Password'
-      = f.button :submit, "Continue", class: 'col-xs-4 submit-btn'
-      = render "devise/shared/links"
-
+= render 'form'

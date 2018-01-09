@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    h4
+      | Your new registrar will need an authorization code to access 
+      = @domain.name
+      | .
+    h3 
+      | Authorization code:
+      = @domain.unlock_code
+    h4
+      | If you haven't requested that, please contact our support team ASAP.
+
+ 

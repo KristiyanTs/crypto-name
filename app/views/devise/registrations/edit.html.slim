@@ -6,13 +6,15 @@ hr
       a data-toggle="pill" href="#profile-details" 
         | Profile details
     li
-      = link_to 'Log out', destroy_user_session_path, method: :delete
+      = link_to 'Log out', destroy_user_session_path, method: :delete, remote: true
 
 .tab-content.col-md-8.col-xs-12
 
   .content.col-xs-12.tab-pane.fade.in.active id="profile-details"
     = simple_form_for registration_path(current_user), method: :put do |f|
       = f.error_notification
+      = f.input :first_name, label: false, placeholder: 'First name'
+      = f.input :last_name, label: false, placeholder: 'Last name'
       = f.input :password, autocomplete: "off", placeholder: "New password", required: false, label: false
       = f.input :password_confirmation, required: false, placeholder: "Confirm new password", label: false
       = f.input :current_password, placeholder: "Your current password for confirmation", required: true, label: false
