@@ -20,23 +20,15 @@
 
 javascript:
   $(document).ready(function() {
-    //form id
     $('#new_user')
-    .bind('ajax:success', function(evt, data, status, xhr) {
-      //function called on status: 200 (for ex.)
-      console.log('success');
-    })
     .bind("ajax:error", function(evt, xhr, status, error) {
       //function called on status: 401 or 500 (for ex.)
       $('li.error').remove();
       var errors = jQuery.parseJSON(xhr.responseText).errors; 
-      for (messages in errors) { 
-        error_messages =  messages + ' ' + errors[messages];
+      for (messages in errors) {
         var field = "#new_user " + "#user_" + messages;
-        console.log(field);
-        var error_message = error_messages;
-        //alert(error_messages);
-        $(field).parent().append("<li class='error' style='color: red; margin-bottom: 20px;'>"+error_messages+"</li>");
+        var error_message = messages + ' ' + errors[messages];
+        $(field).parent().append("<li class='error' style='color: red; margin-bottom: 20px;'>"+error_message+"</li>");
         $(field).css('border', '1px solid #D9534F');          
       } 
       $('#js-error-block-signup').show();
