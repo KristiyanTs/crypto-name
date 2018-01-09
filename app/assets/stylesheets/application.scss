@@ -19,7 +19,7 @@
 body{
   font-family: 'Ubuntu', sans-serif !important;
   width: 100vw;
-  background-color: transparent;
+  background-color: #f7faff;
   overflow-x: hidden;
 }
 
@@ -49,6 +49,12 @@ body::after {
     font-size: 20px;
   }
 }
+@media only screen and (min-width: 768px) {
+  h1, h2, h3, h4, h5{
+    color: $blue;
+    font-weight: bold;
+  }
+}
 
 a {
   color: #1784c7;
@@ -73,6 +79,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .content-wrapper{
   overflow: auto;
+  min-height: calc(100vh - 90px);
+  background-color: white;
 }
 
 .simple-navigation ul {
@@ -95,11 +103,11 @@ input[type="search"]::-webkit-search-results-decoration {
   li.active{
     margin-left: 0px;
     a{
-      background-color: $blue;
+      border-left: 2px solid $blue;
+      background-color: transparent !important;
       display: inline-block;
-    }
-    a:hover{
-      background-color: $blue;
+      color: $blue !important;
+      font-weight: bold;
     }
   }
 }
@@ -111,14 +119,15 @@ input[type="search"]::-webkit-search-results-decoration {
 .btn:not(.submit-btn){
   min-width: 200px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0px;
+  border-radius: 4px;
   max-width: 300px;
   line-height: 30px;
   margin-top: 10px;
+  background-color: #f7faff;
 }
 
 div input:not([type='checkbox']) {
-  border-radius: 0px;
+  border-radius: 4px;
   box-shadow: 0px;
   border: 1px solid rgba(0,0,0,0.2);
   margin-bottom: 10px;
@@ -136,6 +145,7 @@ label{
   display: block;
 }
 #flash-messages{
+  z-index: 100;
   position: absolute;
   top: 10px;
   width: 600px;
@@ -166,8 +176,10 @@ Main Page Content
 }
 @media only screen and (min-width: 768px) {
   .cd-main-content .content-wrapper {
-    margin-left: 110px;
-    padding-top: 55px;
+    margin-left: 25vw;
+    margin-top: 45px;
+    box-shadow: 0 7px 14px 0 rgba(50,50,93,.1),0 3px 6px 0 rgba(0,0,0,.07);
+    border-radius: 4px;
   }
   .cd-main-content::before {
     content: 'tablet';
@@ -175,7 +187,8 @@ Main Page Content
 }
 @media only screen and (min-width: 1170px) {
   .cd-main-content .content-wrapper {
-    margin-left: 16.6vw;
+    margin-top: 45px;
+    margin-left: 25vw;
   }
   .cd-main-content::before {
     content: 'desktop';

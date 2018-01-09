@@ -23,7 +23,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       errors = resource.errors.messages.stringify_keys!
       errors.each { |k, v| errors[k] = "#{k.humanize} #{v.first}"}
-      debugger
       render json: { errors: resource.errors.messages }, status: 401
     end
   end

@@ -8,19 +8,23 @@
     width: 80%;
     font-size: $s-md;
     height: 50px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid #adcbff;
     border-right: 0px;
     font-size: 18px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
   .search-btn{
     width: 20%;
     text-align: center;
     height: 50px;
     line-height: 50px;
-    border: 1px solid rgba(0,0,0,0.2);
-    background-color: rgb(240,240,240);
+    border: 1px solid #adcbff;
+    background-color: #edf3ff;
     font-size: 18px;
     color: rgba(0,0,0,0.7);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
   .search-btn:hover{
     color: rgba(0,0,0,0.8);
@@ -35,7 +39,8 @@
 .product{
   padding: 5px !important;
   .content{
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid #adcbff;
+    border-radius: 4px;
     .clickable{
       padding: 15px;
     }
@@ -61,7 +66,7 @@
     }
   }
   .content:hover{
-    background-color: rgb(245,245,245);
+    background-color: #f7faff;
     border: 1px solid $orange;
   }
 
@@ -72,7 +77,7 @@
     padding: 5px;
     width: 100%;
     .content {
-      background-color: rgb(245,245,245);
+      background-color: #f7faff;
       border: 1px solid $orange;
       padding: 10px;
     }
@@ -87,7 +92,7 @@
       input{
         padding-left: 15px;
         padding-right: 15px;
-        width: 80%;
+        width: 95%;
         font-size: $s-md;
         height: 50px;
         border: 0px;
@@ -102,7 +107,7 @@
         height: 50px;
         line-height: 50px;
         border: 0px;
-        border-radius: 0px;
+        border-radius: 4px;
         background-color: $orange;
         color: white;
         font-size: 18px;
@@ -132,7 +137,7 @@
 }
 .product.active{
   .content{
-    background-color: rgb(245,245,245);
+    background-color: #f7faff;
     border: 1px solid $orange;
   }
 }
