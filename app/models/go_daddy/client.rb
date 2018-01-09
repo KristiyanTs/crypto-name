@@ -9,13 +9,14 @@ module GoDaddy
     include GoDaddy::Client::Agreements
     include GoDaddy::Errors
 
-    attr_accessor :key, :secret, :url
+    attr_accessor :key, :secret, :url, :shopper_id
 
-    def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'])
+    def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'], shopper_id: nil)
 
       @key = key
       @secret = secret
       @url = url || 'https://api.godaddy.com/v1/'.freeze
+      @shopper_id = shopper_id
     end
 
     [:get, :post, :patch, :head, :delete].each do |method|
@@ -47,6 +48,7 @@ module GoDaddy
       {
         'Accept': 'application/json',
         'Authorization' => "sso-key #{key}:#{secret}",
+        'X-Shopper-Id' => shopper_id
       }.reject { |_, v| v.nil? }
     end
 
