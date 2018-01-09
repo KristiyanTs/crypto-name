@@ -18,7 +18,6 @@ module GoDaddy
       end
 
       def transfer_domain(name, *args)
-        byebug
         post("domains/#{name}/transfer", *args)
       end
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :domains, only: [:new, :index, :show, :create, :update] do
     with_options module: :domains do
       resource :unlock, only: :update
+      resource :nameservers, only: :update
       resource :code, only: :show
     end
   end

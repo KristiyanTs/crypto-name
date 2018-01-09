@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180106104134) do
     t.integer "duration", default: 1, null: false
     t.boolean "renewal", default: true, null: false
     t.boolean "privacy", default: false, null: false
+    t.string "nameservers"
     t.string "unlock_code"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
