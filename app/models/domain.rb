@@ -1,10 +1,12 @@
 class Domain < ApplicationRecord
   include Domain::RemoteHelpers
 
-  serialize :nameservers, Array
-
   belongs_to :user
+
+  has_many :nameservers
   has_many :transactions, as: :item
+
+  accepts_nested_attributes_for :nameservers
   # TODO: validate domain name
 
   enum status: { pending: 0, complete: 1, failed: 2 }
