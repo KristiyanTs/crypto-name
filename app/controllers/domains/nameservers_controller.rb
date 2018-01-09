@@ -1,17 +1,17 @@
 class Domains::NameserversController < ApplicaitonController
-  before_action :nameservers
   before_action :login
 
   def update
     domain = current_user.domains.find(params[:domain_id])
-    Domain::UpdateNameserversJob.perform_later(domain, params[:nameservers])
+    domain.update!(domain_params)
+    Domain::UpdateNameserversJob.perform_later(domain)
 
-    redirect_to domains_path
+    redirect_to domains_path, notice: "We've begun handling your nameservers."
   end
 
   private
 
-  def nameservers
-    redirect_to domains_path, notice: 'No Name Servers given' unless params[:nameservers]
+  def domain_params
+    params.require(:domain).permit(nameservers_attributes: [:id, :name, :ip_addresses])
   end
 end
