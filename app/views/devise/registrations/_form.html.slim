@@ -1,0 +1,33 @@
+.col-xs-10.col-md-4.col-xs-offset-1.col-md-offset-4.login-form 
+  .login-img
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'col-xs-12 col-md-8 col-md-offset-2'}, remote: true) do |f|
+    h2.text-center Sign up
+    .form-inputs
+      = f.input :email, required: true, autofocus: true, label: false, placeholder: 'Email'
+      = f.input :first_name, require: true, label: false, placeholder: 'First name'
+      = f.input :last_name, require: true, label: false, placeholder: 'Last name'
+      = f.input :password, required: true, label: false, placeholder: 'Password, > 6 symbols'
+      = f.input :password_confirmation, required: true, label: false, placeholder: 'Confirm password'
+      = f.input :terms_of_service, as: :boolean, label: "I have read and agree to the <a href='/pages/terms'> Terms and Conditions</a> and <a href='/pages/privacy'>Privacy Policy</a>".html_safe
+              
+      = f.button :submit, "Continue", class: 'col-xs-12 submit-btn'
+  = render "devise/shared/links"
+
+javascript:
+  $(document).ready(function() {
+    $('#new_user')
+    .bind("ajax:error", function(evt, xhr, status, error) {
+      //function called on status: 401 or 500 (for ex.)
+      $('li.error').remove();
+      var errors = jQuery.parseJSON(xhr.responseText).errors; 
+      for (messages in errors) {
+        var field = "#new_user " + "#user_" + messages;
+        $(field).parent().append("<li class='error' style='color: red; margin-bottom: 20px;'>"+errors[messages]+"</li>");
+        $(field).css('border', '1px solid #D9534F');          
+      } 
+      $('#js-error-block-signup').show();
+      $('html, body').animate({
+          scrollTop: $("#new_user").offset().top
+      }, 1000);
+    });
+  });

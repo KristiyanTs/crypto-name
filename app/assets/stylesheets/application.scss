@@ -123,17 +123,32 @@ div input:not([type='checkbox']) {
   border: 1px solid rgba(0,0,0,0.2);
   margin-bottom: 10px;
   padding-left: 10px;
-  min-width: 400px;
   line-height: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  div input:not([type='checkbox']) {
+    min-width: 400px;
+  }
 }
 
 label{
   display: block;
 }
 #flash-messages{
+  position: absolute;
+  top: 10px;
+  width: 600px;
+  text-align: center;
+  padding: 5px;
+  left: calc(50% - 300px);
   font-weight: bold;
   font-size: 16px;
-  color: green;
+  color: white;
+  background-color: $blue;
+  .flash.alert{
+    margin-bottom: 0px;
+  }
 }
 
 /* -------------------------------- 

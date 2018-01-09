@@ -11,10 +11,10 @@ $('.product .footer').toggle();
 $('.filter-topdomain input:checkbox').prop('checked', true);
 
 //On new domain search
-$('.domain-search').submit(function(event){
+$('body .domain-search').submit(function(event){
   $('.product').fadeOut(200);
   $('.cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
-})
+});
 
 // Handle active/faded products
 $('.product .clickable').on("click tap", function(){
