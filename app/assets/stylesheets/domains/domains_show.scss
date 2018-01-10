@@ -1,0 +1,28 @@
+.domain{
+  padding: 10px 0px;
+  .content{
+    padding: 10px;
+    position:relative;
+    overflow: auto;
+    border-bottom: 1px solid $light;
+    .name{
+      font-size: $h3;
+      padding: 0px;
+      color: black;
+    }
+    .expiry{
+      font-size: $h4;
+      color: $light_grey;
+      text-align: right;
+    }
+  }
+  .content:hover{
+  }
+}
+.domain.active{
+  .content{
+  }
+}
+.domain.faded{
+  opacity: 0.2;
+}

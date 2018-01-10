@@ -1,0 +1,67 @@
+.product{
+  padding: 5px !important;
+  .content{
+    border-bottom: 1px solid $light;
+    .clickable{
+      padding: 15px 5px;
+    }
+    .domain{
+      font-size: $h4;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    .price{
+      font-size: $h4;
+      line-height: 20px;
+      color: $orange;
+      text-align: right;
+      font-weight: bold;
+    }
+    .renew-price{
+      text-align: right;
+      span, b{
+        color: grey;
+      }
+    }
+  }
+  .content:hover{
+  }
+
+  .footer{
+    padding: 5px;
+    width: 100%;
+    .content {
+      padding: 10px;
+    }
+    .buy-domain{
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      input{
+      }
+      .buy-btn{
+      }
+      .buy-btn:hover{
+      }
+      .buy-btn:active{
+      }
+    }
+    .total{
+      padding-top:15px;
+      text-align: center;
+      .years, .price{
+        display: inline-block;
+      }
+      .years{
+        padding-right: 5px;
+      }
+    }
+  }
+}
+.product.active{
+  .content{
+  }
+}
+.product.faded{
+  opacity: 0.2;
+}

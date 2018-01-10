@@ -2,195 +2,78 @@
 @import "custom/pretty-checkbox.min.scss";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "navbar.scss";
-@import "login.scss";
 @import "font-awesome";
-@import "footer.scss";
-@import "search.scss";
-@import "sidenav.scss";
-@import "sidenav_filter.scss";
-@import "home";
-@import "domain";
-@import "profile";
-@import "pages";
-@import "spinner";
+@import "devise/login";
+@import "domains/domains_search";
+@import "domains/domains_show";
+@import "headers/home_header";
+@import "headers/main_header";
+@import "pages/home";
+@import "partials/loader";
+@import "partials/search";
+@import "partials/simple_navigation";
+@import "partials/flash_messages";
+@import "sidenav/sidenav";
+@import "sidenav/sidenav_filters";
 @import url('https://fonts.googleapis.com/css?family=Rajdhani|Ubuntu');
 
 body{
   font-family: 'Ubuntu', sans-serif !important;
   width: 100vw;
-  background-color: #f7faff;
+  background-color: $background_blue;
   overflow-x: hidden;
 }
 
-/* -------------------------------- 
-
-Primary style
-
--------------------------------- */
-*, *::after, *::before {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
 body::after {
   clear: both;
   content: "";
   display: table;
 }
 
-@media only screen and (max-width: 768px) {
-  h1{
-    font-size: 22px;
-  }
-  h2{
-    font-size: 20px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  h1, h2, h3, h4, h5{
-    color: $blue;
-    font-weight: bold;
-  }
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
 a {
-  color: #1784c7;
-  text-decoration: none;
+   outline: 0;
 }
 
-input {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
+input:not(.btn):not([type='checkbox']):not([type='radio']){
+  border: 1px solid $light;
+  font-size: $h5;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  padding-left: 10px;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display: none;
+.description {
+  font-size: $h5;
+  margin-bottom: 15px;
 }
 
-.col-xs-12, .col-xs-6{
-  padding: 0px;
+.btn{
+  border-radius: 4px;
+  min-width: 200px;
+  text-align: center;
+  font-size: $h5;
+  border: 1px solid $light;
+  background-color: white;
 }
 
 .content-wrapper{
   overflow: auto;
   min-height: calc(100vh - 90px);
   background-color: white;
-}
-
-.simple-navigation ul {
-  li{
-    padding: 10px 10px 10px 0px;
-    float: none;
-    border-radius: 0px;
-    background-color: transparent !important;
-    a{
-      font-size: 16px;
-      min-width: 300px;
-      cursor: pointer;
-      border-radius: 0px; 
-      display: inline-block;
-    }
-    a:hover{
-      text-decoration: none;
-    }
-  } 
-  li.active{
-    margin-left: 0px;
-    a{
-      border-left: 2px solid $blue;
-      background-color: transparent !important;
-      display: inline-block;
-      color: $blue !important;
-      font-weight: bold;
-    }
-  }
-}
-
-.tab-content{
-  padding-left: 0px;
-}
-
-.btn:not(.submit-btn){
-  min-width: 200px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  max-width: 300px;
-  line-height: 30px;
-  margin-top: 10px;
-  background-color: #f7faff;
-}
-
-div input:not([type='checkbox']) {
-  border-radius: 4px;
-  box-shadow: 0px;
-  border: 1px solid rgba(0,0,0,0.2);
-  margin-bottom: 10px;
-  padding-left: 10px;
-  line-height: 40px;
+  padding: 20px;
 }
 
 @media only screen and (min-width: 768px) {
-  div input:not([type='checkbox']) {
-    min-width: 400px;
-  }
-}
-
-label{
-  display: block;
-}
-#flash-messages{
-  z-index: 100;
-  position: absolute;
-  top: 10px;
-  width: 600px;
-  text-align: center;
-  padding: 5px;
-  left: calc(50% - 300px);
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
-  background-color: $blue;
-  .flash.alert{
-    margin-bottom: 0px;
-  }
-}
-
-/* -------------------------------- 
-
-Main Page Content
-
--------------------------------- */
-.cd-main-content .content-wrapper {
-  padding: 45px 15px 3em;
-}
-.cd-main-content::before {
-  /* never visible - used to check MQ in jQuery */
-  display: none;
-  content: 'mobile';
-}
-@media only screen and (min-width: 768px) {
-  .cd-main-content .content-wrapper {
+  .content-wrapper {
     margin-left: 25vw;
     margin-top: 45px;
     box-shadow: 0 7px 14px 0 rgba(50,50,93,.1),0 3px 6px 0 rgba(0,0,0,.07);
     border-radius: 4px;
   }
-  .cd-main-content::before {
-    content: 'tablet';
-  }
 }
-@media only screen and (min-width: 1170px) {
-  .cd-main-content .content-wrapper {
-    margin-top: 45px;
-    margin-left: 25vw;
-  }
-  .cd-main-content::before {
-    content: 'desktop';
-  }
-}
+
