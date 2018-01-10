@@ -1,11 +1,6 @@
-@import  url(https://fonts.googleapis.com/css?family=Montserrat);
-
 $width: 15px;
 $height: 15px;
-
 $bounce_height: 30px;
-
-
 
 .wrap {
   position: absolute;
@@ -19,7 +14,7 @@ $bounce_height: 30px;
   color: $orange;
   display: inline-block;
   margin-left: 5px;
-  font-size: 25px;
+  font-size: $h2;
 }
 
 .bounceball {

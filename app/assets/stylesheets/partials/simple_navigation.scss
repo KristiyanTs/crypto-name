@@ -1,0 +1,36 @@
+.simple-navigation ul {
+  li{
+    padding: 10px 10px 10px 0px;
+    float: none;
+    border-radius: 0px;
+    background-color: transparent !important;
+    a{
+      color: $light_grey;
+      font-size: $h5;
+      cursor: pointer;
+      border-radius: 0px; 
+      display: inline-block;
+      min-width: 250px;
+    }
+    a:hover{
+      text-decoration: none;
+      background-color: transparent;
+      box-shadow: inset 2px 0 0 $light_grey;
+    }
+  } 
+  li.active{
+    margin-left: 0px;
+    a{
+      color: $blue;
+      box-shadow: inset 2px 0 0 $light_blue;
+      background-color: transparent !important;
+      display: inline-block;
+    }
+    a:hover{
+      color: $blue;
+    }
+    a:active, a:focus{
+      color: $blue;
+    }
+  }
+}

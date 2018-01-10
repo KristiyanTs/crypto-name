@@ -1,20 +1,30 @@
+/*Colors*/
+
+/*orange*/
 $orange: #FC8368;
 $orange_hover: #fc7668;
 $orange_clicked: #f96161;
-$purple: #ab87ff;
-$purple_trans: rgba(171, 135, 255, 0.8);
-$white: #f4faff;
+
+
+/*blue*/
+$background_blue: #f7faff;
 $blue: #3685b5;
-$indigo: #2C4873;
-$indigo_trans: rgba(35, 57, 91, 0.9);
 $light_blue: #5da9e9;
+$dark_blue: #228ae2;
 
-$s-sm: 12px;
-$s-md: 14px;
-$s-lg: 18px;
-$s-xl: 24px;
+/*black & white */
+$dark: #333333;
+$dark_grey: #595959;
+$light_grey: #7c7c7c;
+$light: #d3d3d3;
 
-$l-sm: 14px;
-$l-md: 16px;
-$l-lg: 24px;
-$l-xl: 30px;
+
+/*Text size*/
+
+$h1: 24px;
+$h2: 22px;
+$h3: 20px;
+$h4: 18px;
+$h5: 16px;
+$h6: 14px;
+$h7: 12px;

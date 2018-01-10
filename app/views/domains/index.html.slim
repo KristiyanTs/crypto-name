@@ -5,7 +5,7 @@ hr
   ul.nav.nav-pills
     li.active
       a data-toggle="pill" href="#domains" 
-        | Domains
+        | My Domains
     li 
       a#transfer-domain-button data-toggle="pill" href="#transfer" 
         | Transfer domains to Moonhythe
@@ -15,7 +15,7 @@ hr
     - if @domains.any?
       = render partial: 'domain', collection: @domains, as: :domain
     - else
-      h4 
+      .description 
         | You don't have any domains with us, yet. You could 
         a data-toggle="pill" href="#transfer" onclick="$('#transfer-domain-button').click();"
           | transfer a domain to Moonhythe 
@@ -23,18 +23,16 @@ hr
         a href="/search" buy a new domain.
 
   .content.col-xs-12.tab-pane.fade id="transfer"
-    h4 Transfer your domain
+    .description To transfer a domain to Moonhythe, please follow the instructions
+    ol.description
+      li Unlock your domain from your current registrar
+      li Enter your domain name, e.g. domain.com
+      li Enter the authorization code you receive from your current registrar.
     = form_with url: transfers_path, remote: true, method: :post do |f|
-      ol
-        li Unlock your domain from your current registrar
-        li 
-          | Enter your domain name, e.g. domain.com
-          br
-          = f.text_field :name, label: false, placeholder: 'Domain'
-        li 
-          | You will be sent an email with an authorization code
-          br
-          = f.text_field :unlock_code, label: false, placeholder: 'Authorization code'
-        li = f.submit 'Transfer'
+      = f.text_field :name, label: false, placeholder: 'Domain name, e.g. domain.com'
+      br
+      = f.text_field :unlock_code, label: false, placeholder: 'Authorization code'
+      br
+      = f.submit 'Transfer', class: 'btn'
     hr
     h4 Incoming transfers

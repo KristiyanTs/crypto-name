@@ -1,0 +1,82 @@
+.domain-search{
+  padding: 0px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  input{
+    padding-left: 15px;
+    height: 50px !important;
+    border: 1px solid $light;
+    border-right: 0px;
+    font-size: 18px;
+    border-radius: 4px;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-right: 0px !important;
+  }
+  .search-btn{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    border: 1px solid $light;
+    font-size: 18px;
+    color: $light_grey;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  .search-btn:hover{
+    color: white;
+    background-color: $light;
+    font-weight: bold;
+  }
+  .search-btn:active{
+    color: white;
+    background-color: $dark_grey;
+    font-weight: bold;
+  }
+}
+
+.agreements-search{
+  padding: 0px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  input{
+    padding-left: 15px;
+    height: 50px;
+    border: 1px solid $light;
+    border-right: 0px;
+    font-size: 18px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  button{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    border: 1px solid $light;
+    font-size: 18px;
+    color: $light_grey;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  button:hover{
+    color: white;
+    background-color: $light;
+  }
+  button:active{
+    color: white;
+    background-color: $dark_grey;
+  }
+}
+
+.info-search{
+  color: $light_grey;
+  padding: 0px;
+  margin-bottom: 20px;
+}

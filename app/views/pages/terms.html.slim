@@ -14,16 +14,16 @@ hr
         | Top-level domain's Terms & Conditions
 
 
-.tab-content.col-md-6.col-xs-12
+.tab-content.col-md-8.col-xs-12
   .content.col-xs-12.tab-pane.fade.in.active id="our"
-    h2
+    h3
       | Moonhythe's Terms of Service
     h3
       | 1. Terms
     p
       | By accessing the website at 
-      a[href="http://Moonhythe.net"]
-        | http://Moonhythe.net
+      a[href="http://moonhythe.net"]
+        | http://moonhythe.net
       | , you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
     h3
       | 2. Use License
@@ -92,10 +92,10 @@ hr
     a href="https://uk.godaddy.com/agreements/showdoc.aspx?pageid=UTOS&app_hdr=0" GoDaddy official website
 
   .content.col-xs-12.tab-pane.fade id="top-domains"
-    h4 Enter a top-level domain to check its special Terms & Agreements
+    .description Enter a top-level domain to check its special Terms & Agreements
     = form_tag agreements_path, remote: true, method: 'get', class: 'agreements-search' do
-      = text_field_tag :tld, params[:tld], placeholder: "Top-level domain"
-      button type="submit"
+      = text_field_tag :tld, params[:tld], placeholder: "Top-level domain", class: 'col-xs-10'
+      button.col-xs-2 type="submit"
         center.hidden-lg.hidden-md = fa_icon "search"
-        h4.hidden-xs.hidden-sm Search
+        .hidden-xs.hidden-sm Search
     .agreement
