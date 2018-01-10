@@ -4,9 +4,11 @@ class Domain < ApplicationRecord
   belongs_to :user
 
   has_many :nameservers
+  has_many :records
   has_many :transactions, as: :item
 
   accepts_nested_attributes_for :nameservers
+  accepts_nested_attributes_for :records
   # TODO: validate domain name
 
   enum status: { pending: 0, complete: 1, failed: 2 }
