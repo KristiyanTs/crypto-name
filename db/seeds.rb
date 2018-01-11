@@ -14,7 +14,7 @@ Detail.create(
   organization: 'Moonhythe',
   job_title: 'CEO',
   email: 'kris@example.com',
-  phone: '+359812345678',
+  phone: '+359.885955926',
   address1: 'Svobada str.',
   city: 'Sofia',
   state: 'Sofia',
