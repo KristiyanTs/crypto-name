@@ -3,7 +3,7 @@ lock "~> 3.10.1"
 
 server 'moonhythe@188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
 
-set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
+set :puma_bind, %w(tcp://0.0.0.0:3000 unix://#{shared_dir}/tmp/sockets/puma.sock)
 set :puma_threads, [2, 4]
 set :puma_workers, 2
 
