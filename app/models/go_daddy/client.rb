@@ -1,14 +1,10 @@
+%w[abuse agreements domains orders shoppers subscriptions].each do |f|
+  require_relative "./client/#{f}"
+end
+
 module GoDaddy
   class Client
     # include ::GoDaddy::Client::*
-    include GoDaddy::Client::Domains
-    include GoDaddy::Client::Abuse
-    include GoDaddy::Client::Orders
-    include GoDaddy::Client::Shoppers
-    include GoDaddy::Client::Subscriptions
-    include GoDaddy::Client::Agreements
-    include GoDaddy::Errors
-
     attr_accessor :key, :secret, :url, :shopper_id
 
     def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'], shopper_id: nil)
@@ -61,5 +57,13 @@ module GoDaddy
               end
       raise klass, response.body
     end
+
+    include GoDaddy::Client::Domains
+    include GoDaddy::Client::Abuse
+    include GoDaddy::Client::Orders
+    include GoDaddy::Client::Shoppers
+    include GoDaddy::Client::Subscriptions
+    include GoDaddy::Client::Agreements
+    include GoDaddy::Errors
   end
 end
