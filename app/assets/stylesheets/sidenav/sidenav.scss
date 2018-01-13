@@ -59,56 +59,56 @@
     background-color: grey;
   }
   ul > li.search > a::before {
-    -webkit-mask-image: url(search.svg);
-    mask-image: url(search.svg);
+    -webkit-mask-image: image-url(search);
+    mask-image: image-url(search);
   }
   ul > li.users > a::before {
-    -webkit-mask-image: url(profile.svg);
-    mask-image: url(profile.svg);
+    -webkit-mask-image: image-url(profile);
+    mask-image: image-url(profile);
   }
   ul > li.domains > a::before {
-    -webkit-mask-image: url(settings-1.svg);
-    mask-image: url(settings-1.svg);
+    -webkit-mask-image: image-url(settings-1);
+    mask-image: image-url(settings-1);
   }
   ul > li.notifications > a::before {
-    -webkit-mask-image: url(speech-bubble.svg);
-    mask-image: url(speech-bubble.svg);
+    -webkit-mask-image: image-url(speech-bubble);
+    mask-image: image-url(speech-bubble);
   }
   ul > li.faq > a::before {
-    -webkit-mask-image: url(info.svg);
-    mask-image: url(info.svg);
+    -webkit-mask-image: image-url(info);
+    mask-image: image-url(info);
   }
   ul > li.login > a::before {
-    -webkit-mask-image: url(profile.svg);
-    mask-image: url(profile.svg);
+    -webkit-mask-image: image-url(profile);
+    mask-image: image-url(profile);
   }
   ul > li.signup > a::before {
-    -webkit-mask-image: url(add.svg);
-    mask-image: url(add.svg);
+    -webkit-mask-image: image-url(add);
+    mask-image: image-url(add);
   }
   ul > li.document > a::before {
-    -webkit-mask-image: url(file.svg);
-    mask-image: url(file.svg);
+    -webkit-mask-image: image-url(file);
+    mask-image: image-url(file);
   }
   ul > li.contacts > a::before {
-    -webkit-mask-image: url(envelope.svg);
-    mask-image: url(envelope.svg);
+    -webkit-mask-image: image-url(envelope);
+    mask-image: image-url(envelope);
   }
   ul > li.logout > a::before {
-    -webkit-mask-image: url(logout.svg);
-    mask-image: url(logout.svg);
+    -webkit-mask-image: image-url(logout);
+    mask-image: image-url(logout);
   }
   ul > li.support > a::before {
-    -webkit-mask-image: url(rocket-launch.svg);
-    mask-image: url(rocket-launch.svg);
+    -webkit-mask-image: image-url(rocket-launch);
+    mask-image: image-url(rocket-launch);
   }
   ul > li.about > a::before {
-    -webkit-mask-image: url(heart.svg);
-    mask-image: url(heart.svg);
+    -webkit-mask-image: image-url(heart);
+    mask-image: image-url(heart);
   }
   ul > li.credits > a::before {
-    -webkit-mask-image: url(file.svg);
-    mask-image: url(file.svg);
+    -webkit-mask-image: image-url(file);
+    mask-image: image-url(file);
   }
 }
 .cd-side-nav.nav-is-visible {
