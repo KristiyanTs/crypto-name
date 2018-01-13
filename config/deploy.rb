@@ -42,6 +42,6 @@ set :keep_releases, 5
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-set :puma_bind, "unix://#{shared_dir}/tmp/sockets/#{fetch(:application_name)}-puma.sock"
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/#{fetch(:application_name)}-puma.sock"
 set :puma_threads, [2, 4]
 set :puma_workers, 2
