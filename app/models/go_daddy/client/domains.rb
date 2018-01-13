@@ -52,6 +52,10 @@ module GoDaddy
       def purchase(*args)
         post("domains/purchase", *args)
       end
+
+      def update_records(name, *args)
+        put("domains/#{name}/records", *args)
+      end
     end
   end
 end
