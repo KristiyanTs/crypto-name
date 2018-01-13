@@ -1,22 +1,31 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
 
-server '77.246.208.12', port: 22, roles: [:web, :app, :db], primary: true
-
-set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
-set :puma_threads, [2, 4]
-set :puma_workers, 2
+server 'moonhythe@188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application, "crypto_name"
-set :user, 'njichev'
+set :user, 'moonhythe'
 set :repo_url, "git@github.com:Kristiyan96/crypto-name.git"
 
 set :rbenv_type, :user
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} /usr/bin/rbenv exec"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/njichev/www/crypto_name"
+set :deploy_to, "/home/moonhythe/www/crypto_name"
+set :pty,             true
+set :use_sudo,        false
+set :stage,           :production
+set :deploy_via,      :remote_cache
+set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
+set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
+set :puma_access_log, "#{release_path}/log/puma.error.log"
+set :puma_error_log,  "#{release_path}/log/puma.access.log"
+set :puma_preload_app, true
+set :puma_worker_timeout, nil
+set :puma_init_active_record, true  # Change to true if using ActiveRecord
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -44,3 +53,4 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+

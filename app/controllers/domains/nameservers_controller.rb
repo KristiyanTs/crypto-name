@@ -1,4 +1,4 @@
-class Domains::NameserversController < ApplicaitonController
+class Domains::NameserversController < ApplicationController
   before_action :login
 
   def update
