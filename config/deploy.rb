@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
 
-server '188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
+server 'moonhythe@188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
 
 set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
 set :puma_threads, [2, 4]
@@ -12,6 +12,7 @@ set :user, 'moonhythe'
 set :repo_url, "git@github.com:Kristiyan96/crypto-name.git"
 
 set :rbenv_type, :user
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} /usr/bin/rbenv exec"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
