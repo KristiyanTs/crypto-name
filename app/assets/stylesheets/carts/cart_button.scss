@@ -1,0 +1,32 @@
+.cart-button{
+  z-index: 100;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 60px;
+  width: 60px;
+  border-radius: 4px;
+  -webkit-transition: top 0.2s;
+  -moz-transition: top 0.2s;
+  transition: top 0.2s;
+  .badge{
+    background-color: $orange;
+    font-size: $h4;
+  }
+}
+
+.cart-button.opened {
+  background-image: url('domains.svg')
+} 
+
+.cart-button.closed {
+  background-image: url('market.svg');
+}
+
+.cart-button:hover {
+  cursor: pointer;
+  top: 27px;
+  -webkit-transition: top 0.2s;
+  -moz-transition: top 0.2s;
+  transition: top 0.2s;
+}

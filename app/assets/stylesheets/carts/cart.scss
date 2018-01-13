@@ -1,0 +1,70 @@
+.cart{
+  overflow: auto;
+  min-height: calc(100vh - 90px);
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  .content {
+    overflow: auto;
+    padding: 30px 0px 20px 0px;
+    .item {
+      padding: 30px 0px;
+      border-bottom: 1px solid $light;
+      .title {
+        padding: 0px;
+        font-weight: bold;
+        font-size: $h4;
+      }
+      .price {
+        text-align: right;
+        font-weight: bold;
+        font-size: $h4;
+        padding-right: 0px;
+      }
+      .remove-item {
+        margin-left: 20px;
+        display: block;
+        height: 25px;
+        width: 25px;
+        background: url('cancel.svg') no-repeat 0 center;
+      }
+    }
+  }
+  .footer {
+    padding: 0px;
+    font-size: $h3;
+    .proceed {
+      padding: 20px 45px;
+      text-align: right;
+      a {
+        padding: 20px 50px;
+        color: white;
+        background-color: $light_blue;
+        border-radius: 4px;
+      }
+      a:hover {
+        text-decoration: none;
+        background-color: $blue;
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+      }
+    }
+    .subtotal {
+      text-align: right;
+      font-weight: bold;
+      font-size: $h2;
+      padding: 20px 45px;
+
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .cart {
+    margin-left: 25vw;
+    margin-top: 45px;
+    box-shadow: 0 7px 14px 0 rgba(50,50,93,.1),0 3px 6px 0 rgba(0,0,0,.07);
+    border-radius: 4px;
+  }
+}

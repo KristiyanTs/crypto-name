@@ -25,8 +25,7 @@ class Domain < ApplicationRecord
     @price ||= begin
                  remote_price = GoDaddy.available?(name).body['price']
                  normalized = remote_price / 10_000
-                 floating = normalized.to_f / 100
-                 price = Price.new(floating).call
+                 price = Price.new(normalized).call
                  SpecialPrice.new(price, tld).call
                end
   end

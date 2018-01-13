@@ -1,11 +1,10 @@
 // Render filters
 $('.filter-topdomain .content').html("<%= escape_javascript (render partial: 'extensions') %>");
 
+$('.product').remove();
+$('.wrap').remove();
 // Render results
-$('.content-wrapper').html("<%= escape_javascript (render partial: 'results') %>");
-
-// Hide footers
-$('.product .footer').toggle();
+$('.content-wrapper').append("<%= escape_javascript (render partial: 'result', collection: @results, as: :result) %>");
 
 // Check all checkboxes
 $('.filter-topdomain input:checkbox').prop('checked', true);
@@ -14,64 +13,6 @@ $('.filter-topdomain input:checkbox').prop('checked', true);
 $('body .domain-search').submit(function(event){
   $('.product').fadeOut(200);
   $('.cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
-});
-
-// Handle active/faded products
-$('.product .clickable').on("click tap", function(){
-	$('.product .clickable').not(this).each(function(){
-	   var footer = $(this).next('.footer');
-	   var product = $(this).parent().parent();
-
-	   footer.hide(); 
-	   product.removeClass('faded').removeClass('active');
-	});
-
-	var product = $(this).parent().parent()
-	product.toggleClass('active').removeClass('faded');
-	var footer = $(this).next('.footer');
-	footer.toggle(100);
-
-	if(product.hasClass('active')){
-		$('.product').not(product).each(function(){
-		   $(this).addClass('faded');
-		});
-	} else{
-		$('.product').removeClass('faded');
-	}
-
-});
-
-// Prevent footer being closed if clicked on
-$('.product .footer').on("click tap", function(event){
-	event.stopPropagation();
-});
-
-
-// Change displayed price in footer
-$('.buy-domain .range-slider input').on('input', function() { 
-
-  var content           = $(this).parent().parent().parent();
-  var first_year        = content.attr('data-price');
-  var renew             = content.attr('data-renew');
-  var buy_btn           = content.find('.buy-btn');
-  var years_string      = content.find('.years');
-  var price_string      = content.find('.price');
-
-  var duration = this.value;
-  var total_price=0;
-  buy_btn.attr('href', buy_btn.attr('href').slice(0, -1)+duration);
-
-	if(duration==1){
-    total_price = (first_year).toFixed(2);
-		duration = duration + " year for ";
-	}
-	else{
-    total_price = ((first_year + (duration-1)*renew)).toFixed(2);
-		duration = duration + " years for ";
-	}
-
-	years_string.html(duration);
-	price_string.html(" $" + total_price);
 });
 
 // filter products on checkbox change
@@ -112,3 +53,8 @@ function filter(){
 function updateCount(){
   $('.info-search b').text($('.content-wrapper .product:visible').length);
 }
+
+$('.add-to-cart').on('click tap', function(){
+  $(this).prop('disabled', true);
+  $(this).html("Added");
+});

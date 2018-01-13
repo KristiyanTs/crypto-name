@@ -1,1 +1,6 @@
 en:
+  cart: 
+    added: "Item successfully added."
+    updated: "Item was successfully updated."
+    error: "There was an error."
+    removed: "Ites was successfully removed."

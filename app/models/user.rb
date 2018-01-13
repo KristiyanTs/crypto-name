@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :domains
   has_one :detail
+  has_one :cart
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable

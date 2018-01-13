@@ -1,0 +1,44 @@
+.login-form{
+  overflow: hidden;
+  .login-img{
+    background: url(user.png);
+    width: 100%;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-position: center; 
+  }
+  .form-inputs{
+    margin-top: 25px;
+    width: 100%;
+    input:not([type='checkbox']){
+      width: 100%;
+      height: 50px !important;
+      line-height: 50px;
+    }
+    .submit-btn{
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: $light_grey;
+      font-size: $h5;
+      line-height: 40px !important;
+      border: 1px solid $orange;
+    }
+    .submit-btn:hover, .submit-btn:active{
+      background-color: $orange;
+      color: white;
+      border: 0px;
+    }
+    .user_terms_of_service label{
+      font-weight: normal;
+      padding-left: 20px;
+    }
+  }
+  .login-links{
+    padding: 0px 0px 40px 0px;
+    a{
+      padding-bottom: 10px;
+      color: $light_grey;
+    }
+  }
+}

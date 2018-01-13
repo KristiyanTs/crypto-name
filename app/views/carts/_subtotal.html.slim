@@ -1,0 +1,5 @@
+.col-xs-12.subtotal
+  | Subtotal: $
+  = "%.2f" % (client_cart.subtotal.to_i/100.0)
+.col-xs-12.proceed
+  = link_to "Continue", carts_path

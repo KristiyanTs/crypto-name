@@ -1,29 +1,28 @@
 = render 'pages/custom_navbar'
-#stripes
-  span
-  span
-  span
-  span
-.section1
-	.col-md-1.hidden-xs.col-md-offset-1
-		.question ?
-	.col-md-4.col-xs-10.call
-		h1 
-			b What if your domain
-		h2
-			ul
-				li
-					h2 could be set up in less than 5 minutes,
-				li 
-					h2 was inexpensive,
-				li
-					h2 and easy to maintain
-    .col-xs-12
-    .col-md-5.col-md-offset-1.col-xs-10.col-xs-offset-1
-      a.call-to-action.col-xs-12 href="/search" Let's get started
-    .col-xs-10.col-md-offset-1.
-      ul.benefits.col-xs-12
-        li Intuitive User Interface
-        li Pay the way you want
-        li Transparent & Competitive Pricing
-        li Award-winning Customer Support
+
+.section1.col-md-6.col-xs-12
+  .call.col-xs-10.col-xs-offset-1 Buying and managing domains made easy
+  .call-description.col-xs-10.col-xs-offset-1 Unpacked reserved sir offering bed judgment may and quitting speaking. Is do be improved raptures offering required in replying raillery. Stairs ladies friend by in mutual an no. Mr hence chief he cause. Whole no doors on hoped. Mile tell if help they ye full name. 
+  .call-to-action.col-xs-10.col-xs-offset-1 
+    a href="/search" Let's get started
+
+.section2
+
+.section3
+  ul.benefits.col-xs-12
+    li.col-xs-12.col-md-6.col-lg-3
+      .text-center
+        = image_tag('dashboard.svg')
+      .title Intuitive User Interface
+    li.col-xs-12.col-md-6.col-lg-3
+      .text-center
+        = image_tag('payment.svg')
+      .title Pay the way you want
+    li.col-xs-12.col-md-6.col-lg-3
+      .text-center
+        = image_tag('price.svg')
+      .title Transparent & Competitive Pricing
+    li.col-xs-12.col-md-6.col-lg-3
+      .text-center
+        = image_tag('support.svg')
+      .title Award-winning Customer Support

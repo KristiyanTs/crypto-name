@@ -1,0 +1,10 @@
+.cart.col-xs-12.col-md-7.hidden
+  .cart-button.opened
+  h2 Cart
+  .content
+    = render partial: 'items/item', collection: client_cart.items.order(:created_at), as: :item
+  .footer
+    = render partial: 'carts/subtotal'
+
+
+

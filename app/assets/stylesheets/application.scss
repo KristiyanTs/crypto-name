@@ -13,8 +13,11 @@
 @import "partials/search";
 @import "partials/simple_navigation";
 @import "partials/flash_messages";
+@import "partials/details_form";
 @import "sidenav/sidenav";
 @import "sidenav/sidenav_filters";
+@import "carts/cart";
+@import "carts/cart_button";
 @import url('https://fonts.googleapis.com/css?family=Rajdhani|Ubuntu');
 
 body{
@@ -45,6 +48,7 @@ input:not(.btn):not([type='checkbox']):not([type='radio']){
   line-height: 40px;
   border-radius: 4px;
   padding-left: 10px;
+  margin-bottom: 15px;
 }
 
 .description {
@@ -66,6 +70,7 @@ input:not(.btn):not([type='checkbox']):not([type='radio']){
   min-height: calc(100vh - 90px);
   background-color: white;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 768px) {

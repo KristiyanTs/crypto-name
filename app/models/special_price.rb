@@ -6,8 +6,11 @@ class SpecialPrice
   end
 
   def call
-    if tld == 'com' 
-      price - 2
+    case tld
+    when 'com' 
+      price*0.8
+    when 'net'
+      price*0.8
     else
       price
     end
