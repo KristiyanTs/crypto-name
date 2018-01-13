@@ -1,14 +1,14 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
 
-server '77.246.208.12', port: 22, roles: [:web, :app, :db], primary: true
+server '188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
 
 set :puma_bind, %w(tcp://0.0.0.0:3000 unix:///tmp/puma.sock)
 set :puma_threads, [2, 4]
 set :puma_workers, 2
 
 set :application, "crypto_name"
-set :user, 'njichev'
+set :user, 'moonhythe'
 set :repo_url, "git@github.com:Kristiyan96/crypto-name.git"
 
 set :rbenv_type, :user
@@ -16,7 +16,7 @@ set :rbenv_type, :user
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/njichev/www/crypto_name"
+set :deploy_to, "/home/moonhythe/www/crypto_name"
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
