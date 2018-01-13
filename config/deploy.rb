@@ -3,10 +3,6 @@ lock "~> 3.10.1"
 
 server 'moonhythe@188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
 
-set :puma_bind, %w(tcp://0.0.0.0:3000 unix://#{shared_dir}/tmp/sockets/puma.sock)
-set :puma_threads, [2, 4]
-set :puma_workers, 2
-
 set :application, "crypto_name"
 set :user, 'moonhythe'
 set :repo_url, "git@github.com:Kristiyan96/crypto-name.git"
@@ -45,3 +41,7 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :puma_bind, "unix://#{shared_dir}/tmp/sockets/#{fetch(:application_name)}-puma.sock"
+set :puma_threads, [2, 4]
+set :puma_workers, 2
