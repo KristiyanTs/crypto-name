@@ -8,9 +8,9 @@ class Consent
 
   def call
     {
-      'agreementKeys' => domain.agreement_keys,
-      'agreedBy' => user.last_sign_in_ip,
-      'agreedAt' =>  user.confirmed_at.iso8601
+      'agreementKeys' => ['DNRA'],   #replace with domain.agreement_keys after making sure the payment information is correct
+      'agreedBy'      => user.last_sign_in_ip,
+      'agreedAt'      => user.confirmed_at.iso8601
     }
   end
 end
