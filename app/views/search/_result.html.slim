@@ -14,7 +14,8 @@
       = simple_form_for Item.new, remote: true do |f|
         = f.input :title, as: :hidden, input_html: {value: "#{result['domain']}"}
         = f.input :info, as: :hidden, input_html: {value: "#{result['domain']}"}
-        = f.input :type, as: :hidden, input_html: {value: "buy"}
+        = f.input :action, as: :hidden, input_html: {value: "buy"}
+        = f.input :entity, as: :hidden, input_html: {value: "domain"}
         = f.input :duration, as: :hidden, input_html: {value: 1}
         = f.button :button, "Add to cart", type: :submit, class: 'add-to-cart'
 

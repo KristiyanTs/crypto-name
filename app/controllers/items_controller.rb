@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :destroy]
 
   def create
-    debugger
     @item = client_cart.items.new(item_params)
 
     respond_to do |format|

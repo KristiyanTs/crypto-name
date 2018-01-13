@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   private 
 
-  def caluclate_prices
+  def calculate_prices
     case action
     when 'buy'
       case entity
