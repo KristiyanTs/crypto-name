@@ -7,6 +7,12 @@ class Domains::RecordsController < ApplicationController
     Domain::Record.new(record).call
   end
 
+  def destroy
+    @domain = Domain.find(params[:domain_id])
+
+  end
+
+  private 
 
   def record_params
     params.require(:record).permit(:type, :name, :value, :ttl, :priority, :service, :protocol, :port, :weight)

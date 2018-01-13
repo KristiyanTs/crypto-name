@@ -11,12 +11,14 @@ class Domain
     end
 
     def serialized_record
-      {
-        type: record.type,
-        name: record.name,
-        ttl: record.ttl,
-        data: record.value
-      }
+      [
+        {
+          type: record.kind,
+          name: record.name,
+          ttl: record.ttl,
+          data: record.value
+        }
+      ]
     end
   end
 end

@@ -47,12 +47,14 @@ hr
             th Name
             th Value
             th TTL 
-        tbody
-          tr
-            td
-            td
-            td
-            td
+          tbody
+            tr
+              = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
+                td = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false, input_html: {class: 'width-dynamic'}
+                td = f.input :name, placeholder: 'Name, e.g. @, www', label: false, input_html: {class: 'width-dynamic'}
+                td = f.input :value, placeholder: '192.168.1.0', label: false, input_html: {class: 'width-dynamic'}
+                td = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false, input_html: {class: 'width-dynamic'}
+
 
   .content.col-xs-12.nameservers.tab-pane.fade id="nameservers"
     .content
