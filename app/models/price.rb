@@ -6,12 +6,12 @@ class Price
   end
 
   def call
-    (price + taxes + 0.48).to_i
+    ((price + taxes + 48).to_f / 100).ceil * 100 - 51 # $5 = 500
   end
 
   private
 
   def taxes
-    ((price.to_i / 5 + 1) * 5).to_f * 15 / 100
+    ((price / 500 + 1) * 500) * 15 / 100
   end
 end

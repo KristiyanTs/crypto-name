@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  def index
+  def index    
     @results =
       if query.present?
         Suggester.new(query).call

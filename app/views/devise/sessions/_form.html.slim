@@ -13,7 +13,6 @@
 javascript:
   $(document).ready(function() {
     $('#new_user').bind("ajax:error", function(evt, xhr, status, error) {
-      //function called on status: 401 or 500 (for ex.)
       $('.form-inputs .alert-info').fadeOut(1000);
       $('.form-inputs').prepend("<div class='alert alert-info'>" + xhr.responseText + "</div>");
     });

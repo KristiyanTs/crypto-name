@@ -25,8 +25,7 @@ class Suggester
   def normalized
     available.body['domains'].map do |domain|
       price = domain['price'] / 10_000
-      price = price.to_f / 100
-      price = Price.new(price).call.to_f
+      price = Price.new(price).call
       domain['price'] = SpecialPrice.new(price, domain['domain'].split('.').last).call
       domain
     end

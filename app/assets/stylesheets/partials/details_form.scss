@@ -1,0 +1,28 @@
+.details-form {
+  padding: 30px 45px 20px 45px;
+
+  label {
+    display: block;
+  }
+
+  input:not(.proceed) {
+    width: 100%;
+  }
+
+  input.proceed {
+    min-width: 100px;
+    margin: 20px 0px 0px 0px;
+    padding: 20px 50px;
+    color: white;
+    background-color: $light_blue;
+    border-radius: 4px;
+    font-size: $h3;
+  }
+  input.proceed:hover {
+    text-decoration: none;
+    background-color: $blue;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+  }
+}

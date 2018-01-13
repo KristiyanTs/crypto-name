@@ -1,0 +1,15 @@
+h2 Details
+
+= render 'details/form'
+
+
+#buy-domain-stripe.hidden
+  = form_tag charges_path do
+    script.stripe-button[
+            src="https://checkout.stripe.com/checkout.js"
+            data-key=Rails.configuration.stripe[:publishable_key]
+            data-description="Payment."
+            data-bitcoin=true
+            data-email=@email
+            data-amount=@price
+            data-locale="auto"]

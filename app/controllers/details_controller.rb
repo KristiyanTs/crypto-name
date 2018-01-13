@@ -2,18 +2,16 @@ class DetailsController < ApplicationController
 
   def update
     @detail = current_user.detail
+    @email = @detail.email
 
-    respond_to do |format|
-      if @detail.update(detail_params)
-        format.html { redirect_to edit_user_registration_path(current_user), notice: 'Detail was successfully updated.' }
-        format.json { render :show, status: :ok, location: @detail }
-        format.js
-      else
-        format.html { render :edit }
-        format.json { render json: @detail.errors, status: :unprocessable_entity }
-        format.js
-      end
+    if @detail.update(detail_params)
+      return render nothing: true
+    else
+      errors = @detail.errors.messages.stringify_keys!
+      errors.each { |k, v| errors[k] = "#{k.humanize} #{v.first}"}
+      render json: { errors: @detail.errors.messages }, status: 401
     end
+
   end
   
   private

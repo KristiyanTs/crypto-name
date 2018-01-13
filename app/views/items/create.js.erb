@@ -1,0 +1,8 @@
+$('#flash').append("<%= escape_javascript (render partial: 'layouts/notice') %>");
+$('.cart .content').append("<%= escape_javascript (render partial: 'items/item') %>");
+$('.cart .footer').html("<%= escape_javascript (render partial: 'carts/subtotal') %>");
+$('.cart-button.closed .badge').html("<%= escape_javascript (client_cart.items.count.to_s) %>");
+
+$('.cart .item form').on('change', function(){
+  $(this).submit();
+});

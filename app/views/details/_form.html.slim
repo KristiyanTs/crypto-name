@@ -1,0 +1,38 @@
+= simple_form_for @detail, url: details_path, method: :put, remote: true, html: {class: "details-form"} do |f|
+  .col-xs-12.col-md-6.form-inputs
+    = f.input :first_name, required: true
+    = f.input :last_name, required: true
+    = f.input :organization
+    = f.input :job_title
+    = f.input :email, required: true
+    = f.input :phone, required: true
+  .col-xs-12.col-md-6.form-inputs
+    = f.input :fax
+    = f.input :address1, required: true
+    = f.input :address2
+    = f.input :city, required: true
+    = f.input :state, required: true
+    = f.input :postal_code, required: true
+  = f.button :submit, 'Continue', class: 'pull-right proceed'
+
+javascript:
+  $(document).ready(function() {
+    $('.details-form')
+    .bind('ajax:success', function(evt, data, status, xhr) {
+      $('li.error').remove();
+    })
+    .bind("ajax:error", function(evt, xhr, status, error) {
+      $('li.error').remove();
+      var errors = jQuery.parseJSON(xhr.responseText).errors; 
+      for (messages in errors) {
+        var field = "#detail_" + messages;
+        $(field).parent().append("<li class='error' style='color: red; margin-bottom: 20px;'>"+errors[messages]+"</li>");
+        $(field).css('border', '1px solid #D9534F');          
+      } 
+      $('#js-error-block-signup').show();
+      $('html, body').animate({
+          scrollTop: $(".details-form").offset().top
+      }, 1000);
+    });
+  });
+  

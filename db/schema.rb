@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109193210) do
+
+ActiveRecord::Schema.define(version: 20180112120826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "subtotal"
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
   create_table "details", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -46,6 +56,20 @@ ActiveRecord::Schema.define(version: 20180109193210) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_domains_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.string "title"
+    t.string "info"
+    t.string "action", null: false
+    t.string "entity", null: false
+    t.integer "price_total"
+    t.integer "price_per_duration"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_items_on_cart_id"
   end
 
   create_table "nameservers", force: :cascade do |t|
