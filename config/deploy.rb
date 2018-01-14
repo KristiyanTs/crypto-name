@@ -14,7 +14,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/moonhythe/www/crypto_name"
-set :pty,             true
+set :pty,             false
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
