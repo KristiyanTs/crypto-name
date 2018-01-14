@@ -14,7 +14,7 @@
   = render "devise/shared/links"
 
 javascript:
-  $(document).ready(function() {
+  document.addEventListener("turbolinks:load", function() {
     $('#new_user')
     .bind("ajax:error", function(evt, xhr, status, error) {
       //function called on status: 401 or 500 (for ex.)

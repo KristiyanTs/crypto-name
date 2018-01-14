@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+document.addEventListener("turbolinks:load", function() {
 	var mainHeader = $('.cd-auto-hide-header'),
 		secondaryNavigation = $('.cd-secondary-nav'),
 		//this applies only if secondary nav is below intro section

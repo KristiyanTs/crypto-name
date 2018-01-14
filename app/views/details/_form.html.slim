@@ -16,7 +16,7 @@
   = f.button :submit, 'Continue', class: 'pull-right proceed'
 
 javascript:
-  $(document).ready(function() {
+  document.addEventListener("turbolinks:load", function() {
     $('.details-form')
     .bind('ajax:success', function(evt, data, status, xhr) {
       $('li.error').remove();
