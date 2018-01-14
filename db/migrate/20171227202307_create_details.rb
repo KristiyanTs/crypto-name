@@ -1,7 +1,8 @@
 class CreateDetails < ActiveRecord::Migration[5.1]
   def change
     create_table :details do |t|
-      t.references :user, index: true, null: false
+      t.references :user, index: true
+      t.references :domain, index: true
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :organization

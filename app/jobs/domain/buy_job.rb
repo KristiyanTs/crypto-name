@@ -1,13 +1,12 @@
 class Domain::BuyJob < ApplicationJob
-  def perform(domain)
+  def perform(domain, charge)
     @domain = domain
+    id, charge_info = charge
 
-    charge = ChargeUser.charge(user: user, amount: domain.pricing!)
     user.transactions.create!(
-      remote_id: charge[:id],
-      info: charge.to_json,
+      remote_id: id,
+      info: charge_info,
       notes: "Domain #{domain.name} for #{user.email}.",
-      amount: amount,
       item: domain
     )
     domain.buy!

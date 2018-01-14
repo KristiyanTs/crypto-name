@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112120826) do
+ActiveRecord::Schema.define(version: 20180114165132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20180112120826) do
     t.boolean "active", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "domain_id"
+    t.index ["domain_id"], name: "index_details_on_domain_id"
     t.index ["user_id"], name: "index_details_on_user_id"
   end
 
@@ -90,19 +92,8 @@ ActiveRecord::Schema.define(version: 20180112120826) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer "type", null: false
-    t.string "name", limit: 255, null: false
-    t.string "value", limit: 255, null: false
-    t.integer "ttl", null: false
-    t.integer "priority"
-    t.string "service"
-    t.string "protocol"
-    t.integer "port"
-    t.integer "weight"
-    t.bigint "domain_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["domain_id"], name: "index_records_on_domain_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -154,4 +145,5 @@ ActiveRecord::Schema.define(version: 20180112120826) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "details", "domains"
 end

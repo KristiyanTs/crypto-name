@@ -6,6 +6,7 @@ class Domain < ApplicationRecord
   has_many :nameservers
   has_many :records
   has_many :transactions, as: :item
+  has_one :detail
 
   accepts_nested_attributes_for :nameservers
   accepts_nested_attributes_for :records

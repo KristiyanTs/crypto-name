@@ -4,59 +4,53 @@ h2
 hr
 .tab-content.col-xs-12
   .content.col-xs-12.renew.tab-pane.fade.in.active id="renew"
-    .content
-      h4 Renew
-      .description Automatic renewal protects you from losing your domain.
-      = simple_form_for @domain, method: :put, remote: true do |f|
-        = f.input :renewal, as: :radio_buttons, label: false
-        = f.button :submit
+    h4 Renew
+    .description Automatic renewal protects you from losing your domain.
+    = simple_form_for @domain, method: :put, remote: true do |f|
+      = f.input :renewal, as: :radio_buttons, label: false
+      = f.button :submit
 
   .content.col-xs-12.information.tab-pane.fade id="contacts"
-    .content
-      h4 Contact Information
-      .description These are the details you have used to register your domain.
+    h4 Contact Information
+    .description These are the details you have used to register your domain.
 
   .content.col-xs-12.records.tab-pane.fade id="records"
-    .content
-      h4 Records
-      = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
-        table
-          thead
-            tr
-              th Type
-              th Name
-              th Value
-              th TTL 
-          tbody
-            tr.colxs-12
-              td.col-md-3 = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false
-              td.col-md-3 = f.input :name, placeholder: 'Name, e.g. @, www', label: false
-              td.col-md-3 = f.input :value, placeholder: '192.168.1.0', label: false
-              td.col-md-3 = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
-        = f.submit 'Add', class: 'btn'
+    h4 Records
+    = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
+      table
+        thead
+          tr
+            th Type
+            th Name
+            th Value
+            th TTL 
+        tbody
+          tr.colxs-12
+            td.col-md-3 = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false
+            td.col-md-3 = f.input :name, placeholder: 'Name, e.g. @, www', label: false
+            td.col-md-3 = f.input :value, placeholder: '192.168.1.0', label: false
+            td.col-md-3 = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
+      = f.submit 'Add', class: 'btn'
 
 
   .content.col-xs-12.nameservers.tab-pane.fade id="nameservers"
-    .content
-      h4 Nameservers
+    h4 Nameservers
 
 
   .content.col-xs-12.forwarding.tab-pane.fade id="forwarding"
-    .content
-      h4 Forwarding
+    h4 Forwarding
 
   .content.col-xs-12.forwarding.tab-pane.fade id="transfer"
-    .content
-      h4 Transfer
-      .description We hope you had a great experience with us! Following are the steps on how to transfer your domain:
-      ol
-        li
-          | To continue transfering, unlock your domain
-          br
-          - if @domain.unlocked?
-            a.btn.btn-success Unlocked
-          - else
-            = form_with url: domain_unlock_path(@domain), remote: true, method: :put do |f|
-              = f.submit "Unlock", class: 'btn'
-          br
-        li When the domain is unlocked, we will send you an email with an authorization code. Your new registrar will need it to transfer the domain.
+    h4 Transfer
+    .description We hope you had a great experience with us! Following are the steps on how to transfer your domain:
+    ol
+      li
+        | To continue transfering, unlock your domain
+        br
+        - if @domain.unlocked?
+          a.btn.btn-success Unlocked
+        - else
+          = form_with url: domain_unlock_path(@domain), remote: true, method: :put do |f|
+            = f.submit "Unlock", class: 'btn'
+        br
+      li When the domain is unlocked, we will send you an email with an authorization code. Your new registrar will need it to transfer the domain.

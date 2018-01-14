@@ -54,6 +54,8 @@ function updateCount(){
   $('.info-search b').text($('.content-wrapper .product:visible').length);
 }
 
+updateCount();
+
 $('.add-to-cart').on('click tap', function(){
   $(this).prop('disabled', true);
   $(this).html("Added");

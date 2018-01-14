@@ -4,14 +4,19 @@ class ChargesController < ApplicationController
   def create
     @items = client_cart.items
 
-    @items.each do |item|
-      domain = current_user.domains.create!(domain_params)
-      customer = ChargeUser.create_customer(
-        email: params[:stripeEmail],
-        token: params[:stripeToken]
-      )
-      current_user.update!(customer_id: customer)
-      Domain::BuyJob.perform_later(domain)
+    customer = ChargeUser.create_customer(
+      email: params[:stripeEmail],
+      token: params[:stripeToken]
+    )
+    current_user.update!(customer_id: customer)
+    charge = ChargeUser.charge(user: user, amount: client_cart.total)
+
+    @items.where(entity: 'domain').each do |item|
+      current_detail = current_user.active_details.dup
+      current_detail.user_id = nil
+      current_detail.save
+      domain = current_user.domains.create!(name: item.info, duration: item.duration, renewal: false, privacy: false, detail: current_detail)
+      Domain::BuyJob.perform_later(domain, [charge[:id], charge.to_json])
     end
 
     redirect_to domains_path, notice: 'We have begun processing your domain. Please, review the default settings!'
@@ -20,15 +25,6 @@ class ChargesController < ApplicationController
   end
 
   private
-
-  def amount
-    domain.pricing!
-  end
-
-  # TODO: this is only item
-  def domain_params
-    params.require(:domain).permit(:name, :duration)
-  end
 
   def validate_purchase
     raise 'Stripe missing email.' unless params[:stripeEmail].present?
