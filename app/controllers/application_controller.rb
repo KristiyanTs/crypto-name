@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :client_cart
   before_action { flash.clear }
+  before_action :set_right_wrapper
 
   # TODO: action helper
   def login
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = cart.id
       cart
     end
+  end
+
+  def set_right_wrapper
+    @right_wrapper = nil
   end
 
   protected

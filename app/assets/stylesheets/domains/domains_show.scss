@@ -1,11 +1,10 @@
-.domain{
-  padding: 10px 0px;
-  .content{
-    padding: 10px;
+.tab-content {
+  .domain{
+    padding: 10px 0px;
     position:relative;
     overflow: auto;
     border-bottom: 1px solid $light;
-    .name{
+    .domain-name{
       font-size: $h3;
       padding: 0px;
       color: black;
@@ -16,13 +15,4 @@
       text-align: right;
     }
   }
-  .content:hover{
-  }
-}
-.domain.active{
-  .content{
-  }
-}
-.domain.faded{
-  opacity: 0.2;
 }

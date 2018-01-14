@@ -1,7 +1,6 @@
 = link_to domain_path(domain), class: "domain col-xs-12" do
-  .content
-    .name.col-xs-6 = domain.name
-    .expiry.col-xs-6 
-      | Expires: 
-      = Time.new.strftime("%m/%d/%Y")
+  .domain-name.col-xs-6 = domain.name
+  .expiry.col-xs-6 
+    | Expires: 
+    = Time.new.strftime("%m/%d/%Y")
 

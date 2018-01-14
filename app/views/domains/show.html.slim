@@ -2,28 +2,7 @@ h2
   | Manage 
   = @domain.name
 hr
-.col-xs-12.col-md-4.simple-navigation
-  ul.nav.nav-pills
-    li.active
-      a data-toggle="pill" href="#renew" 
-        | Renew
-    li 
-      a data-toggle="pill" href="#contacts" 
-        | Contact Information
-    li 
-      a data-toggle="pill" href="#records" 
-        | Records
-    li 
-      a data-toggle="pill" href="#nameservers" 
-        | Nameservers
-    li 
-      a data-toggle="pill" href="#forwarding" 
-        | Forwarding
-    li 
-      a data-toggle="pill" href="#transfer" 
-        | Transfer away
-
-.tab-content.col-md-8
+.tab-content.col-xs-12
   .content.col-xs-12.renew.tab-pane.fade.in.active id="renew"
     .content
       h4 Renew
@@ -40,20 +19,21 @@ hr
   .content.col-xs-12.records.tab-pane.fade id="records"
     .content
       h4 Records
-      table.table
-        thead
-          tr
-            th Type
-            th Name
-            th Value
-            th TTL 
-          tbody
+      = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
+        table
+          thead
             tr
-              = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
-                td = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false, input_html: {class: 'width-dynamic'}
-                td = f.input :name, placeholder: 'Name, e.g. @, www', label: false, input_html: {class: 'width-dynamic'}
-                td = f.input :value, placeholder: '192.168.1.0', label: false, input_html: {class: 'width-dynamic'}
-                td = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false, input_html: {class: 'width-dynamic'}
+              th Type
+              th Name
+              th Value
+              th TTL 
+          tbody
+            tr.colxs-12
+              td.col-md-3 = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false
+              td.col-md-3 = f.input :name, placeholder: 'Name, e.g. @, www', label: false
+              td.col-md-3 = f.input :value, placeholder: '192.168.1.0', label: false
+              td.col-md-3 = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
+        = f.submit 'Add', class: 'btn'
 
 
   .content.col-xs-12.nameservers.tab-pane.fade id="nameservers"
@@ -80,6 +60,3 @@ hr
               = f.submit "Unlock", class: 'btn'
           br
         li When the domain is unlocked, we will send you an email with an authorization code. Your new registrar will need it to transfer the domain.
-
-
-

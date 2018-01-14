@@ -1,4 +1,4 @@
-nav.cd-side-nav.col-md-2.col-xs-12.col-md-offset-1
+nav.cd-side-nav.col-md-2.col-xs-12
   ul
     li.cd-label Main
     li.search class="#{'active' if controller_name == 'search'}"
@@ -27,32 +27,21 @@ nav.cd-side-nav.col-md-2.col-xs-12.col-md-offset-1
     - if current_user
       li.logout
         = link_to 'Log out', destroy_user_session_path, method: :delete, remote: true
-    li.faq class="#{'active' if params[:page] == 'faq'}"
-      a href="/pages/faq"  FAQ
-    li.support class="#{'active' if params[:page] == 'support'}"
-      a href="/pages/support"  Support
-    li.contacts class="#{'active' if params[:page] == 'contacts'}"
-      a href="/pages/contacts"  Contacts
-    li.about class="#{'active' if params[:page] == 'about'}"
-      a href="/pages/about"  About
-    li.document class="#{'active' if params[:page] == 'privacy'}"
-      a href="/pages/privacy"  Privacy Policy 
-    li.document class="#{'active' if params[:page] == 'terms'}"
-      a href="/pages/terms"  Terms & Conditions
-    li.credits class="#{'active' if params[:page] == 'credits'}"
-      a href="/pages/credits"  Credits
+    li.has-children.more
+      a.trigger href='' More
+      ul.hidden
+        li.faq class="#{'active' if params[:page] == 'faq'}"
+          a href="/pages/faq"  FAQ
+        li.support class="#{'active' if params[:page] == 'support'}"
+          a href="/pages/support"  Support
+        li.contacts class="#{'active' if params[:page] == 'contacts'}"
+          a href="/pages/contacts"  Contacts
+        li.about class="#{'active' if params[:page] == 'about'}"
+          a href="/pages/about"  About
+        li.document class="#{'active' if params[:page] == 'privacy'}"
+          a href="/pages/privacy"  Privacy Policy 
+        li.document class="#{'active' if params[:page] == 'terms'}"
+          a href="/pages/terms"  Terms & Conditions
+        li.credits class="#{'active' if params[:page] == 'credits'}"
+          a href="/pages/credits"  Credits
 
-
-
-/ EXAMPLE
-    / li.has-children.notifications.open
-    /   a href="#0" 
-    /     | Notifications
-    /     span.count 3
-    /   ul
-    /     li
-    /       a href="#0"  All Notifications
-    /     li
-    /       a href="#0"  Friends
-    /     li
-    /       a href="#0"  Other

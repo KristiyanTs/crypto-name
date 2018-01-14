@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta[name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"]
     title Moonhythe
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -11,9 +11,10 @@ html
       = render 'layouts/header'
       #flash
       main.cd-main-content
-        = render 'layouts/sidenav' 
-        = render 'carts/cart'
-        .content-wrapper.col-xs-12.col-md-7
+        = render 'layouts/sidenav'
+        .content-wrapper.col-xs-12.col-md-6.col-md-offset-2
           = yield
+        .right-wrapper.col-xs-12.col-md-4
+            = render @right_wrapper if @right_wrapper.present?
     -else
       = yield

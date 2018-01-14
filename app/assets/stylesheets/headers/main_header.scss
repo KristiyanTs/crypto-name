@@ -39,7 +39,7 @@
     height: 55px;
   }
   .logo {
-    margin: 16px 0 0 8.33%;
+    margin: 16px 0 0 18px;
     font-size: 18px;
     text-align: left;
   }
@@ -170,7 +170,7 @@
 }
 
 @media only screen and (min-width: 1170px) {
-  .cd-top-nav li:not(.has-children) a:hover {
+  .cd-top-nav li a:hover {
     color: #1784c7;
   }
 }

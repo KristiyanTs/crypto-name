@@ -1,21 +1,20 @@
 .product.col-xs-12 data-topdomain=".#{result['domain'].split('.').drop(1).join('.')}"
-  .content
-    .domain.col-md-6.col-xs-12 = result["domain"]
-    .price.col-xs-2.col-md-4 
-      .first-year
+  .domain.col-md-6.col-xs-8 = result["domain"]
+  .price.col-md-3.col-xs-4
+    .first-year
+      |$
+      = "%.2f" % (result["price"].to_i/100.0)
+    .renew
+      span Renew at 
+      b 
         |$
         = "%.2f" % (result["price"].to_i/100.0)
-      .renew
-        span Renew at 
-        b 
-          |$
-          = "%.2f" % (result["price"].to_i/100.0)
-    .buy.col-md-2
-      = simple_form_for Item.new, remote: true do |f|
-        = f.input :title, as: :hidden, input_html: {value: "#{result['domain']}"}
-        = f.input :info, as: :hidden, input_html: {value: "#{result['domain']}"}
-        = f.input :action, as: :hidden, input_html: {value: "buy"}
-        = f.input :entity, as: :hidden, input_html: {value: "domain"}
-        = f.input :duration, as: :hidden, input_html: {value: 1}
-        = f.button :button, "Add to cart", type: :submit, class: 'add-to-cart'
+  .buy.col-md-3
+    = simple_form_for Item.new, remote: true do |f|
+      = f.input :title, as: :hidden, input_html: {value: "#{result['domain']}"}
+      = f.input :info, as: :hidden, input_html: {value: "#{result['domain']}"}
+      = f.input :action, as: :hidden, input_html: {value: "buy"}
+      = f.input :entity, as: :hidden, input_html: {value: "domain"}
+      = f.input :duration, as: :hidden, input_html: {value: 1}
+      = f.button :button, "Add to cart", type: :submit, class: 'add-to-cart'
 

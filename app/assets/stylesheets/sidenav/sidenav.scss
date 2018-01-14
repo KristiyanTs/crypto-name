@@ -163,22 +163,6 @@
     .active > a {
       box-shadow: inset 7px 0 0 $light_blue;
     }
-    .count {
-      height: 8px;
-      width: 8px;
-      border-radius: 50%;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-      padding: 0;
-      top: 2em;
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      transform: translateX(-50%);
-      left: calc(50% + 5px);
-      right: auto;
-      color: transparent;
-    }
   }
   .cd-side-nav.nav-is-visible {
     box-shadow: none;
@@ -211,22 +195,6 @@
     .cd-label {
       display: block;
       padding: 1em 18px;
-    }
-    .count {
-      height: auto;
-      width: auto;
-      border-radius: .25em;
-      padding: .2em .4em;
-      top: 50%;
-      bottom: auto;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
-      right: 18px;
-      left: auto;
-      box-shadow: none;
     }
   }
 }

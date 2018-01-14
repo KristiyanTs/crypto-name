@@ -1,16 +1,6 @@
 h2 My domains
 hr
-
-.col-xs-12.col-md-4.simple-navigation
-  ul.nav.nav-pills
-    li.active
-      a data-toggle="pill" href="#domains" 
-        | My Domains
-    li 
-      a#transfer-domain-button data-toggle="pill" href="#transfer" 
-        | Transfer domains to Moonhythe
-
-.tab-content.col-md-8
+.tab-content.col-xs-12
   .content.col-xs-12.renew.tab-pane.fade.in.active id="domains"
     - if @domains.any?
       = render partial: 'domain', collection: @domains, as: :domain

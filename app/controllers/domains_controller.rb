@@ -2,10 +2,12 @@ class DomainsController < ApplicationController
   before_action :login
 
   def index
+    @right_wrapper = 'domains/index_nav'
     @domains = current_user.domains
   end
 
   def show
+    @right_wrapper = 'domains/show_nav'
     @domain = current_user.domains.find(params[:id])
   end
 
