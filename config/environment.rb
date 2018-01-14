@@ -6,11 +6,12 @@ Rails.application.initialize!
 
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  address: 'smtp.gmail.com',
-  port: '587',
-  authentication: :plain,
-  user_name: 'omnimenu2016@gmail.com',
-  password: 'krisnikola2016',
-  domain: 'moonhythe.com',
-  enable_starttls_auto: true
+  tls:                         true,
+  address:                     'smtp.gmail.com',
+  port:                        '587',
+  user_name:                   'moonhythe@gmail.com',
+  password:                    'krisnikola2016',
+  domain:                      'moonhythe.com',
+  authentication:              'plain',
+  enable_starttls_auto:        true
 }
