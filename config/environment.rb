@@ -8,7 +8,7 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   tls:                         true,
   address:                     'smtp.gmail.com',
-  port:                        '587',
+  port:                        '465',
   user_name:                   'moonhythe@gmail.com',
   password:                    'krisnikola2016',
   domain:                      'moonhythe.com',
