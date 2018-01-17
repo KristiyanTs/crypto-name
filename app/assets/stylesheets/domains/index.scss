@@ -43,3 +43,41 @@
     padding: 10px 40px;
   }
 }
+
+.product.suggested{
+  background-color: $light_blue;
+  .domain{
+    font-size: $h3;
+    color: white;
+  }
+  .price{
+    color: white;
+    .first-year{
+      font-size: $h4;
+    }
+    .renew{
+      span, b{
+        font-size: $h6;
+        color: white;
+      }
+    }
+  }
+  .add-to-cart{
+    background-color: white;
+  }
+
+  .add-to-cart:hover {
+    background-color: $orange;
+    color: white;
+  }
+  .add-to-cart:active {
+    border: 2px solid $orange;
+  } 
+  a.add-to-cart{
+    border: 1px solid $light;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding: 10px 40px;
+  }
+}

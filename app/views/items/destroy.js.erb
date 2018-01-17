@@ -1,7 +1,7 @@
 $('#flash').append("<%= escape_javascript (render partial: 'layouts/notice') %>");
-$('.cart .content').html("<%= escape_javascript (render partial: 'items/item', collection: client_cart.items.order(:created_at), as: :item) %>");
-$('.cart .footer').html("<%= escape_javascript (render partial: 'carts/subtotal') %>");
-$('.cart-button.closed .badge').html("<%= escape_javascript (client_cart.items.count.to_s) %>");
+$('.cart .content').html("<%= escape_javascript (render partial: 'items/item', collection: client_cart.items.order('created_at desc'), as: :item) %>");
+$('.item.subtotal').remove();
+$('.cart .content').append("<%= escape_javascript (render partial: 'carts/subtotal') %>");
 
 $('.cart .item form').on('change', function(){
   $(this).submit();

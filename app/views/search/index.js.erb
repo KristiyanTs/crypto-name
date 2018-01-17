@@ -4,6 +4,7 @@ $('.filter-topdomain .content').html("<%= escape_javascript (render partial: 'ex
 $('.product').remove();
 $('.wrap').remove();
 // Render results
+$('.content-wrapper').append("<%= escape_javascript (render partial: 'result', collection: @suggested, as: :result) %>");
 $('.content-wrapper').append("<%= escape_javascript (render partial: 'result', collection: @results, as: :result) %>");
 
 // Check all checkboxes

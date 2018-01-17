@@ -1,4 +1,4 @@
-.product.col-xs-12 data-topdomain=".#{result['domain'].split('.').drop(1).join('.')}"
+.product.col-xs-12 data-topdomain=".#{result['domain'].split('.').drop(1).join('.')}" class="#{'suggested' if @suggested.include?(result)}"
   .domain.col-md-6.col-xs-8 = result["domain"]
   .price.col-md-3.col-xs-4
     .first-year

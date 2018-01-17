@@ -16,8 +16,8 @@ hr
 
   .content.col-xs-12.records.tab-pane.fade id="records"
     h4 Records
-    = simple_form_for domain_records_path(@domain, Record.new), remote: true, method: :post do |f|
-      table
+    = simple_form_for domain_records_path(@domain), remote: true, method: :post do |f|
+      table.records
         thead
           tr
             th Type
@@ -25,11 +25,11 @@ hr
             th Value
             th TTL 
         tbody
-          tr.colxs-12
-            td.col-md-3 = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false
-            td.col-md-3 = f.input :name, placeholder: 'Name, e.g. @, www', label: false
-            td.col-md-3 = f.input :value, placeholder: '192.168.1.0', label: false
-            td.col-md-3 = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
+          tr
+            td = f.input :kind, placeholder: 'Type, e.g A, AAAA', label: false
+            td = f.input :name, placeholder: 'Name, e.g. @, www', label: false
+            td = f.input :value, placeholder: '192.168.1.0', label: false
+            td = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
       = f.submit 'Add', class: 'btn'
 
 

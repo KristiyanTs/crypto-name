@@ -14,7 +14,9 @@ class SearchController < ApplicationController
     end
     @extensions.uniq!
 
-    @results = @results.sort { |x,y| x['domain'].length <=> y['domain'].length }
+    @results   = @results.sort { |x,y| x['domain'].length <=> y['domain'].length }
+    @suggested = @results.select { |res| [query+'.com', query, query.split('.').first + '.com'].include?(res['domain'])}
+
 
     respond_to do |format|
       format.html
