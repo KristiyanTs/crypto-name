@@ -19,6 +19,7 @@ require 'capistrano/rbenv'
 require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/puma'
+require 'capistrano/sidekiq'
 
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Workers

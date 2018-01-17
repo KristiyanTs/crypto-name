@@ -33,9 +33,6 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
-# Default value for :pty is false
-# set :pty, true
-
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
 
