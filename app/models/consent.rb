@@ -1,6 +1,6 @@
 class Consent
   attr_reader :user, :domain
-  
+
   def initialize(user, domain)
     @user = user
     @domain = domain
@@ -8,7 +8,7 @@ class Consent
 
   def call
     {
-      'agreementKeys' => ['DNRA'],   #replace with domain.agreement_keys after making sure the payment information is correct
+      'agreementKeys' => domain.agreement_keys[0..0],
       'agreedBy'      => user.last_sign_in_ip,
       'agreedAt'      => user.confirmed_at.iso8601
     }
