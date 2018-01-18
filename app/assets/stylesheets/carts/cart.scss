@@ -7,17 +7,38 @@
     border: 1px solid $light;
     overflow: auto;
     padding: 0px;
-    border-radius: 4px;
     .item {
-      padding: 19px 20px;
+      padding: 20px;
       font-size: $h5;
       .title {
         padding: 5px 0px 5px 0px;
       }
+      .duration {
+        padding: 0px;
+        form {
+          padding: 0px;
+          margin: 0px;
+        }
+        .select {
+          border: 1px solid #ccc;
+          width: 90px;
+          overflow: hidden;
+          background: #fafafa image-url("down-arrow.svg") no-repeat 90% 50%;
+          background-size: 20px;
+          select {
+            padding: 5px;
+            width: 115px;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            background-image: none;
+            -webkit-appearance: none;
+          }
+        }
+      }
       .price {
         text-align: right;
         padding: 5px 0px 5px 0px;
-        padding-right: 0px;
       }
       .remove-item {
         margin-left: 20px;
@@ -26,33 +47,13 @@
         width: 25px;
         background: image-url('cancel') no-repeat 0 center;
       }
-      label{
-        font-weight: normal;
-      }
-      .select {
-        border: 1px solid #ccc;
-        width: 100px;
-        border-radius: 3px;
-        overflow: hidden;
-        background: #fafafa image-url("down-arrow.svg") no-repeat 90% 50%;
-        background-size: 20px;
-        select {
-          padding: 5px;
-          width: 120px;
-          border: none;
-          box-shadow: none;
-          background: transparent;
-          background-image: none;
-          -webkit-appearance: none;
-        }
-        select:focus {
-          outline: none;
-        }
-      }
+    }
+    .item:nth-last-child(2) {
+      border-bottom: 1px solid $light;
     }
   }
+
   .item.subtotal {
-    border-top: 1px solid $light;
     border-bottom: 0px;
     padding: 0px;
     font-size: $h3;
@@ -61,28 +62,27 @@
       padding: 0px;
       text-align: center;
       a {
-        color: black;
+        color: inherit; 
         border-left: 1px solid $light;
-        height: 100%;
-        padding: 20px 50px;
-        border-radius: 0px;
-        border-bottom-right-radius: 4px;
+        line-height: 48px;
+        height: 48px;
+        padding: 0px 20px;
       }
       a:hover {
         color: white;
         text-decoration: none;
-        background-color: $dark_blue;
+        background-color: $light_blue;
         -webkit-transition: background-color 0.2s;
         -moz-transition: background-color 0.2s;
         transition: background-color 0.2s;
       }
     }
     .subtotal {
-      border-radius: 0px;
-      border-bottom-left-radius: 4px;
-      text-align: right;
-      padding: 20px 45px;
-
+      text-align: center;
+      padding: 0px 20px;
+      line-height: 48px;
+      height: 48px;
     }
   }
 }
+

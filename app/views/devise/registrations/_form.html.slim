@@ -17,15 +17,13 @@ javascript:
   document.addEventListener("turbolinks:load", function() {
     $('#new_user')
     .bind("ajax:error", function(evt, xhr, status, error) {
-      //function called on status: 401 or 500 (for ex.)
       $('li.error').remove();
       var errors = jQuery.parseJSON(xhr.responseText).errors; 
       for (messages in errors) {
         var field = "#new_user " + "#user_" + messages;
         $(field).parent().append("<li class='error' style='color: red; margin-bottom: 20px;'>"+errors[messages]+"</li>");
         $(field).css('border', '1px solid #D9534F');          
-      } 
-      $('#js-error-block-signup').show();
+      }
       $('html, body').animate({
           scrollTop: $("#new_user").offset().top
       }, 1000);

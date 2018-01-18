@@ -13,6 +13,7 @@ $('.filter-topdomain input:checkbox').prop('checked', true);
 //On new domain search
 $('body .domain-search').submit(function(event){
   $('.product').fadeOut(200);
+  $('.wrap').remove();
   $('.cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
 });
 
@@ -58,6 +59,6 @@ function updateCount(){
 updateCount();
 
 $('.add-to-cart').on('click tap', function(){
-  $(this).prop('disabled', true);
-  $(this).html("Added");
+  $(this).addClass('disabled');
+  $(this).click(false);
 });

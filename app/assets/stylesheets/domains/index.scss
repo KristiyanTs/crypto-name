@@ -24,9 +24,9 @@
   .add-to-cart{
     min-width: 0px;
     width: 100%;
-    border-radius: 4px;
     background-color: transparent;
     font-weight: bold;
+    border-radius: 0px;
   }
 
   .add-to-cart:hover {
@@ -69,15 +69,5 @@
   .add-to-cart:hover {
     background-color: $orange;
     color: white;
-  }
-  .add-to-cart:active {
-    border: 2px solid $orange;
-  } 
-  a.add-to-cart{
-    border: 1px solid $light;
-    width: 100px;
-    height: 40px;
-    line-height: 40px;
-    padding: 10px 40px;
   }
 }

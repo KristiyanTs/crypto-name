@@ -10,7 +10,7 @@
 @import "headers/main_header";
 @import "pages/home";
 @import "partials/loader";
-@import "partials/domain_search";
+@import "partials/search";
 @import "partials/simple_navigation";
 @import "partials/flash_messages";
 @import "partials/details_form";
@@ -45,7 +45,6 @@ input:not(.btn):not([type='checkbox']):not([type='radio']){
   font-size: $h5;
   height: 40px;
   line-height: 40px;
-  border-radius: 4px;
   padding-left: 10px;
   margin-bottom: 15px;
 }
@@ -56,7 +55,6 @@ input:not(.btn):not([type='checkbox']):not([type='radio']){
 }
 
 .btn{
-  border-radius: 4px;
   min-width: 200px;
   text-align: center;
   font-size: $h5;

@@ -4,6 +4,7 @@ document.addEventListener("turbolinks:load", function() {
     $('body .cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
   })
   $('.add-to-cart').on('click tap', function(){
-    $(this).prop('disabled', true);
+    $(this).addClass('disabled');
+    $(this).click(false);
   });
 });

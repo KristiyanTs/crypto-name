@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
-        format.js   { flash[:notice] = t('cart.added') }
+        format.js  
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
-        format.js   { flash[:notice] = t('cart.updated') }
+        format.js   
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
-      format.js   { flash[:notice] = t('cart.removed') }
+      format.js
     end
   end
 
