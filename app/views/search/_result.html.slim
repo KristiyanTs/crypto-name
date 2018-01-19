@@ -1,14 +1,9 @@
 .product.col-xs-12 data-topdomain=".#{result['domain'].split('.').drop(1).join('.')}" class="#{'suggested' if @suggested.include?(result)}"
   .domain.col-md-6.col-xs-8 = result["domain"]
   .price.col-md-3.col-xs-4
-    .first-year
-      |$
-      = "%.2f" % (result["price"].to_i/100.0)
-    .renew
-      span Renew at 
-      b 
-        |$
-        = "%.2f" % (result["price"].to_i/100.0)
+    |$
+    = "%.2f " % (result["price"].to_i/100.0)
+    span per year
   .buy.col-md-3
     = simple_form_for Item.new, remote: true do |f|
       = f.input :title, as: :hidden, input_html: {value: "#{result['domain']}"}
