@@ -3,6 +3,7 @@ class Domain::BuyJob < ApplicationJob
     @domain = domain
     id, charge_info = charge
 
+    Detail::Domain.new(detail, domain).call
     user.transactions.create!(
       remote_id: id,
       info: charge_info,
@@ -16,5 +17,9 @@ class Domain::BuyJob < ApplicationJob
 
   def user
     @user ||= @domain.user
+  end
+
+  def detail
+    @detail ||= user.detail
   end
 end

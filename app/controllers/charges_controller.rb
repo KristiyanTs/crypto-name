@@ -12,9 +12,6 @@ class ChargesController < ApplicationController
     charge = ChargeUser.charge(user: user, amount: client_cart.total)
 
     @items.where(entity: 'domain').each do |item|
-      current_detail = current_user.active_details.dup
-      current_detail.user_id = nil
-      current_detail.save
       domain = current_user.domains.create!(name: item.info, duration: item.duration, renewal: false, privacy: false, detail: current_detail)
       Domain::BuyJob.perform_later(domain, [charge[:id], charge.to_json])
     end
