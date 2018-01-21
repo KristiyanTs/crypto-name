@@ -8,9 +8,14 @@ class User < ApplicationRecord
   has_one :cart
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
+         :recoverable, :rememberable, :trackable,
+         :validatable, :confirmable, :lockable
 
   def active_details
     detail || Detail::Null::GoDaddy
+  end
+
+  def detail
+    super || Detail.new(user: self)
   end
 end
