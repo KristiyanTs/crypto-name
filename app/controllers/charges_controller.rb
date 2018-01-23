@@ -1,6 +1,10 @@
 class ChargesController < ApplicationController
   before_action :validate_purchase, only: :create
 
+  def new
+    @client_token = Braintree.token
+  end
+
   def create
     @items = client_cart.items
 

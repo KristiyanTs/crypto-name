@@ -1,17 +1,8 @@
 class ChargeUser
   def self.charge(user:, amount:, description: "Charge for #{user.email}")
-    Stripe::Charge.create(
-      customer: user.customer_id,
+    Braintree.client.transaction.sale(
       amount: amount,
-      description: description,
-      currency: 'usd'
+      payment_method_nonce: user,
     )
-  end
-
-  def self.create_customer(email:, token:)
-    Stripe::Customer.create(
-      email: email,
-      source: token
-    ).id
   end
 end
