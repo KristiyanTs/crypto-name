@@ -1,8 +1,14 @@
 class ChargeUser
-  def self.charge(user:, amount:, description: "Charge for #{user.email}")
-    Braintree.client.transaction.sale(
+  cattr_accessor :client
+
+  def self.charge(nonce:, amount:)
+    client.transaction.sale(
       amount: amount,
-      payment_method_nonce: user,
+      payment_method_nonce: nonce
     )
+  end
+
+  def self.token
+    client.client_token.generate
   end
 end
