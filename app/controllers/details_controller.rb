@@ -17,6 +17,6 @@ class DetailsController < ApplicationController
   private
 
   def detail_params
-    params.require(:detail).permit(:first_name, :last_name, :organization, :job_title, :email, :phone, :fax, :address1, :address2, :city, :state, :postal_code)
+    params.require(:detail).permit(:first_name, :last_name, :organization, :job_title, :email, :phone, :fax, :address1, :country, :city, :state, :postal_code)
   end
 end

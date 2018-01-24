@@ -43,6 +43,7 @@ gem 'jquery-ui-rails'
 gem 'friendly_id'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'font-awesome-rails'
+gem 'country_select'
 
 # Payments
 gem 'stripe-rails'
