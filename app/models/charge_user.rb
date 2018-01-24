@@ -1,17 +1,14 @@
 class ChargeUser
-  def self.charge(user:, amount:, description: "Charge for #{user.email}")
-    Stripe::Charge.create(
-      customer: user.customer_id,
+  cattr_accessor :client
+
+  def self.charge(nonce:, amount:)
+    client.transaction.sale(
       amount: amount,
-      description: description,
-      currency: 'usd'
+      payment_method_nonce: nonce
     )
   end
 
-  def self.create_customer(email:, token:)
-    Stripe::Customer.create(
-      email: email,
-      source: token
-    ).id
+  def self.token
+    client.client_token.generate
   end
 end
