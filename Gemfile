@@ -46,7 +46,7 @@ gem 'font-awesome-rails'
 gem 'country_select'
 
 # Payments
-gem 'stripe-rails'
+gem 'braintree'
 
 # Background jobs
 gem 'sidekiq'

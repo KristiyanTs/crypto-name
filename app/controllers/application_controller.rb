@@ -23,6 +23,4 @@ class ApplicationController < ActionController::Base
   def set_right_wrapper
     @right_wrapper = nil
   end
-
-  protected
 end

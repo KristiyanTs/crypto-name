@@ -1,0 +1,11 @@
+= form_with url: charges_path do |f|
+  #braintree-dropin
+  = f.submit
+
+script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js" 
+javascript:
+  var clientToken = "#{@client_token}";
+
+  braintree.setup(clientToken, "dropin", {
+    container: "braintree-dropin"
+  });

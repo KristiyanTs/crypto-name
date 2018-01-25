@@ -1,20 +1,17 @@
 class ChargesController < ApplicationController
   before_action :validate_purchase, only: :create
 
+  def new
+    @client_token = ChargeUser.token
+  end
+
   def create
     @items = client_cart.items
 
-    customer = ChargeUser.create_customer(
-      email: params[:stripeEmail],
-      token: params[:stripeToken]
-    )
     current_user.update!(customer_id: customer)
-    charge = ChargeUser.charge(user: user, amount: client_cart.total)
+    charge = ChargeUser.charge(nonce: nonce, amount: client_cart.total)
 
     @items.where(entity: 'domain').each do |item|
-      current_detail = current_user.active_details.dup
-      current_detail.user_id = nil
-      current_detail.save
       domain = current_user.domains.create!(name: item.info, duration: item.duration, renewal: false, privacy: false, detail: current_detail)
       Domain::BuyJob.perform_later(domain, [charge[:id], charge.to_json])
     end
@@ -27,7 +24,10 @@ class ChargesController < ApplicationController
   private
 
   def validate_purchase
-    raise 'Stripe missing email.' unless params[:stripeEmail].present?
-    raise 'Stripe missing token.' unless params[:stripeToken].present?
+    raise 'Invalid payment nonce.' unless params[:payment_method_nonce].present?
+  end
+
+  def nonce
+    params[:payment_method_nonce]
   end
 end
