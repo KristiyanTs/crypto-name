@@ -4,11 +4,11 @@ class Item < ApplicationRecord
 
   after_save do
     calculate_prices
-    cart.calculate_prices
+    cart.calculate_subtotal
   end
 
   after_destroy do
-    cart.calculate_prices
+    cart.calculate_subtotal
   end
 
   private 

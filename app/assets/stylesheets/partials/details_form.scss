@@ -1,5 +1,6 @@
 .details-form {
-  padding: 30px 45px 20px 45px;
+  overflow: auto;
+  padding: 20px 0px 20px 0px;
 
   label {
     display: block;
@@ -10,9 +11,10 @@
   }
 
   input.proceed {
-    min-width: 100px;
-    margin: 20px 0px 0px 0px;
-    padding: 20px 50px;
+    border-radius: 0px;
+    border: 0px;
+    width: 100%;
+    margin: 24px 15px 0px 0px;
     color: white;
     background-color: $light_blue;
     font-size: $h3;
@@ -23,5 +25,18 @@
     -webkit-transition: background-color 0.2s;
     -moz-transition: background-color 0.2s;
     transition: background-color 0.2s;
+  }
+
+  .detail_country {
+    select {
+      line-height: 40px;
+      height: 40px;
+      border: 1px solid $light;
+      width: 100%;
+      box-shadow: none;
+      background: transparent;
+      background-image: none;
+      margin-bottom: 15px;
+    }
   }
 }

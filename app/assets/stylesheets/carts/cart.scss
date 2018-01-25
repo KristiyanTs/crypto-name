@@ -60,18 +60,18 @@
     .proceed {
       height: 100%;
       padding: 0px;
-      text-align: center;
       a {
-        color: inherit; 
-        border-left: 1px solid $light;
+        color: white;
+        text-align: center;
         line-height: 48px;
         height: 48px;
         padding: 0px 20px;
+        background-color: $light_blue;
       }
       a:hover {
         color: white;
         text-decoration: none;
-        background-color: $light_blue;
+        background-color: $dark_blue;
         -webkit-transition: background-color 0.2s;
         -moz-transition: background-color 0.2s;
         transition: background-color 0.2s;

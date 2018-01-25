@@ -181,16 +181,27 @@
     margin-right: 0;
   }
   .cd-primary-nav > ul a {
-    width: 150px;
+    text-align: center;
+    width: 130px;
     height: auto;
     line-height: bold;
     padding: 0;
-    border: none;
     color: white;
-    padding: 15px;
+    padding: 5px;
+    border: 3px solid rgba(57,160,237,1);
+    border-radius: 31px;
+
   }
   .cd-primary-nav ul a:hover {
-
+    background-color: rgba(57,160,237,1);
+  }
+  .cd-primary-nav ul li:nth-child(3) a {
+    background-color: #05668d;
+    border: 1px solid #05668d;
+  }
+  .cd-primary-nav ul li:nth-child(3) a:hover {
+    border: 1px solid #05668d;
+    background-color: #05668d;
   }
 }
 

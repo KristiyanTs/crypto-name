@@ -1,6 +1,6 @@
 .item.col-xs-12.subtotal
-  .col-xs-6.subtotal
+  .col-xs-12.subtotal
     | Subtotal: $
     = "%.2f" % (client_cart.subtotal.to_i/100.0)
-  .col-xs-6.proceed
+  .col-xs-12.proceed
     = link_to "Check out", carts_path, class: 'col-xs-12'

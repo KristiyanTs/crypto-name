@@ -17,7 +17,7 @@ class DetailsController < ApplicationController
     params.require(:detail).permit(
       :first_name, :last_name, :organization, :job_title,
       :email, :phone, :fax, :address1, :address2,
-      :city, :state, :postal_code
+      :city, :state, :postal_code, :country
     )
   end
 end
