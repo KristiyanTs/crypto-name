@@ -6,14 +6,15 @@
     = f.input :job_title
     = f.input :email, required: true
     = f.input :phone, required: true
-  .col-xs-12.col-md-6.form-inputs
     = f.input :fax
-    = f.input :address1, required: true, label: "Address"
+  .col-xs-12.col-md-6.form-inputs
+    = f.input :address1, required: true
+    = f.input :address2
     = f.input :country, required: true
     = f.input :city, required: true
     = f.input :state, required: true
     = f.input :postal_code, required: true
-  = f.button :submit, 'Continue to payment', class: 'pull-right proceed'
+    = f.button :submit, 'Continue to payment', class: 'proceed'
 
 javascript:
   document.addEventListener("turbolinks:load", function() {
