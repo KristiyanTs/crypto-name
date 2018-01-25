@@ -9,12 +9,12 @@ javascript:
     container: '#braintree-dropin',
     paypal: {
       flow: 'checkout',
-      amount: "#{@amount.to_i/100.0}",
+      amount: "#{@amount}",
       currency: 'USD'
     },
     paypalCredit: {
       flow: 'checkout',
-      amount: "#{@amount.to_i/100.0}",
+      amount: "#{@amount}",
       currency: 'USD'
     },
     applePay: {
@@ -22,7 +22,7 @@ javascript:
       paymentRequest: {
         total: {
           label: 'Moonhythe',
-          amount: "#{@amount.to_i/100.0}"
+          amount: "#{@amount}"
         }
       }
     }
