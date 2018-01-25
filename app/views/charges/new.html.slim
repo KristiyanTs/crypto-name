@@ -1,11 +1,30 @@
 = form_with url: charges_path do |f|
   #braintree-dropin
-  = f.submit
+  = f.submit 'Complete Purchase', class: 'pull-right'
 
-script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js" 
+script src="https://js.braintreegateway.com/web/dropin/1.9.3/js/dropin.min.js"
 javascript:
-  var clientToken = "#{@client_token}";
-
-  braintree.setup(clientToken, "dropin", {
-    container: "braintree-dropin"
+  braintree.dropin.create({
+    authorization: "#{@client_token}",
+    container: '#braintree-dropin',
+    paypal: {
+      flow: 'checkout',
+      amount: "#{@amount.to_i/100.0}",
+      currency: 'USD'
+    },
+    paypalCredit: {
+      flow: 'checkout',
+      amount: "#{@amount.to_i/100.0}",
+      currency: 'USD'
+    },
+    applePay: {
+      displayName: 'Moonhythe',
+      paymentRequest: {
+        total: {
+          label: 'Moonhythe',
+          amount: "#{@amount.to_i/100.0}"
+        }
+      }
+    }
   });
+

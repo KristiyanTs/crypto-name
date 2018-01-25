@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 
   def new
     @client_token = ChargeUser.token
+    @amount = current_user.cart.total
   end
 
   def create
