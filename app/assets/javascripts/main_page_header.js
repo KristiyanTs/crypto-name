@@ -1,90 +1,80 @@
-document.addEventListener("turbolinks:load", function() {
-	var mainHeader = $('.cd-auto-hide-header'),
-		secondaryNavigation = $('.cd-secondary-nav'),
-		//this applies only if secondary nav is below intro section
-		belowNavHeroContent = $('.sub-nav-hero'),
-		headerHeight = mainHeader.height();
-	
-	//set scrolling variables
-	var scrolling = false,
-		previousTop = 0,
-		currentTop = 0,
-		scrollDelta = 10,
-		scrollOffset = 150;
+jQuery(document).ready(function(){
+  //cache DOM elements
+  var mainContent = $('.cd-main-content'),
+    header = $('.cd-main-header'),
+    sidebar = $('.cd-side-nav'),
+    sidebarTrigger = $('.cd-nav-trigger'),
+    topNavigation = $('.cd-top-nav'),
+    searchForm = $('.cd-search');
 
-	mainHeader.on('click', '.nav-trigger', function(event){
-		// open primary navigation on mobile
-		event.preventDefault();
-		mainHeader.toggleClass('nav-open');
-	});
+  //on resize, move search and top nav position according to window width
+  var resizing = false;
+  moveNavigation();
+  $(window).on('resize', function(){
+    if( !resizing ) {
+      (!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
+      resizing = true;
+    }
+  });
 
-	$(window).on('scroll', function(){
-		if( !scrolling ) {
-			scrolling = true;
-			(!window.requestAnimationFrame)
-				? setTimeout(autoHideHeader, 250)
-				: requestAnimationFrame(autoHideHeader);
-		}
-	});
+  //on window scrolling - fix sidebar nav
+  var scrolling = false;
+  checkScrollbarPosition();
+  $(window).on('scroll', function(){
+    if( !scrolling ) {
+      (!window.requestAnimationFrame) ? setTimeout(checkScrollbarPosition, 300) : window.requestAnimationFrame(checkScrollbarPosition);
+      scrolling = true;
+    }
+  });
 
-	$(window).on('resize', function(){
-		headerHeight = mainHeader.height();
-	});
+  //mobile only - open sidebar when user clicks the hamburger menu
+  sidebarTrigger.on('click', function(event){
+    event.preventDefault();
+    $([sidebar, sidebarTrigger]).toggleClass('nav-is-visible');
+  });
 
-	function autoHideHeader() {
-		var currentTop = $(window).scrollTop();
 
-		( belowNavHeroContent.length > 0 ) 
-			? checkStickyNavigation(currentTop) // secondary navigation below intro
-			: checkSimpleNavigation(currentTop);
+  function checkMQ() {
+    //check if mobile or desktop device
+    return window.getComputedStyle(document.querySelector('.cd-main-content'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+  }
 
-	   	previousTop = currentTop;
-		scrolling = false;
-	}
+  function moveNavigation(){
+      var mq = checkMQ();
+        
+        if ( mq == 'mobile' && topNavigation.parents('.cd-side-nav').length == 0 ) {
+          detachElements();
+      topNavigation.appendTo(sidebar);
+      searchForm.removeClass('is-hidden').prependTo(sidebar);
+    } else if ( ( mq == 'tablet' || mq == 'desktop') &&  topNavigation.parents('.cd-side-nav').length > 0 ) {
+      detachElements();
+      searchForm.insertAfter(header.find('.cd-logo'));
+      topNavigation.appendTo(header.find('.cd-nav'));
+    }
+    checkSelected(mq);
+    resizing = false;
+  }
 
-	function checkSimpleNavigation(currentTop) {
-		//there's no secondary nav or secondary nav is below primary nav
-	    if (previousTop - currentTop > scrollDelta) {
-	    	//if scrolling up...
-	    	mainHeader.removeClass('is-hidden');
-	    } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
-	    	//if scrolling down...
-	    	mainHeader.addClass('is-hidden');
-	    }
-	}
+  function detachElements() {
+    topNavigation.detach();
+  }
 
-	function checkStickyNavigation(currentTop) {
-		//secondary nav below intro section - sticky secondary nav
-		var secondaryNavOffsetTop = belowNavHeroContent.offset().top - secondaryNavigation.height() - mainHeader.height();
-		
-		if (previousTop >= currentTop ) {
-	    	//if scrolling up... 
-	    	if( currentTop < secondaryNavOffsetTop ) {
-	    		//secondary nav is not fixed
-	    		mainHeader.removeClass('is-hidden');
-	    		secondaryNavigation.removeClass('fixed slide-up');
-	    		belowNavHeroContent.removeClass('secondary-nav-fixed');
-	    	} else if( previousTop - currentTop > scrollDelta ) {
-	    		//secondary nav is fixed
-	    		mainHeader.removeClass('is-hidden');
-	    		secondaryNavigation.removeClass('slide-up').addClass('fixed'); 
-	    		belowNavHeroContent.addClass('secondary-nav-fixed');
-	    	}
-	    	
-	    } else {
-	    	//if scrolling down...	
-	 	  	if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
-	 	  		//hide primary nav
-	    		mainHeader.addClass('is-hidden');
-	    		secondaryNavigation.addClass('fixed slide-up');
-	    		belowNavHeroContent.addClass('secondary-nav-fixed');
-	    	} else if( currentTop > secondaryNavOffsetTop ) {
-	    		//once the secondary nav is fixed, do not hide primary nav if you haven't scrolled more than scrollOffset 
-	    		mainHeader.removeClass('is-hidden');
-	    		secondaryNavigation.addClass('fixed').removeClass('slide-up');
-	    		belowNavHeroContent.addClass('secondary-nav-fixed');
-	    	}
+  function checkSelected(mq) {
+    //on desktop, remove selected class from items selected on mobile/tablet version
+    if( mq == 'desktop' ) $('.has-children.selected').removeClass('selected');
+  }
 
-	    }
-	}
+  function checkScrollbarPosition() {
+    var mq = checkMQ();
+    
+    if( mq != 'mobile' ) {
+      var sidebarHeight = sidebar.outerHeight(),
+        windowHeight = $(window).height(),
+        mainContentHeight = mainContent.outerHeight(),
+        scrollTop = $(window).scrollTop();
+
+      ( ( scrollTop + windowHeight > sidebarHeight ) && ( mainContentHeight - sidebarHeight != 0 ) ) ? sidebar.addClass('is-fixed').css('bottom', 0) : sidebar.removeClass('is-fixed').attr('style', '');
+    }
+    scrolling = false;
+  }
 });

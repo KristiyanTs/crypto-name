@@ -61,6 +61,9 @@
       position: fixed;
       bottom: 100px;
       left: 0px;
+      -webkit-transition: left 0.5s;
+      -moz-transition: left 0.5s;
+      transition: left 0.5s;
       border-bottom: 0px;
       padding: 0px 15px;
       font-size: $h3;
