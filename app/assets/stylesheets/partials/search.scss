@@ -21,8 +21,11 @@
   }
   .search-btn:hover{
     color: white;
-    background-color: $light;
+    background-color:  $light_blue;
     font-weight: bold;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
   }
   .search-btn:active{
     color: white;
