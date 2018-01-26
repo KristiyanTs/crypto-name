@@ -1,10 +1,10 @@
 - item ||= @item
-.item.col-xs-12.hidden-xs.hidden-sm
-  .title.col-md-6 = item.title 
-  .duration.col-md-3
+.item.col-xs-12
+  .title.col-lg-6.col-xs-12 = item.title 
+  .duration.col-lg-3.col-xs-6
     = simple_form_for item, method: :put, remote: true, html: {class: 'col-md-3'} do |f|
       = f.input :duration, as: :select, collection: 1..10, label: false, selected: item.duration, label_method: lambda { |num| t('datetime.distance_in_words.x_years', count: num)}
-  .price.col-md-3
+  .price.col-lg-3.col-xs-6
     | $
     = "%.2f" % (item.price_total.to_i/100.0)
     = link_to " ", item, method: :delete, remote: true, class: "remove-item pull-right"

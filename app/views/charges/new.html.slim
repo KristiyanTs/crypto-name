@@ -4,27 +4,30 @@
 
 script src="https://js.braintreegateway.com/web/dropin/1.9.3/js/dropin.min.js"
 javascript:
-  braintree.dropin.create({
-    authorization: "#{@client_token}",
-    container: '#braintree-dropin',
-    paypal: {
-      flow: 'checkout',
-      amount: "#{@amount}",
-      currency: 'USD'
-    },
-    paypalCredit: {
-      flow: 'checkout',
-      amount: "#{@amount}",
-      currency: 'USD'
-    },
-    applePay: {
-      displayName: 'Moonhythe',
-      paymentRequest: {
-        total: {
-          label: 'Moonhythe',
-          amount: "#{@amount}"
+  document.addEventListener("turbolinks:load", function() {
+    braintree.dropin.create({
+      authorization: "#{@client_token}",
+      container: '#braintree-dropin',
+      paypal: {
+        flow: 'checkout',
+        amount: "#{@amount}",
+        currency: 'USD'
+      },
+      paypalCredit: {
+        flow: 'checkout',
+        amount: "#{@amount}",
+        currency: 'USD'
+      },
+      applePay: {
+        displayName: 'Moonhythe',
+        paymentRequest: {
+          total: {
+            label: 'Moonhythe',
+            amount: "#{@amount}"
+          }
         }
       }
-    }
-  });
+    });
+  })
+
 

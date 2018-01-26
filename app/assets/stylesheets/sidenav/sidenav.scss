@@ -1,14 +1,13 @@
 .cd-side-nav {
   position: absolute;
+  background-color: white;
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%;
   padding: 45px 0 0 !important;
   visibility: hidden;
   opacity: 0;
-  height: 100vh;
-  overflow: auto;
+  overflow: auto; 
   color: $dark_grey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,10 +26,13 @@
     padding: 1em 5%;
   }
   .cd-label {
+    color: $light_grey;
     text-transform: uppercase;
     letter-spacing: .1em;
   }
   a {
+    color: $dark_grey;
+    font-size: $h5;
     position: relative;
   }
   a:hover {
@@ -41,7 +43,6 @@
   }
   ul > li > a {
     padding-left: calc(5% + 24px);
-    border-bottom: 1px solid #373d44;
   }
   ul > li > a::before {
     position: absolute;
@@ -73,6 +74,10 @@
   ul > li.notifications > a::before {
     -webkit-mask-image: image-url(speech-bubble);
     mask-image: image-url(speech-bubble);
+  }
+  ul > li.profile > a::before {
+    -webkit-mask-image: image-url(profile);
+    mask-image: image-url(profile);
   }
   ul > li.faq > a::before {
     -webkit-mask-image: image-url(info);
@@ -110,6 +115,10 @@
     -webkit-mask-image: image-url(file);
     mask-image: image-url(file);
   }
+  ul > li.more > a::before {
+    -webkit-mask-image: image-url(down-arrow);
+    mask-image: image-url(down-arrow);
+  }
 }
 .cd-side-nav.nav-is-visible {
   opacity: 1;
@@ -128,11 +137,10 @@
     position: fixed;
     float: left;
     top: auto;
-    min-height: 100vh;
     padding-top: 55px;
     visibility: visible;
     opacity: 1;
-    max-height: none;
+    height: 100vh;
     ul {
       padding: 0;
     }
