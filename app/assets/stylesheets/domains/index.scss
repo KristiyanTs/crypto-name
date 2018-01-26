@@ -4,6 +4,7 @@
 .product{
   width: 100%;
   padding: 24px 0px;
+  border-bottom: 1px solid $light;
   .domain{
     font-size: $h4;
     font-weight: bold;
@@ -27,7 +28,6 @@
     min-width: 0px;
     overflow: auto;
     margin-top: 15px;
-    width: 100%;
     padding: 5px;
     border: 1px solid $light;
     border-radius: 0px;
@@ -45,11 +45,10 @@
 
 @media only screen and (min-width: 992px) {
   .product{
-    border-bottom: 1px solid $light;
     button.add-to-cart{
       margin-top: 0px;
-      width: 100px;
-      padding: 12px 40px;
+      width: 100%;
+      padding: 12px;
       border: 1px solid transparent;
       border-radius: 0px;
       background-color: transparent;
@@ -76,6 +75,7 @@
   .add-to-cart{
     background-color: $light_blue;
     color: white;
+    border: 1px solid $light_blue;
     font-weight: bold;
     -webkit-transition: background-color 0.2s;
     -moz-transition: background-color 0.2s;
