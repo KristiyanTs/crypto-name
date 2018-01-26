@@ -62,6 +62,7 @@ function updateCount(){
 updateCount();
 
 $('.add-to-cart').on('click tap', function(){
+  $(this).text('Added');
   $(this).addClass('disabled');
   $(this).click(false);
 });

@@ -1,7 +1,11 @@
-.cart.col-xs-12
+.cart.col-xs-12.closed
+  .cart-overlay
   .content.col-xs-12
     = render partial: 'items/item', collection: client_cart.items.order('created_at desc'), as: :item
     = render partial: 'carts/subtotal'
+
+.cart-button.closed
+
 
 
 
