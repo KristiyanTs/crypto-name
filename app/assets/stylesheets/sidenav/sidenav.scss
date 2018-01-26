@@ -123,12 +123,11 @@
 .cd-side-nav.nav-is-visible {
   opacity: 1;
   visibility: visible;
-  overflow: visible;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-transition: opacity 0.2s 0s, visibility 0s 0s;
   -moz-transition: opacity 0.2s 0s, visibility 0s 0s;
   transition: opacity 0.2s 0s, visibility 0s 0s;
-  max-height: none;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
