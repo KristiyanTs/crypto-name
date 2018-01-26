@@ -3,7 +3,7 @@ class DetailsController < ApplicationController
     @detail = current_user.detail
 
     if @detail.update(detail_params)
-      render nothing: true
+      redirect_to new_charge_path
     else
       errors = @detail.errors.messages.stringify_keys!
       errors.each { |k, v| errors[k] = "#{k.humanize} #{v.first}" }
