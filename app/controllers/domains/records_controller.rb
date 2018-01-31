@@ -4,7 +4,7 @@ class Domains::RecordsController < ApplicationController
   def create
     @domain = Domain.find(params[:domain_id])
     record = @domain.records.create!(record_params)
-    Domain::Record.new(record).call
+    Domain::RecordCreater.new(record).call
   end
 
   def destroy
