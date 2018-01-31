@@ -1,5 +1,5 @@
 class Domain
-  class Record
+  class RecordCreater
     attr_reader :record
 
     def initialize(record)
