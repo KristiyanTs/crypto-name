@@ -15,7 +15,22 @@
       text-align: right;
     }
   }
+  .records td {
+    padding-right: 5px;
+  }
   .records td input{
     width: 100%;
+  }
+  .record_kind {
+    select {
+      line-height: 40px;
+      height: 40px;
+      border: 1px solid $light;
+      width: 100%;
+      box-shadow: none;
+      background: transparent;
+      background-image: none;
+      margin-bottom: 15px;
+    }
   }
 }
