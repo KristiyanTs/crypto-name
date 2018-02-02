@@ -1,5 +1,5 @@
 class Record < ApplicationRecord
   belongs_to :domain
 
-  enum kind: ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT']
+  enum kind: %w[A AAAA CNAME MX NS SOA SRV TXT].freeze
 end

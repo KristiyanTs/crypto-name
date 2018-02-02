@@ -9,7 +9,6 @@ class Domain
     end
 
     def call
-      byebug
       response = GoDaddy.transfer_domain(
         domain.name,
         {

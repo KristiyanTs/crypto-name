@@ -4,7 +4,6 @@ end
 
 module GoDaddy
   class Client
-    # include ::GoDaddy::Client::*
     attr_accessor :key, :secret, :url, :shopper_id
 
     def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'], shopper_id: nil)

@@ -13,11 +13,11 @@ class Domain
     def serialized_records
       @serialized ||= domain.records.map do |r|
         {
-          type: record.kind,
-          name: record.name,
-          ttl: record.ttl,
-          data: record.value
-        }.to_json
+          type: r.kind.to_s,
+          name: r.name,
+          ttl: r.ttl,
+          data: r.value
+        }
       end
     end
   end
