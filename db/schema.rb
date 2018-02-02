@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20180125185555) do
   create_table "records", force: :cascade do |t|
     t.bigint "domain_id", null: false
     t.integer "ttl", default: 3600, null: false
-    t.string "kind", null: false
+    t.integer "kind", null: false
     t.string "name", limit: 255, null: false
     t.string "value", limit: 255, null: false
     t.string "service"
