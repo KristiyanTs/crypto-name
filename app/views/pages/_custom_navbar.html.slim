@@ -1,15 +1,11 @@
-header.cd-auto-hide-header
-  = link_to 'Moonhythe', '/search', class: "logo"
-  nav.cd-primary-nav.hidden-xs
-    a.nav-trigger href="#cd-navigation" 
+header.home-header
+  nav.nav
+    = link_to 'Moonhythe', '/search', class: "logo"
+    a.nav-trigger href="#"
       span
-        em aria-hidden="true" 
-        | Menu
-    ul#cd-navigation
+        em aria-hidden="true"
+    ul#navigation.pull-right
       li
-        a href="/pages/contacts"  Contacts
-      - unless current_user
-        li
-          = link_to "Log in", new_user_session_path
-        li
-          = link_to "Sign up", new_user_registration_path, class: "primary"
+        a Hey
+      li
+        a Kid
