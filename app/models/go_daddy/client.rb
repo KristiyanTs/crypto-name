@@ -15,7 +15,7 @@ module GoDaddy
       @shopper_id = shopper_id
     end
 
-    [:get, :post, :patch, :head, :delete].each do |method|
+    [:get, :post, :patch, :put, :head, :delete].each do |method|
       define_method(method) do |*args|
         response = client.send(method, *args)
         fail_on_error(response) || response
