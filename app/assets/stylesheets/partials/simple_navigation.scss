@@ -1,36 +1,64 @@
 .simple-navigation ul {
+  margin-top: 64px;
+  -webkit-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.1);
+  padding: 0px;
+  width: 100%;
+  .title{
+    padding: 10px;
+    text-align: center;
+    font-size: $h5;
+    background-color: $light_blue;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
   li{
-    padding: 10px 10px 10px 0px;
+    padding: 0px 10px 0px 0px;
     float: none;
+    margin-left: 0px;
     border-radius: 0px;
-    background-color: transparent !important;
+    background-color: white;
     a{
       color: $light_grey;
       font-size: $h5;
       cursor: pointer;
       border-radius: 0px; 
       display: inline-block;
-      min-width: 250px;
+      width: 100%;
     }
     a:hover{
       text-decoration: none;
       background-color: transparent;
-      box-shadow: inset 2px 0 0 $light_grey;
+      box-shadow: inset 2px 0 0 $light_blue;
+      -webkit-transition: box-shadow 0.1s;
+      -moz-transition: box-shadow 0.1s;
+      transition: box-shadow 0.1s;
     }
-  } 
+    a:active{
+      background-color: rgb(248,248,248);
+      box-shadow: inset 2px 0 0 $light_blue;
+      -webkit-transition: all 0.1s;
+      -moz-transition: all 0.1s;
+      transition: all 0.1s;
+    }
+  }
+  li:hover {
+    background-color: rgb(248,248,248);
+  }
   li.active{
     margin-left: 0px;
+    padding: 0px;
     a{
       color: $blue;
-      box-shadow: inset 2px 0 0 $light_blue;
-      background-color: transparent !important;
+      box-shadow: inset 2px 0 0 $dark_blue;
       display: inline-block;
+      background-color: rgb(248,248,248);
     }
-    a:hover{
+    a:hover, a:active, a:focus{
       color: $blue;
-    }
-    a:active, a:focus{
-      color: $blue;
+      background-color: rgb(248,248,248) !important;
     }
   }
 }
