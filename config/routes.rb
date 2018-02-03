@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resource :unlock, only: :update
       resource :nameservers, only: :update
       resource :code, only: :show
-      resources :records, only: :create
+      resources :records, only: [:create, :update, :destroy]
     end
   end
   resources :transfers, only: :create

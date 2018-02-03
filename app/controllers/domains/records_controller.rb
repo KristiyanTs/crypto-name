@@ -3,12 +3,25 @@ class Domains::RecordsController < ApplicationController
 
   def create
     @domain = Domain.find(params[:domain_id])
-    @domain.records.create!(record_params)
-    Domain::RecordCreator.new(@domain).call
+    @record = @domain.records.create!(record_params)
+    Domain::RecordCreator.new(@domain).call if @domain.records.where(kind: 'NS').count >= 2
+    flash[:notice] = "Record added."
+  end
+
+  def update
+    flash[:notice] = "Record updated."
+    @domain = Domain.find(params[:domain_id])
+    @record = Record.find(params[:id])
+    @record.update!(record_params)
+    Domain::RecordCreator.new(@domain).call if @domain.records.where(kind: 'NS').count >= 2
   end
 
   def destroy
-    @domain = Domain.find(params[:domain_id])
+    @record = Record.find(params[:id])
+    @record_id = @record.id
+    @record.destroy!
+    flash[:notice] = "Record destroyed."
+    # TODO: What happens when we destroy all records?
   end
 
   private 

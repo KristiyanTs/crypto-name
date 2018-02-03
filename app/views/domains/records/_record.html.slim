@@ -1,0 +1,21 @@
+- record ||= @record
+- if record
+  = simple_form_for record, url: url_for(action: 'update', controller: 'domains/records', domain_id: @domain.id, id: record.id), remote: true do |f|
+    = f.input :kind, label: false, collection: ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT'], input_html: {class: 'col-xs-2'}
+    = f.input :name, placeholder: 'Name, e.g. @, www', label: false, input_html: {class: 'col-xs-3'}
+    = f.input :value, placeholder: '192.168.1.0', label: false, input_html: {class: 'col-xs-3'}
+    = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false, input_html: {class: 'col-xs-3'}
+    = link_to 'X', domain_record_path(@domain, record), method: :delete, remote: true, class: 'pull-right'
+    = f.submit 'Add', class: 'btn hidden'
+- else
+  = simple_form_for Record.new, url: url_for(action: 'create', controller: 'domains/records', domain_id: @domain.id), remote: true do |f|
+    h4.col-xs-12 Add new
+    .col-xs-3 Type
+    .col-xs-3 Name
+    .col-xs-3 Value
+    .col-xs-3 TTL 
+    = f.input :kind, label: false, collection: ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT'], input_html: {class: 'col-xs-3'}
+    = f.input :name, placeholder: 'Name, e.g. @, www', label: false, input_html: {class: 'col-xs-3'}
+    = f.input :value, placeholder: '192.168.1.0', label: false, input_html: {class: 'col-xs-3'}
+    = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false, input_html: {class: 'col-xs-3'}
+    = f.submit 'Add', class: 'btn'

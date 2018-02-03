@@ -1,0 +1,11 @@
+$('#flash').append("<%= escape_javascript (render partial: 'layouts/notice') %>");
+$('.records .body').prepend("<%= escape_javascript (render partial: 'domains/records/record') %>");
+$('#new_record').remove();
+<% @record = nil %>
+$('.records .body').append("<%= escape_javascript (render partial: 'domains/records/record') %>");
+
+document.addEventListener("turbolinks:load", function() {
+  $('.edit_record').on('change', function(){
+    $(this).submit();
+  });
+});

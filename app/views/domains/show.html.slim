@@ -3,44 +3,30 @@ h2
   = @domain.name
 hr
 .tab-content.col-xs-12
-  .content.col-xs-12.renew.tab-pane.fade.in.active id="renew"
+  .col-xs-12.renew.tab-pane.fade.in.active id="renew"
     h4 Renew
     .description Automatic renewal protects you from losing your domain.
     = simple_form_for @domain, method: :put, remote: true do |f|
       = f.input :renewal, as: :radio_buttons, label: false
       = f.button :submit
 
-  .content.col-xs-12.information.tab-pane.fade id="contacts"
+  .col-xs-12.information.tab-pane.fade id="contacts"
     h4 Contact Information
     .description These are the details you have used to register your domain.
 
-  .content.col-xs-12.records.tab-pane.fade id="records"
+  .col-xs-12.records.tab-pane.fade id="records"
     h4 Records
-    = simple_form_for Record.new, url: url_for(action: 'create', controller: 'domains/records', domain_id: @domain.id), remote: true do |f|
-      table.records
-        thead
-          tr
-            th Type
-            th Name
-            th Value
-            th TTL 
-        tbody
-          tr
-            td = f.input :kind, label: false, collection: ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'SOA', 'SRV', 'TXT']
-            td = f.input :name, placeholder: 'Name, e.g. @, www', label: false
-            td = f.input :value, placeholder: '192.168.1.0', label: false
-            td = f.input :ttl, placeholder: 'TTL in seconds, default is 3600', label: false
-      = f.submit 'Add', class: 'btn'
+    hr
+    .head
+      .col-xs-3 Type
+      .col-xs-3 Name
+      .col-xs-3 Value
+      .col-xs-3 TTL 
+    .body
+      = render partial: 'domains/records/record', collection: @domain.records, as: :record
+      = render partial: 'domains/records/record'
 
-
-  .content.col-xs-12.nameservers.tab-pane.fade id="nameservers"
-    h4 Nameservers
-
-
-  .content.col-xs-12.forwarding.tab-pane.fade id="forwarding"
-    h4 Forwarding
-
-  .content.col-xs-12.forwarding.tab-pane.fade id="transfer"
+  .col-xs-12.forwarding.tab-pane.fade id="transfer"
     h4 Transfer
     .description We hope you had a great experience with us! Following are the steps on how to transfer your domain:
     ol.description
