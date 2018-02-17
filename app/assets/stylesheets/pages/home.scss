@@ -13,34 +13,124 @@ $light3: #dac4f7;
 $dark3: #ecb0e1;
 
 .section1, .section2, .section3, .section4 {
-  min-height: 100vh;
   width: 100vw;
   margin: 0px;
-  padding: 0px;
+  padding: 0px 0px 200px 0px;
   overflow: auto;
+  -webkit-box-shadow: inset 0px -3px 24px -19px rgba(0,0,0,0.46);
+  -moz-box-shadow: inset 0px -3px 24px -19px rgba(0,0,0,0.46);
+  box-shadow: inset 0px -3px 24px -19px rgba(0,0,0,0.46);
+  h2.title {
+    text-align: center;
+    border-bottom: 2px solid $dark_blue;
+    padding: 10px;
+    font-size: 40px;
+    min-width: 200px;
+    max-width: 500px;
+    margin: 50px auto;
+    color: $dark_blue;
+  }
 }
 
 .section1 {
+  min-height: 100vh;
+  background-color: $background_blue;
+  .call-to-action {
+    margin-top: 100px;
+    text-align: center;
+    color: $dark_grey;
+    text-transform: uppercase;
+    h1 {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+  }
+  .background-blue {
+    background: rgb(34,138,226);
+    background: -moz-linear-gradient(45deg, rgba(34,138,226,1) 0%, rgba(34,153,226,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(34,138,226,1) 0%,rgba(34,153,226,1) 100%);
+    background: linear-gradient(45deg, rgba(34,138,226,1) 0%,rgba(34,153,226,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#228ae2', endColorstr='#2299e2',GradientType=1 );
+    padding: 5vh 0vh;
+    margin-top: 10vh;
+    .benefit:nth-child(1) .img{
+      background-image: image-url('split');
+      height: 100px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      background-position: center;
+    }
+    .benefit:nth-child(2) .img{
+      background-image: image-url('bolt');
+      height: 100px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 50px;
+      background-position: center;
+    }
+    .benefit:nth-child(3) .img{
+      background-image: image-url('heart');
+      height: 100px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100px;
+      background-position: center;
+    }
+
+  }
+  .benefits {
+    .benefit {
+      padding: 10px;
+      text-align: center;
+      .content {
+        height:100%;
+      }
+    }
+    .title {
+      font-weight: bold;
+      border-bottom: 2px solid $light_blue;
+      color: white;
+      padding: 10px;
+      font-size: $h1;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .text {
+      color: white;
+      font-size: $h4;
+    }
+  }
+  .search .domain-search .search-btn {
+    background-color: $light_blue;
+    color: white;
+    border: 0px;
+  }
+
+
 }
 .section2 {
   .services {
-    margin-top: 150px;
+    margin-top: 100px;
     .service {
       padding: 0px;
       .content{
-        background-color: white;
         overflow: auto;
-        padding: 0px;
+        padding: 0px 0px 100px 0px;
         -webkit-box-shadow: 3px 6px 12px 0px rgba(0,0,0,0.1);
         -moz-box-shadow: 3px 6px 12px 0px rgba(0,0,0,0.1);
         box-shadow: 3px 6px 12px 0px rgba(0,0,0,0.1);
+        background-image: image-url('crossword');
+        background-repeat: repeat;
         .title {
+          position: relative;
+          margin: 0px 0px 30px 0px;
           padding: 10px;
           font-size: 30px;
           color: white;
         }
         .description {
-          padding: 90px 25px 20px 25px;
+          padding: 0px 25px 20px 25px;
           color: $light_grey;
         }
         .pricing {
@@ -83,7 +173,7 @@ $dark3: #ecb0e1;
       transition: all 0.2s;
       z-index: 1;
       .content {
-        height: 500px;
+        min-height: 350px;
         .title {
           background: $light1;
           text-align: center;
@@ -108,7 +198,7 @@ $dark3: #ecb0e1;
       -moz-transition: all 0.2s;
       transition: all 0.2s;
       .content {
-        height: 600px;
+        min-height: 450px;
         .title {
           text-align: center;
           background: $light2;
@@ -183,12 +273,65 @@ $dark3: #ecb0e1;
   }
 }
 
+.section3, .section4 {
+  ul {
+    li {
+      list-style: none;
+      .title {
+        font-size: $h4;
+        color: $dark_grey;
+      }
+      .description {
+        color: $light_blue;
+        display: block;
+        font-size: $h5;
+      }
+    }
+  }
+  .title {
+    font-size: $h1;
+    color: $dark_blue;
+  }
+  .description {
+    font-size: $h4;
+    color: $dark_grey;
+  }
+}
+.section3 {
+  background-color: $background_blue;
+}
+
+.section4 {
+
+}
+
 .footer {
-  min-height: 50vh;
+  padding: 20px;
+  min-height: 20vh;
+  overflow: auto;
   width: 100vw;
   background: rgb(49,133,252);
   background: -moz-linear-gradient(45deg, rgba(49,133,252,1) 0%, rgba(55,114,255,1) 100%);
   background: -webkit-linear-gradient(45deg, rgba(49,133,252,1) 0%,rgba(55,114,255,1) 100%);
   background: linear-gradient(45deg, rgba(49,133,252,1) 0%,rgba(55,114,255,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3185fc', endColorstr='#3772ff',GradientType=1 );
+  .group {
+    margin-top: 30px;
+    h2 {
+      padding: 0px;
+      margin-top: 0px;
+    }
+    .title {
+      color: white;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    ul.links {
+      list-style: none;
+      padding-left: 0px;
+      li a{
+        color: white;
+      }
+    }
+  }
 }

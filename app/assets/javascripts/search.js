@@ -1,9 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   $('.domain-search input.autofocus').focus();
-  $('.domain-search').submit(function(event){
-    $('.wrap').remove();
-    $('body .cd-main-content .content-wrapper').append("<div class='wrap'><div class='loading'><div class='bounceball'></div><div class='text'>Searching. Please wait...</div></div></div>");
-  })
+  $('.domain-group').hide();
   $('.add-to-cart').on('click tap', function(){
     $(this).addClass('disabled');
     $(this).click(false);

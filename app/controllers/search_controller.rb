@@ -1,25 +1,17 @@
 class SearchController < ApplicationController
-  def index  
-    @right_wrapper = 'carts/cart'  
+  def index
+    @right_wrapper = 'carts/cart'
+    @type = params[:type] || 0
+
     @results =
       if query.present?
-        Suggester.new(query).call
+        Suggester.new(query, @type).call
       else
         []
       end
 
-    @extensions = []
-    @results.each do |result|
-      @extensions << '.' + result["domain"].split('.').drop(1).join('.')
-    end
-    @extensions.uniq!
-
-    @suggested = @results.select { |res| [query+'.com', query, query.split('.').first + '.com'].include?(res['domain'])}
-    @results   = (@results.sort { |x,y| x['domain'].length <=> y['domain'].length }) - @suggested
-
     respond_to do |format|
       format.html
-      format.json { render :show, status: :created, location: @detail }
       format.js
     end
   end

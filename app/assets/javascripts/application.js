@@ -11,3 +11,15 @@ $.fn.extend({
         return this.text(this.text() == b ? a : b);
     }
 });
+
+// scroll to a given element
+document.addEventListener("turbolinks:load", function() {
+  $('.smooth-scroll').on('click tap', function(e){
+    e.preventDefault();
+    var destination = $(this).data('destination');
+    document.querySelector(destination).scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  });
+});
+

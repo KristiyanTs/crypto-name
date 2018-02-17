@@ -1,18 +1,45 @@
 = render 'pages/custom_navbar'
 
 .section1
-  .attention Domain Manager
-  .big 
-    p Easy to find
-    p Easy to manage
-  .small
-    p Moonhythe is proud to present an automated intuitive and inexpensive domain manager. 
+
+  .call-to-action.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3
+    h1 
+      |use the 
+      u most advanced
+      | &nbsp;domain name suggester
+  .col-xs-12
+  .search.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    .col-xs-12.domain-search
+      = form_tag search_index_path, method: 'get', class: 'domain-search col-xs-12' do
+          = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-9 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
+          = hidden_field_tag :type, 0
+          button.search-btn.col-xs-3 type="submit"
+            center.hidden-lg.hidden-md = fa_icon "search"
+            .hidden-xs.hidden-sm Search
+  .col-xs-12.background-blue
+
+    .benefits.col-xs-10.col-xs-offset-1.col-md-8.col-md-offset-2
+      .col-xs-12.col-md-4.benefit
+        .content
+          .img
+          h2.title Split in categories
+          .text Domain suggestions are sensibly separated into easy to browse categories.
+      .col-xs-12.col-md-4.benefit
+        .content
+          .img
+          h2.title Fast loading
+          .text Our goal is to save your time! Suggestions start loading as you type.
+      .col-xs-12.col-md-4.benefit
+        .content
+          .img
+          h2.title Intuitive
+          .text User interface designed specifically for ultra fast browsing.
 
 
 .section2
-  .title  Services
+  h2.title Services
   .services.col-xs-12.col-lg-8.col-lg-offset-2
-    .col-xs-12.col-md-6.service
+    .col-xs-10.col-xs-offset-1.col-md-offset-0.col-md-6.service
       .content 
         .title.col-xs-12 Domains
         .description Managing your domains with us is secure and reliable. Easily integrate with our hosting services or ask us to manage that for you!
@@ -21,23 +48,71 @@
           span .com for only $10.89
           span per year
         .more
-          a href="#" Learn more
-    .col-xs-12.col-md-6.service
+          a.smooth-scroll href="" data-destination=".section3" Learn more
+    .col-xs-10.col-xs-offset-1.col-md-offset-0.col-md-6.service
       .content 
         .title.col-xs-12 Web Development
         .description Let's work together on your next web application or let us refresh your current one. Our professional teams will set you up in a deadline set by you!
         .pricing
           span FROM
-          span $900
+          span $200
           span PER PROJECT
         .more
-          a href="#" Learn more
+          a.smooth-scroll data-destination=".section4" href="" Learn more
+
+.section3
+  h2.title Domains
+
+  .description.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4.text-center Finding, purchasing, and managing domains has never been so easy. Here is what you can expect
+
+  ul.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    li.title Transparent Pricing
+    li 
+      .title Low Initial Price.
+      .description Do a quick search of the domains you would like to purchase. We have sensibly categorised our suggestions. Why don't you try the cheap domain extensions first?
+    li 
+      .title Same Renewal Rate
+      .description The last thing you want is surprises. That is why all our renewal rates are the same as the initial purchase.
+    li
+      .title Easy and Intuitive DNS Management
+      .description You don't have to be a web developer to set everything up. However, we are here to help you get lost on the way.
+    li
+      .title No Hidden Taxes & Fees
+      .description The prices you see are final and include all taxes and fees.
+
+  ul.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    .title We are here to help
+    .description You can contact us with your problems and we will give you the professional advice and help you need.
+
+  ul.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    .title Simple and Intuitive Interface
+    .description Finding what you need is extremely easy. Our integrated guides will help you get started in minutes.
+
+.section4
+  h2.title Web Development
+
+  .description.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4.text-center Our professionals are ready to start working on your next project. Send us a brief description of what you need and we will reach back to you as soon as possible! (normally in less than an hour)
+
+  ul.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    li.title Common projects
+    li
+      .title E-commerce
+    li
+      .title Blog
+    li 
+      .title Personal Website
+    li
+      .title Online Business Brochure/Catalog
+    li
+      .title Writers/Authors Website
+
 
 
 .footer
-  .col-xs-12.col-md-2.col-md-offset-2
+  .col-xs-12.col-md-2.col-md-offset-2.group
     .title 
-  .col-xs-12.col-md-2
+      h2 Moonhythe
+  .col-xs-12.col-md-2.group
     .title Company
     ul.links
       li 
@@ -46,14 +121,14 @@
         a href="#" Terms & Conditions
       li 
         a href="#" Privacy
-  .col-xs-12.col-md-2
+  .col-xs-12.col-md-2.group
     .title Products
     ul.links
       li
         a href="#" Domains
       li
         a href="#" Web development
-  .col-xs-12.col-md-2
+  .col-xs-12.col-md-2.group
     .title Support
     ul.links
       li 

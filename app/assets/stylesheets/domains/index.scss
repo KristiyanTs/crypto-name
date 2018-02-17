@@ -1,3 +1,23 @@
+.content-wrapper {
+  .domain-group {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: $h5;
+    border-bottom: 2px solid $light_blue;
+    color: $light_blue;
+    .panel {
+      .panel-title a {
+        font-size: $h4;
+      }
+    }
+    .panel-collapse.collapse.in {
+      max-height: 600px;
+      overflow-y: scroll;
+    }
+  }
+}
+
 .light-blue{
   color: $light_blue;
 }

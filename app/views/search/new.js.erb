@@ -1,0 +1,2 @@
+var domain_name = "#<%= @domain_name %>";
+$(domain_name).html("<%= escape_javascript (render partial: 'search/result', collection: @results, as: :result) %>");

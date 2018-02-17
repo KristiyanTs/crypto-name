@@ -15,12 +15,6 @@ nav.cd-side-nav.col-md-2.col-xs-12
         = link_to "Log in", new_user_session_path
       li.signup class="#{'active' if controller_name == 'registrations'}"
         = link_to "Sign up", new_user_registration_path
-  ul.filters class="#{'hidden' unless controller_name == 'search'}"
-    li.cd-label Filter extensions
-    li.filter-topdomain
-      .content
-        - if controller_name == "search"
-          = render partial: 'search/extensions'
 
   ul.secondary
     li.cd-label Secondary

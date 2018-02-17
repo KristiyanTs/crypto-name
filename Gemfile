@@ -44,7 +44,7 @@ gem 'friendly_id'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'font-awesome-rails'
 gem 'country_select'
-gem 'bourbon'
+gem 'wordnik'
 
 # Payments
 gem 'braintree'
