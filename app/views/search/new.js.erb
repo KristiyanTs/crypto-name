@@ -1,2 +1,7 @@
-var domain_name = "#<%= @domain_name %>";
-$(domain_name).html("<%= escape_javascript (render partial: 'search/result', collection: @results, as: :result) %>");
+var domain_id = "#<%= @name %>";
+var results_count = <%= @results.count%>;
+if(results_count>0){
+  $(domain_id).html("<%= escape_javascript (render partial: 'search/result', collection: @results, as: :result) %>");
+} else {
+  $(domain_id).html("Sorry... There are no results. Why don't you try another category?");
+}

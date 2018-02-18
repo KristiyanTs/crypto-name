@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :charges, only: [:create, :new]
-  resources :search, only: :index
+  resources :search, only: [:index, :new]
   resources :domains, only: [:index, :show, :create, :update] do
     with_options module: :domains do
       resource :unlock, only: :update

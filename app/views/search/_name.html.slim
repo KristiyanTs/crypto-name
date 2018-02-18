@@ -1,6 +1,12 @@
 .panel.col-xs-12 
   .panel-heading.col-xs-12
-    .panel-title
-      a data-toggle="collapse" data-parent="##{['alike','seo','misspelled','similar'][@type.to_i]}" href="##{result}" = result
+    .panel-title.col-xs-12
+      a.col-xs-12.domain-name data-toggle="collapse" data-parent="#type_#{[@type.to_i]}" href="##{result}" = result
   .panel-collapse.collapse id="#{result}"
-
+    .wrap
+      .loading
+        .bounceball
+        .text Searching. Please wait...
+    = form_with url: new_search_path, method: :get, remote: true, class: 'check-availability' do |f|
+      = f.hidden_field :name, value: result
+      = f.hidden_field :category, value: @category

@@ -1,7 +1,8 @@
 class Availability
 
-  def initialize(domain)
+  def initialize(domain, category)
     @domain = domain
+    @category = category.to_i
   end
 
   def call
@@ -27,18 +28,22 @@ class Availability
     top_domains.map{ |td| "#{@domain}#{td}" }
   end
 
-  def top_domains_famous
-    ['.com', '.org', '.edu', '.gov', '.uk', '.net']
+  def top_domains_popular
+    ['.com', '.org', '.edu', '.gov', '.uk', '.net', '.info', '.biz', '.me', '.life']
   end
 
   def top_domains_cheap
-    ['.agency', '.band', '.bike', '.business', '.city', '.cloud', '.coffee', '.company', '.cool', 
-     '.credit', '.dance', '.email', '.express', '.fun', '.fyi', '.gold', '.group', '.institute',
+    ['.site', '.fun', '.info', '.agency', '.band', '.bike', '.business', '.city', '.cloud', '.coffee', '.company', '.cool', 
+     '.credit', '.dance', '.email', '.express', '.fyi', '.gold', '.group', '.institute',
      '.international', '.life', '.live', '.ltd', '.network', '.ninja', '.online', '.photography',
-     '.place', '.run', '.site']
+     '.place', '.run']
   end
 
-  def top_domains
+  def top_domains_professional
+    ['.art', '.academy','.accountant','.agency','.biz', '.careers', '.company', '.deals', '.doctor', '.education', '.expert', '.legal', '.ltd', '.studio', '.study', '.work' ]
+  end
+
+  def top_domains_new
     ['.academy','.accountant','.accountants','.actor','.adult','.agency','.airforce','.amsterdam','.apartments','.archi',
       '.army','.art','.associates','.attorney','.auction','.auto','.band','.bar','.barcelona','.bargains','.bayern','.beer',
       '.berlin','.best','.bet','.bid','.bike','.bingo','.bio','.black','.blog','.blue','.boston','.boutique','.build',
@@ -69,5 +74,18 @@ class Availability
       '.training','.tube','.university','.uno','.vacations','.vegas','.ventures','.vet','.viajes','.video','.villas','.vin','.vip',
       '.vision','.vodka','.vote','.voting','.voto','.voyage','.wales','.watch','.webcam','.website','.wedding','.wiki','.win',
       '.wine','.work','.works','.world','.wtf','.xyz','.yoga','.yokohama','.zone']
+  end
+
+  def top_domains
+    case @category
+    when 1
+      return top_domains_cheap
+    when 2
+      return top_domains_professional
+    when 3
+      return top_domains_new
+    else
+      return top_domains_popular
+    end
   end
 end

@@ -25,6 +25,8 @@
   width: 100%;
   padding: 24px 0px;
   border-bottom: 1px solid $light;
+  background-image: image-url('crossword');
+  background-repeat: repeat;
   .domain{
     font-size: $h4;
     font-weight: bold;
@@ -110,4 +112,8 @@
     -moz-transition: background-color 0.2s;
     transition: background-color 0.2s;
   }
+}
+
+.panel-collapse {
+  min-height: 200px;
 }

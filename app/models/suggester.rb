@@ -21,9 +21,9 @@ class Suggester
     divide_words
 
     return almost_exact.uniq if @type == "0"
-    return with_prefix       if @type == "1"
-    return with_suffix       if @type == "2"
-    return misspelled.uniq   if @type == "3"
+    return misspelled.uniq   if @type == "1"
+    return with_prefix       if @type == "2"
+    return with_suffix       if @type == "3"
     return similar.uniq      if @type == "4"
   end
 
