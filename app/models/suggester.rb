@@ -20,11 +20,18 @@ class Suggester
     remove_topdomain
     divide_words
 
-    return almost_exact.uniq if @type == "0"
-    return misspelled.uniq   if @type == "1"
-    return with_prefix       if @type == "2"
-    return with_suffix       if @type == "3"
-    return similar.uniq      if @type == "4"
+    # be sure to have no duplicates
+    almost_exact_w = almost_exact.uniq
+    misspelled_w   = misspelled.uniq - almost_exact_w
+    with_prefix_w  = with_prefix.uniq - almost_exact_w - misspelled_w
+    with_suffix_w  = with_suffix.uniq - almost_exact_w - misspelled_w - with_prefix_w
+    similar_w      = similar.uniq
+
+    return almost_exact_w if @type == "0"
+    return misspelled_w   if @type == "1"
+    return with_prefix_w  if @type == "2"
+    return with_suffix_w  if @type == "3"
+    return similar_w      if @type == "4"
   end
 
   def remove_topdomain
@@ -32,7 +39,7 @@ class Suggester
   end
 
   def divide_words
-    @query = @query.split(' ')
+    @query = @query.downcase.split(' ')
   end
 
   def to_word_groups
