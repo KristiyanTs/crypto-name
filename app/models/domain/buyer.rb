@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_dependency 'detail/null/go_daddy'
 
 class Domain::Buyer

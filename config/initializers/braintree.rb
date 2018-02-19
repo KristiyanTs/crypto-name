@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.configuration.to_prepare do
   ChargeUser.client = Braintree::Gateway.new(
     environment: Rails.env.production? ? :production : :sandbox,

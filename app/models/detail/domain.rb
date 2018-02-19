@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Detail
   class Domain
     attr_reader :detail, :domain
@@ -8,7 +10,7 @@ class Detail
     end
 
     def call
-      copy = detail.dup        
+      copy = detail.dup
       copy.user_id = nil
       copy.domain = domain
       copy.save

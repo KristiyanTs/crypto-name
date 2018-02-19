@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 %w[abuse agreements domains orders shoppers subscriptions].each do |f|
   require_relative "./client/#{f}"
 end
@@ -7,14 +9,13 @@ module GoDaddy
     attr_accessor :key, :secret, :url, :shopper_id
 
     def initialize(key: ENV.fetch('GODADDY_KEY'), secret: ENV.fetch('GODADDY_SECRET'), url: ENV['GODADDY_URL'], shopper_id: nil)
-
       @key = key
       @secret = secret
-      @url = url || 'https://api.godaddy.com/v1/'.freeze
+      @url = url || 'https://api.godaddy.com/v1/'
       @shopper_id = shopper_id
     end
 
-    [:get, :post, :patch, :put, :head, :delete].each do |method|
+    %i[get post patch put head delete].each do |method|
       define_method(method) do |*args|
         response = client.send(method, *args)
         fail_on_error(response) || response

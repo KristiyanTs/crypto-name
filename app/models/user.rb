@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :terms_of_service, acceptance: true
   validates :first_name, :last_name, presence: true

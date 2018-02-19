@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DomainsController < ApplicationController
   before_action :login
 
@@ -22,7 +24,7 @@ class DomainsController < ApplicationController
 
     respond_to do |format|
       if @domain.save
-        format.js { flash[:suceess] = "Successfully updated." }
+        format.js { flash[:suceess] = 'Successfully updated.' }
       else
         format.html { render :show }
         format.json { render json: @domain.errors, status: :unprocessable_entity }

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   belongs_to :cart
-
 
   after_save do
     calculate_prices
@@ -11,7 +12,7 @@ class Item < ApplicationRecord
     cart.calculate_subtotal
   end
 
-  private 
+  private
 
   def calculate_prices
     case action
@@ -19,11 +20,9 @@ class Item < ApplicationRecord
       case entity
       when 'domain'
         domain = Domain.new(name: info)
-        self.update_columns(price_per_duration: domain.pricing!) if price_per_duration.nil?
-        self.update_columns(price_total: price_per_duration * duration)
-      else
+        update_columns(price_per_duration: domain.pricing!) if price_per_duration.nil?
+        update_columns(price_total: price_per_duration * duration)
       end
-    else
     end
   end
 end

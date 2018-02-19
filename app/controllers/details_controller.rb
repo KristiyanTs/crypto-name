@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DetailsController < ApplicationController
   def update
     @detail = current_user.detail

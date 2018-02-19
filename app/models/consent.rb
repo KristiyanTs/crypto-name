@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Consent
   attr_reader :user, :domain
 

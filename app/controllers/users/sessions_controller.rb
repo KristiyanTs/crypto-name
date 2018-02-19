@@ -1,5 +1,6 @@
-class Users::SessionsController < Devise::SessionsController
+# frozen_string_literal: true
 
+class Users::SessionsController < Devise::SessionsController
   def create
     resource = User.find_for_database_authentication(email: params[:user][:email])
     return invalid_login_attempt unless resource
@@ -19,14 +20,14 @@ class Users::SessionsController < Devise::SessionsController
     yield if block_given?
     respond_to_on_destroy
   end
-  
-  private 
 
-  def after_sign_in_path_for(resource)
+  private
+
+  def after_sign_in_path_for(_resource)
     search_index_path
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     search_index_path
   end
 

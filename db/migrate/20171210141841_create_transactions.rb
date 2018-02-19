@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTransactions < ActiveRecord::Migration[5.1]
   def change
     create_table :transactions do |t|
@@ -18,5 +20,4 @@ class CreateTransactions < ActiveRecord::Migration[5.1]
       t.timestamps
     end
   end
-
 end

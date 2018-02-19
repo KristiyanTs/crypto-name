@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domains::CodeController < ApplicationController
   before_action :login
 
@@ -5,7 +7,7 @@ class Domains::CodeController < ApplicationController
     @domain = Domain.find(params[:domain_id])
 
     render json: Domain::UnlockCode.new(@domain).call
-  rescue => e
+  rescue StandardError => e
     render json: { error: e.message }
   end
 end

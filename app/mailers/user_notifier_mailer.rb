@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserNotifierMailer < ApplicationMailer
   default from: 'support@moonhythe.com'
 
@@ -6,7 +8,7 @@ class UserNotifierMailer < ApplicationMailer
   def send_authorization_key(user, domain)
     @user = user
     @domain = domain
-    mail( 
+    mail(
       to: @user.email,
       subject: "Moonhythe: Authorization key for #{@domain.name}"
     )

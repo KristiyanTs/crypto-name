@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CreateRecords < ActiveRecord::Migration[5.1]
   def change
     create_table :records do |t|
       t.references :domain, index: true, null: false
-     
-      t.integer :ttl, default: 3600,     null: false 
+
+      t.integer :ttl, default: 3600,     null: false
       t.integer :kind,                   null: false
       t.string :name, limit: 255,        null: false
       t.string :value, limit: 255,       null: false

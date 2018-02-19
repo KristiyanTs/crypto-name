@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domain
   class Unlocker
     attr_reader :domain
@@ -7,7 +9,7 @@ class Domain
     end
 
     def call
-      response = GoDaddy.update_domain(domain.name, { locked: false })
+      response = GoDaddy.update_domain(domain.name, locked: false)
 
       raise 'Could not unlock domain, try again later!' unless response.success?
     end

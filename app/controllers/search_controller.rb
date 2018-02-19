@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class SearchController < ApplicationController
   def index
     @right_wrapper = 'carts/cart'
-    @type = params[:type] || 0
     @category = params[:category] || 0
 
     @results =
       if query.present?
-        Suggester.new(query, @type).call
+        Suggester.new(query).call
       else
         []
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GoDaddy
   class Client
     module Subscriptions

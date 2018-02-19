@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domain
   class Transfer
     attr_reader :domain, :user, :unlock_code
@@ -11,12 +13,10 @@ class Domain
     def call
       response = GoDaddy.transfer_domain(
         domain.name,
-        {
-          authCode: unlock_code,
-          privacy: domain.privacy,
-          renewAuto: domain.renewal,
-          consent: consent
-        }
+        authCode: unlock_code,
+        privacy: domain.privacy,
+        renewAuto: domain.renewal,
+        consent: consent
       )
 
       if response.success?

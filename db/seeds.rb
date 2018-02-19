@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 user = User.find_or_create_by(email: 'test@example.com').tap do |user|
   user.first_name = 'Kristiyan'
   user.last_name = 'Tsvetanov'

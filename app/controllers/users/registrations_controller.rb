@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
   before_action :configure_sign_up_params, only: [:create]
@@ -27,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       set_minimum_password_length
       errors = resource.errors.messages.stringify_keys!
-      errors.each { |k, v| errors[k] = "#{k.humanize} #{v.first}"}
+      errors.each { |k, v| errors[k] = "#{k.humanize} #{v.first}" }
       render json: { errors: resource.errors.messages }, status: 401
     end
   end
@@ -35,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def additional_paramteres
-    [:first_name, :last_name, :email, :password, :password_confirmation, :terms_of_service]
+    %i[first_name last_name email password password_confirmation terms_of_service]
   end
 
   def after_sign_up_path_for

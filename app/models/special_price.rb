@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpecialPrice
   attr_reader :tld, :price
   def initialize(price, tld)
@@ -7,10 +9,10 @@ class SpecialPrice
 
   def call
     case tld
-    when 'com' 
-      price*0.8
+    when 'com'
+      price * 0.8
     when 'net'
-      price*0.8
+      price * 0.8
     else
       price
     end

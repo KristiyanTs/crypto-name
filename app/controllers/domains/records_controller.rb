@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domains::RecordsController < ApplicationController
   before_action :login
 
@@ -5,11 +7,11 @@ class Domains::RecordsController < ApplicationController
     @domain = Domain.find(params[:domain_id])
     @record = @domain.records.create!(record_params)
     Domain::RecordCreator.new(@domain).call if @domain.records.where(kind: 'NS').count >= 2
-    flash[:notice] = "Record added."
+    flash[:notice] = 'Record added.'
   end
 
   def update
-    flash[:notice] = "Record updated."
+    flash[:notice] = 'Record updated.'
     @domain = Domain.find(params[:domain_id])
     @record = Record.find(params[:id])
     @record.update!(record_params)
@@ -20,11 +22,11 @@ class Domains::RecordsController < ApplicationController
     @record = Record.find(params[:id])
     @record_id = @record.id
     @record.destroy!
-    flash[:notice] = "Record destroyed."
+    flash[:notice] = 'Record destroyed.'
     # TODO: What happens when we destroy all records?
   end
 
-  private 
+  private
 
   def record_params
     params.require(:record).permit(:kind, :name, :value, :ttl, :priority, :service, :protocol, :port, :weight)

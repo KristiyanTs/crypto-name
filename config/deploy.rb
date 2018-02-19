@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.10.1"
+lock '~> 3.10.1'
 
-server 'moonhythe@188.126.26.61', port: 22, roles: [:web, :app, :db], primary: true
+server 'moonhythe@188.126.26.61', port: 22, roles: %i[web app db], primary: true
 
-set :application, "crypto_name"
+set :application, 'crypto_name'
 set :user, 'moonhythe'
-set :repo_url, "git@github.com:Kristiyan96/crypto-name.git"
+set :repo_url, 'git@github.com:Kristiyan96/crypto-name.git'
 
 set :rbenv_type, :user
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} /usr/bin/rbenv exec"
@@ -13,7 +15,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/moonhythe/www/crypto_name"
+set :deploy_to, '/home/moonhythe/www/crypto_name'
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
@@ -25,7 +27,7 @@ set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to true if using ActiveRecord
+set :puma_init_active_record, true # Change to true if using ActiveRecord
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -37,7 +39,7 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 # append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -50,4 +52,3 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-

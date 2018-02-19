@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GoDaddy
   class Client
     module Domains
@@ -23,9 +25,9 @@ module GoDaddy
 
       def available?(*names)
         if names.one?
-          get("domains/available", domain: names.first)
+          get('domains/available', domain: names.first)
         else
-          post("domains/available", names.to_json)
+          post('domains/available', names.to_json)
         end
       end
 
@@ -50,7 +52,7 @@ module GoDaddy
       end
 
       def purchase(*args)
-        post("domains/purchase", *args)
+        post('domains/purchase', *args)
       end
 
       def update_records(name, *args)

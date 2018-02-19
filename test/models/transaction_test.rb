@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TransactionTest < ActiveSupport::TestCase
-  test "it can be marked as finalized" do
+  test 'it can be marked as finalized' do
     transaction = transactions(:pending)
     user = transaction.user
     expected = user.balance - transaction.amount
@@ -12,13 +14,13 @@ class TransactionTest < ActiveSupport::TestCase
     assert transaction.complete?
   end
 
-  test "it raises an error if balance lower than transaction" do
+  test 'it raises an error if balance lower than transaction' do
     transaction = transactions(:pending)
     user = transaction.user
     user.update(balance: 0)
 
-    assert_raises {
+    assert_raises do
       transaction.finalize!
-    }
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domains::NameserversController < ApplicationController
   before_action :login
 
@@ -12,6 +14,6 @@ class Domains::NameserversController < ApplicationController
   private
 
   def domain_params
-    params.require(:domain).permit(nameservers_attributes: [:id, :name, :ip_addresses])
+    params.require(:domain).permit(nameservers_attributes: %i[id name ip_addresses])
   end
 end

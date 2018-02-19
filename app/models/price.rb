@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Price
   attr_reader :price
 

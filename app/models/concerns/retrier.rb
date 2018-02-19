@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Retrier
   class ConditionError < ArgumentError
     def message
@@ -14,7 +16,7 @@ module Retrier
     tries.times do
       result = begin
                  yield
-               rescue
+               rescue StandardError
                  false
                end
       return result if condition.call(result)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domain::BuyJob < ApplicationJob
   def perform(domain, charge)
     @domain = domain

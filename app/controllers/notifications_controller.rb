@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_notification, only: %i[show edit update destroy]
 
   def index
-    @right_wrapper = 'notifications/index_nav' 
+    @right_wrapper = 'notifications/index_nav'
     @notifications = Notification.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @notification = Notification.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @notification = Notification.new(notification_params)
@@ -51,11 +51,12 @@ class NotificationsController < ApplicationController
   end
 
   private
-    def set_notification
-      @notification = Notification.find(params[:id])
-    end
 
-    def notification_params
-      params.fetch(:notification, {})
-    end
+  def set_notification
+    @notification = Notification.find(params[:id])
+  end
+
+  def notification_params
+    params.fetch(:notification, {})
+  end
 end

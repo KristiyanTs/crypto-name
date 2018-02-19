@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domain
   class RecordCreator
     attr_reader :domain

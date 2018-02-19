@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Domain
   class Nameservers
     attr_reader :domain, :nameservers

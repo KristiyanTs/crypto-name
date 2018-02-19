@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :destroy]
+  before_action :set_item, only: %i[update destroy]
 
   def create
     @item = client_cart.items.new(item_params)
@@ -8,7 +10,7 @@ class ItemsController < ApplicationController
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
-        format.js  
+        format.js
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -22,7 +24,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
-        format.js   
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -41,11 +43,12 @@ class ItemsController < ApplicationController
   end
 
   private
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    def item_params
-      params.require(:item).permit(:title, :duration, :info, :action, :entity)
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:title, :duration, :info, :action, :entity)
+  end
 end
