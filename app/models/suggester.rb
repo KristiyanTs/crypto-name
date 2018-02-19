@@ -18,6 +18,7 @@ class Suggester
     remove_topdomain
     divide_words
 
+<<<<<<< e0de1f543afebbaf11bbb1000dc77fda7f97565d
     {}.tap do |hash|
       TYPES.map do |type|
         send(type).each do |res|
@@ -25,6 +26,20 @@ class Suggester
         end
       end
     end
+=======
+    # be sure to have no duplicates
+    almost_exact_w = almost_exact.uniq
+    misspelled_w   = misspelled.uniq - almost_exact_w
+    with_prefix_w  = with_prefix.uniq - almost_exact_w - misspelled_w
+    with_suffix_w  = with_suffix.uniq - almost_exact_w - misspelled_w - with_prefix_w
+    similar_w      = similar.uniq
+
+    return almost_exact_w if @type == "0"
+    return misspelled_w   if @type == "1"
+    return with_prefix_w  if @type == "2"
+    return with_suffix_w  if @type == "3"
+    return similar_w      if @type == "4"
+>>>>>>> Make sure there are no duplicates
   end
 
   private
@@ -34,7 +49,7 @@ class Suggester
   end
 
   def divide_words
-    @query = @query.split(' ')
+    @query = @query.downcase.split(' ')
   end
 
   def similar
