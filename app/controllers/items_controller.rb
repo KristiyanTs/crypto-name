@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[update destroy]
 
   def create
-    @item = client_cart.items.new(item_params)
+    @item = client_cart.items.new(item_params) unless client_cart.items.where(title: params[:title])
 
     respond_to do |format|
       if @item.save
