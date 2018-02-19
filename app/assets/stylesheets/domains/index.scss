@@ -25,8 +25,7 @@
   width: 100%;
   padding: 24px 0px;
   border-bottom: 1px solid $light;
-  background-image: image-url('crossword');
-  background-repeat: repeat;
+  background-color: $background_blue;
   .domain{
     font-size: $h4;
     font-weight: bold;
