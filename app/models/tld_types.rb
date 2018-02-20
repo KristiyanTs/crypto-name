@@ -41,10 +41,10 @@ module TLDTypes
          '.wine', '.work', '.works', '.world', '.wtf', '.xyz', '.yoga', '.yokohama', '.zone'].freeze
 
   TYPES = {
-    popular: POPULAR,
-    cheap: CHEAP,
-    professional: PROFESSIONAL,
-    new: NEW
+    0 => POPULAR,
+    1 => CHEAP,
+    2 => PROFESSIONAL,
+    3 => NEW
   }.freeze
 
   class << self
