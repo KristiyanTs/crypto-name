@@ -46,6 +46,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'wordnik'
+gem 'google-analytics-rails', '1.1.1'
 
 # Payments
 gem 'braintree'

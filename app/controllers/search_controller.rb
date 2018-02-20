@@ -13,7 +13,7 @@ class SearchController < ApplicationController
       end
 
     respond_to do |format|
-      format.html
+      format.html { render template: "search/index" }
       format.js
     end
   end

@@ -1,22 +1,12 @@
-var type = <%= @type %>;
-var type_id = "#type_" + type;
-
 $('.domain-group').removeClass('hidden').fadeIn(300);
-$(type_id).html("<%= escape_javascript (render partial: 'search/name', collection: @results, as: :result) %>")
-$(type_id).show();
 
 // Update results count after each iteration
-if(type==0) $('.info-search b').text(0);
-$('.info-search b').text(parseInt($('.info-search b').text())+<%= @results.size %>);
+$('.info-search b').text(<%= @results.flatten.flatten.size - @results.size %>);
 
-// Search with next type after this one has loaded
-if(type<3) {
-  $('.domain-search #type').val(type+1);
-  $('.domain-search').submit();
-}
+<% @results.each do |res| %>
+  $("#<%= res.first %>").html("<%= escape_javascript (render partial: 'search/name', collection: res.last, as: :result) %>")
+<% end %>
 
-// Set type to 0 in case user submits again before all results are loaded
-$('.domain-search #type').val(0);
 
 $('.panel-title .domain-name').on('click tap mouseenter', function(){
   if(!$(this).data('loaded')){

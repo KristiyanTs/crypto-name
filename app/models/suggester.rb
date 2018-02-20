@@ -7,7 +7,6 @@ class Suggester
     misspelled
     with_prefix
     with_suffix
-    similar
   ].freeze
 
   def initialize(query)
@@ -24,7 +23,7 @@ class Suggester
           hash[res] ||= type
         end
       end
-    end
+    end.each_with_object({}){|(k,v),o|(o[v]||=[])<<k}
   end
 
   private
@@ -34,7 +33,7 @@ class Suggester
   end
 
   def divide_words
-    @query = @query.split(' ')
+    @query = @query.downcase.split(' ')
   end
 
   def similar

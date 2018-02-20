@@ -36,10 +36,10 @@
           .text User interface designed specifically for ultra fast browsing.
 
 
-.section2
+.section2.hidden
   h2.title Services
   .services.col-xs-12.col-lg-8.col-lg-offset-2
-    .col-xs-10.col-xs-offset-1.col-md-offset-0.col-md-6.service
+    .col-xs-10.col-xs-offset-1.col-md-offset-3.col-md-6.service
       .content 
         .title.col-xs-12 Domains
         .description Managing your domains with us is secure and reliable. Easily integrate with our hosting services or ask us to manage that for you!
@@ -49,7 +49,7 @@
           span per year
         .more
           a.smooth-scroll href="" data-destination=".section3" Learn more
-    .col-xs-10.col-xs-offset-1.col-md-offset-0.col-md-6.service
+    .col-xs-10.col-xs-offset-1.col-md-offset-0.col-md-6.service.hidden
       .content 
         .title.col-xs-12 Web Development
         .description Let's work together on your next web application or let us refresh your current one. Our professional teams will set you up in a deadline set by you!
@@ -88,7 +88,7 @@
     .title Simple and Intuitive Interface
     .description Finding what you need is extremely easy. Our integrated guides will help you get started in minutes.
 
-.section4
+.section4.hidden
   h2.title Web Development
 
   .description.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4.text-center Our professionals are ready to start working on your next project. Send us a brief description of what you need and we will reach back to you as soon as possible! (normally in less than an hour)
@@ -106,6 +106,12 @@
     li
       .title Writers/Authors Website
 
+  .project-proposal.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+    = simple_form_for pages_create_path, remote: true, method: :post do |f|
+      = f.input :email, placeholder: 'Your email', value: current_user&.email || ""
+      = f.input :proposal, placeholder: 'Brief description of your project', as: :text
+      = f.input :budget, as: :select, collection: ['$200', '$500', '$1000', '$2000', 'more than $2000']
+
 
 
 .footer
@@ -116,22 +122,22 @@
     .title Company
     ul.links
       li 
-        a href="#" About
+        a href="/pages/about" About
       li 
-        a href="#" Terms & Conditions
+        a href="/pages/terms" Terms & Conditions
       li 
-        a href="#" Privacy
+        a href="/pages/privacy" Privacy
   .col-xs-12.col-md-2.group
     .title Products
     ul.links
       li
         a href="#" Domains
-      li
+      li.hidden
         a href="#" Web development
   .col-xs-12.col-md-2.group
     .title Support
     ul.links
       li 
-        a href="#" Contact support
+        a href="/pages/support" Contact support
       li 
-        a href="#" FAQ
+        a href="/pages/faq" FAQ

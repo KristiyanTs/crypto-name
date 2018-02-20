@@ -8,12 +8,12 @@ class Price
   end
 
   def call
-    ((price + commission + 30).to_f / 100).ceil * 100 - 11 # $5 = 500
+    ((price + commission).to_f / 100).ceil * 100 - 11 # $5 = 500
   end
 
   private
 
   def commission
-    ((price / 500 + 1) * 500) * 10 / 100
+    ((price / 500 + 1) * 500) * 30 / 100
   end
 end
