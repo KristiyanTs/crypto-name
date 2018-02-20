@@ -19,9 +19,11 @@ class Suggester
 
     {}.tap do |hash|
       TYPES.map do |type|
-        hash[type] = send(type).uniq
+        send(type).each do |res|
+          hash[res] ||= type
+        end
       end
-    end
+    end.each_with_object({}){|(k,v),o|(o[v]||=[])<<k}
   end
 
   private
