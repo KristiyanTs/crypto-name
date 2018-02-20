@@ -1,7 +1,7 @@
 $('.domain-group').removeClass('hidden').fadeIn(300);
 
 // Update results count after each iteration
-$('.info-search b').text(<%= @results.size %>);
+$('.info-search b').text(<%= @results.flatten.flatten.size - @results.size %>);
 
 <% @results.each do |res| %>
   $("#<%= res.first %>").html("<%= escape_javascript (render partial: 'search/name', collection: res.last, as: :result) %>")
