@@ -8,8 +8,6 @@ $('.info-search b').text(<%= @results.flatten.flatten.size - @results.size %>);
 <% end %>
 
 
-
-
 $('.panel-title .domain-name').on('click tap mouseenter', function(){
   if(!$(this).data('loaded')){
     $(this).parent().parent().parent().find('form.check-availability').submit();
