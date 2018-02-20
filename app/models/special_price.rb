@@ -10,9 +10,9 @@ class SpecialPrice
   def call
     case tld
     when 'com'
-      price * 0.8
+      price * 0.85
     when 'net'
-      price * 0.8
+      price * 0.85
     else
       price
     end

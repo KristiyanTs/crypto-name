@@ -219,9 +219,15 @@
       }
       .subtotal {
         text-align: center;
-        padding: 0px 20px;
+        padding: 0px 0px;
         line-height: 48px;
-        height: 48px;
+        .price-info {
+          width: 100%;
+          display: block;
+          background-color: #83e8ba;
+          font-size: $h5 !important;
+          text-align: center !important;
+        }
       }
     }
   }
