@@ -12,8 +12,10 @@ class SearchController < ApplicationController
         []
       end
 
+    debugger
+
     respond_to do |format|
-      format.html
+      format.html { render template: "search/index" }
       format.js
     end
   end

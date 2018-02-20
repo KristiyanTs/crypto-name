@@ -19,7 +19,7 @@ class Suggester
 
     {}.tap do |hash|
       TYPES.map do |type|
-        hash[type] = send(type)
+        hash[type] = send(type).uniq
       end
     end
   end
