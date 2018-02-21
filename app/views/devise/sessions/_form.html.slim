@@ -13,7 +13,8 @@
 javascript:
   document.addEventListener("turbolinks:load", function() {
     $('#new_user').bind("ajax:error", function(evt, xhr, status, error) {
-      $('.form-inputs .alert-info').fadeOut(1000);
+      $('.form-inputs .alert-info').remove();
       $('.form-inputs').prepend("<div class='alert alert-info'>" + xhr.responseText + "</div>");
+      $('.alert.alert-info').effect( "bounce", "10" );
     });
   });
