@@ -1,7 +1,8 @@
+- results ||= @results
 = render 'layouts/search'
 
 .info-search.col-xs-12
-	h4 = "<b>#{@results.flatten.flatten.size - @results.size}</b> available domains match your criteria. Click on a result to see available extensions!".html_safe
+	h4 = "<b>#{results.flatten.flatten.size - results.size}</b> available domains match your criteria. Click on a result to see available extensions!".html_safe if results
 
 ul.nav.nav-tabs.domain-category.col-xs-12
   li.active.col-md-3.col-xs-6
@@ -16,16 +17,16 @@ ul.nav.nav-tabs.domain-category.col-xs-12
 
 .domain-group.alike.col-xs-12 Alike
 #almost_exact.panel-group.col-xs-12
-  = render partial: 'search/name', collection: results['almost_exact'], as: :result if results.any? 
+  = render partial: 'search/name', collection: results['almost_exact'], as: :result if results
 
 .domain-group.misspelled.col-xs-12 Misspelled
 #misspelled.panel-group.col-xs-12 
-  = render partial: 'search/name', collection: results['misspelled'], as: :result if results.any?
+  = render partial: 'search/name', collection: results['misspelled'], as: :result if results
 
 .domain-group.with-prefix.col-xs-12 Prefix
 #with_prefix.panel-group.col-xs-12 
-  = render partial: 'search/name', collection: results['with_prefix'], as: :result if results.any?
+  = render partial: 'search/name', collection: results['with_prefix'], as: :result if results
 
 .domain-group.with-suffix.col-xs-12 Suffix
 #with_suffix.panel-group.col-xs-12 
-  = render partial: 'search/name', collection: results['with_suffix'], as: :result if results.any?
+  = render partial: 'search/name', collection: results['with_suffix'], as: :result if results

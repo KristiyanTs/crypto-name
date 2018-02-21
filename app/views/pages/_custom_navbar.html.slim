@@ -5,7 +5,11 @@ header.home-header
       span
         em aria-hidden="true"
     ul#navigation.pull-right
-      li
-        = link_to "Log in", new_user_session_path
-      li
-        = link_to "Sign up", new_user_registration_path
+      - if current_user
+        li
+          = link_to "Support", new_user_session_path
+      - else    
+        li
+          = link_to "Log in", new_user_session_path
+        li
+          = link_to "Sign up", new_user_registration_path
