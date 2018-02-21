@@ -11,5 +11,6 @@
       = f.input :action, as: :hidden, input_html: {value: "buy"}
       = f.input :entity, as: :hidden, input_html: {value: "domain"}
       = f.input :duration, as: :hidden, input_html: {value: 1}
+      = hidden_field_tag :authenticity_token, form_authenticity_token
       = f.button :button, "Add to cart", type: :submit, class: 'add-to-cart pull-right'
 

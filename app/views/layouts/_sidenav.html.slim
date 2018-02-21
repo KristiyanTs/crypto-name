@@ -8,7 +8,7 @@ nav.cd-side-nav.col-md-2.col-xs-12
         = link_to "My Domains", domains_path
       li.notifications class="#{'active' if controller_name == 'notifications'}"
         = link_to "Notifications", notifications_path
-      li.profile class="#{'active' if controller_name == 'users'}"
+      li.profile class="#{'active' if controller_name == 'registrations'}"
         = link_to "My profile", edit_user_registration_path
     - else
       li.login class="#{'active' if controller_name == 'sessions'}"
