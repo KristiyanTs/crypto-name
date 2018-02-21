@@ -1,6 +1,6 @@
 .col-xs-12.col-md-8.col-md-offset-4.login-form 
   .login-img
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-xs-12 col-md-10 col-md-offset-1'}, remote: true) do |f|
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-xs-12 col-md-10 col-md-offset-1 sign-in-form'}, remote: true) do |f|
     h2.text-center Log in
     .form-inputs
       = f.input :email, required: false, label: false, size: 20, placeholder: 'Email'
@@ -12,7 +12,7 @@
 
 javascript:
   document.addEventListener("turbolinks:load", function() {
-    $('#new_user').bind("ajax:error", function(evt, xhr, status, error) {
+    $('.sign-in-form').bind("ajax:error", function(evt, xhr, status, error) {
       $('.form-inputs .alert-info').remove();
       $('.form-inputs').prepend("<div class='alert alert-info'>" + xhr.responseText + "</div>");
       $('.alert.alert-info').effect( "bounce", "10" );
