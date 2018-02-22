@@ -12,7 +12,4 @@
       .text-center Forgot password
   - if devise_mapping.confirmable? && controller_name != 'confirmations'
     = link_to new_confirmation_path(resource_name), class: 'col-xs-12' do
-      .text-center Reconfirm
-
-  / - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  /   = link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name)
+      .text-center Didn't receive a confirmation email?

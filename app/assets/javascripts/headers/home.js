@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-  var mainHeader = $('.home-header'),
+  var mainHeader = $('.main-header'),
     //this applies only if secondary nav is below intro section
     belowNavHeroContent = $('.sub-nav-hero'),
     headerHeight = mainHeader.height();

@@ -1,4 +1,4 @@
-.cd-main-header {
+.main-header {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -8,13 +8,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.cd-main-header::after {
+.main-header::after {
   clear: both;
   content: "";
   display: table;
 }
 @media only screen and (min-width: 768px) {
-  .cd-main-header {
+  .main-header {
     position: fixed;
     height: 55px;
   }

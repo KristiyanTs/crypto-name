@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
   //cache DOM elements
   var mainContent = $('.cd-main-content'),
-    header = $('.cd-main-header'),
+    header = $('.main-header'),
     sidebar = $('.cd-side-nav'),
     sidebarTrigger = $('.cd-nav-trigger'),
     topNavigation = $('.cd-top-nav'),

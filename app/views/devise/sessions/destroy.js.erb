@@ -1,5 +1,5 @@
 window.history.pushState("", "Search domains", "/search");
-$('.cd-main-header').remove();
+$('.main-header').remove();
 $('body').prepend("<%= escape_javascript (render partial: 'layouts/header') %>");
 $('.cd-side-nav').remove();
 $('.cd-main-content').prepend("<%= escape_javascript (render partial: 'layouts/sidenav') %>");

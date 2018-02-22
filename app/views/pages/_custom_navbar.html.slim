@@ -1,4 +1,4 @@
-header.home-header
+header.main-header.home
   nav.nav
     = link_to 'Moonhythe', '/search', class: "logo"
     a.nav-trigger href="#"
@@ -7,7 +7,7 @@ header.home-header
     ul#navigation.pull-right
       - if current_user
         li
-          = link_to "Support", new_user_session_path
+          a href="/pages/support" Support
       - else    
         li
           = link_to "Log in", new_user_session_path

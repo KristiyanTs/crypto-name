@@ -1,4 +1,4 @@
-.home-header {
+.main-header.home {
   position: fixed;
   z-index: 20;
   top: 0;
@@ -14,18 +14,18 @@
   transition: transform .5s;
   transition: transform .5s, -webkit-transform .5s;
 }
-.home-header::after {
+.main-header.home::after {
   clear: both;
   content: "";
   display: block;
 }
-.home-header.is-hidden {
+.main-header.home.is-hidden {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.home-header .nav {
+.main-header.home .nav {
   display: block;
   overflow: auto;
   width: 100%;
@@ -34,7 +34,7 @@
   padding: 0px;
 }
 
-.home-header .logo {
+.main-header.home .logo {
   color: $dark_grey;
   font-weight: bold;
   font-size: $h5;
@@ -44,13 +44,13 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .home-header {
+  .main-header.home {
     height: 55px;
   }
-  .home-header .logo {
+  .main-header.home .logo {
     margin: 16px 0 0 18px;
   }
-  .home-header ul#navigation{
+  .main-header.home ul#navigation{
     height: 55px;
     padding: 0px;
     margin: 0px 20px 0px 0px;
@@ -60,7 +60,7 @@
   }
 }
 
-.home-header .nav-trigger {
+.main-header.home .nav-trigger {
   /* vertically align its content */
   display: table;
   height: 100%;
@@ -76,12 +76,12 @@
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-.home-header .nav-trigger span {
+.main-header.home .nav-trigger span {
   /* vertically align inside parent element */
   display: table-cell;
   vertical-align: middle;
 }
-.home-header .nav-trigger em, .home-header .nav-trigger em::after, .home-header .nav-trigger em::before {
+.main-header.home .nav-trigger em, .main-header.home .nav-trigger em::after, .main-header.home .nav-trigger em::before {
   /* this is the menu icon */
   display: block;
   position: relative;
@@ -91,13 +91,13 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-.home-header .nav-trigger em {
+.main-header.home .nav-trigger em {
   /* this is the menu central line */
   margin: 15px auto 14px;
   -webkit-transition: background-color .2s;
   transition: background-color .2s;
 }
-.home-header .nav-trigger em::before, .home-header .nav-trigger em::after {
+.main-header.home .nav-trigger em::before, .main-header.home .nav-trigger em::after {
   position: absolute;
   content: '';
   left: 0;
@@ -106,35 +106,35 @@
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
 }
-.home-header .nav-trigger em::before {
+.main-header.home .nav-trigger em::before {
   /* this is the menu icon top line */
   -webkit-transform: translateY(-6px);
       -ms-transform: translateY(-6px);
           transform: translateY(-6px);
 }
-.home-header .nav-trigger em::after {
+.main-header.home .nav-trigger em::after {
   /* this is the menu icon bottom line */
   -webkit-transform: translateY(6px);
       -ms-transform: translateY(6px);
           transform: translateY(6px);
 }
 @media only screen and (min-width: 1024px) {
-  .home-header .nav-trigger {
+  .main-header.home .nav-trigger {
     display: none;
   }
 }
 
-.home-header.nav-open .nav-trigger em {
+.main-header.home.nav-open .nav-trigger em {
   /* transform menu icon into a 'X' icon */
   background-color: rgba(255, 255, 255, 0);
 }
-.home-header.nav-open .nav-trigger em::before {
+.main-header.home.nav-open .nav-trigger em::before {
   /* rotate top line */
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.home-header.nav-open .nav-trigger em::after {
+.main-header.home.nav-open .nav-trigger em::after {
   /* rotate bottom line */
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);

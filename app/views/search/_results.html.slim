@@ -17,16 +17,24 @@ ul.nav.nav-tabs.domain-category.col-xs-12
 
 .domain-group.alike.col-xs-12 Alike
 #almost_exact.panel-group.col-xs-12
+  - unless results&.any?
+    .description Domains almost identical to your search query.
   = render partial: 'search/name', collection: results['almost_exact'], as: :result if results&.any?
 
 .domain-group.misspelled.col-xs-12 Misspelled
 #misspelled.panel-group.col-xs-12 
+  - unless results&.any?
+    .description It is a common strategy to use a misspelling in your domain name. Google is an example!
   = render partial: 'search/name', collection: results['misspelled'], as: :result if results&.any?
 
 .domain-group.with-prefix.col-xs-12 Prefix
-#with_prefix.panel-group.col-xs-12 
+#with_prefix.panel-group.col-xs-12
+  - unless results&.any?
+    .description Some popular examples: eBay, MySpace
   = render partial: 'search/name', collection: results['with_prefix'], as: :result if results&.any?
 
 .domain-group.with-suffix.col-xs-12 Suffix
 #with_suffix.panel-group.col-xs-12 
+  - unless results&.any?
+    .description Some popular examples: GitHub, LinkedIn, BlogSpot
   = render partial: 'search/name', collection: results['with_suffix'], as: :result if results&.any?

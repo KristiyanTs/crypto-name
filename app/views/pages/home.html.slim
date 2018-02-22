@@ -5,29 +5,28 @@
   .call-to-action.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3
     h1 
       |use the 
-      u most advanced
+      .underline most advanced
       | &nbsp;domain name generator
   .col-xs-12
   .search.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
     .col-xs-12.domain-search
       = form_tag search_index_path, method: 'get', class: 'domain-search col-xs-12' do
-          = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-9 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
+          = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-9 col-md-10 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
           = hidden_field_tag :type, 0
-          button.search-btn.col-xs-3 type="submit"
-            center.hidden-lg.hidden-md = fa_icon "search"
-            .hidden-xs.hidden-sm Search
+          button.search-btn.col-xs-3.col-md-2 type="submit"
+            .text-center = fa_icon "search"
   .col-xs-12.background-blue
 
     .benefits.col-xs-10.col-xs-offset-1.col-md-8.col-md-offset-2
       .col-xs-12.col-md-4.benefit
         .content
           .img
-          h2.title Split in categories
+          h2.title Categorized
           .text Domain suggestions are sensibly separated into easy to browse categories.
       .col-xs-12.col-md-4.benefit
         .content
           .img
-          h2.title Fast loading
+          h2.title Fast
           .text Our goal is to save your time! Suggestions start loading as you type.
       .col-xs-12.col-md-4.benefit
         .content
@@ -75,7 +74,7 @@
       .description The last thing you want is surprises. That is why all our renewal rates are the same as the initial purchase.
     li
       .title Easy and Intuitive DNS Management
-      .description You don't have to be a web developer to set everything up. However, we are here to help you get lost on the way.
+      .description You don't have to be a web developer to set everything up. We are here to help you if you get lost on the way.
     li
       .title No Hidden Taxes & Fees
       .description The prices you see are final and include all taxes and fees.
