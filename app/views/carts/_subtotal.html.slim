@@ -2,6 +2,6 @@
   .col-xs-12.subtotal
     | Total: $
     = "%.2f" % (client_cart.subtotal.to_i/100.0)
-    .price-info.hidden-xs That's a final price. All fees and taxes included!
+    .price-info.hidden-xs All fees and taxes included!
   .col-xs-12.proceed
     = link_to "Check out", carts_path, class: 'col-xs-12'

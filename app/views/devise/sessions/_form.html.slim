@@ -15,6 +15,6 @@ javascript:
     $('.sign-in-form').bind("ajax:error", function(evt, xhr, status, error) {
       $('.form-inputs .alert-info').remove();
       $('.form-inputs').prepend("<div class='alert alert-info'>" + xhr.responseText + "</div>");
-      $('.alert.alert-info').effect( "bounce", "10" );
+      $('.alert.alert-info').fadeOut(100).fadeIn(300);
     });
   });

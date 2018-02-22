@@ -223,10 +223,11 @@
         line-height: 48px;
         .price-info {
           width: 100%;
+          height: 30px;
+          line-height: 30px;
           display: block;
-          color: #1982c4;
-          font-weight: bold;
-          font-size: $h5 !important;
+          color: $light_grey;
+          font-size: $h6 !important;
           text-align: center !important;
         }
       }

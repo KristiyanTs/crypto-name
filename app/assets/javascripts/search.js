@@ -8,5 +8,6 @@ document.addEventListener("turbolinks:load", function() {
     var category = $(this).data('category');
     $('.domain-search #category').val(category);
     $('.domain-search').submit();
+    $('.domain-group').fadeOut(100).fadeIn(300);
   });
 });
