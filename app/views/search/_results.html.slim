@@ -2,7 +2,7 @@
 = render 'layouts/search'
 
 .info-search.col-xs-12
-	h4 = "<b>#{results.flatten.flatten.size - results.size}</b> available domains match your criteria. Click on a result to see available extensions!".html_safe if results
+	h5 = "<b>#{results.flatten.flatten.size - results.size}</b> available domains match your criteria. Click on a result to see available extensions!".html_safe if results
 
 ul.nav.nav-tabs.domain-category.col-xs-12
   li.active.col-md-3.col-xs-6
@@ -24,7 +24,7 @@ ul.nav.nav-tabs.domain-category.col-xs-12
 .domain-group.misspelled.col-xs-12 Misspelled
 #misspelled.panel-group.col-xs-12 
   - unless results&.any?
-    .description It is a common strategy to use a misspelling in your domain name. Google is an example!
+    .description It is common to have a misspelled word in your domain name. Google is an example!
   = render partial: 'search/name', collection: results['misspelled'], as: :result if results&.any?
 
 .domain-group.with-prefix.col-xs-12 Prefix

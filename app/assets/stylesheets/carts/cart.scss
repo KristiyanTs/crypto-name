@@ -10,7 +10,6 @@
     background-color: transparent;
     .content {
       background-color: white;
-      border: 1px solid $light;
       overflow-y: scroll;
       height: calc(100vh - 250px);
       padding: 0px;
@@ -144,10 +143,10 @@
     width: calc(33.33333% - 40px);
     background-color: transparent;
     .content {
-      border: 1px solid $light;
       overflow: auto;
       padding: 0px;
       .item {
+        border-bottom: 1px solid $light;
         padding: 20px;
         font-size: $h5;
         .title {
@@ -201,6 +200,7 @@
         height: 100%;
         padding: 0px;
         a {
+          border-radius: 25px;
           color: white;
           text-align: center;
           line-height: 48px;

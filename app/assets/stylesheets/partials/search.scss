@@ -27,17 +27,17 @@
     border-top-right-radius: 25px;
   }
   .search-btn:hover{
-    color: white;
-    background-color:  transparent;
+    color: $dark_blue;
     font-weight: bold;
     -webkit-transition: background-color 0.2s;
     -moz-transition: background-color 0.2s;
     transition: background-color 0.2s;
   }
-  .search-btn:active{
-    color: white;
+  .search-btn:active, .search-btn:focus{
+    color: $light_blue;
     background-color: transparent;
     font-weight: bold;
+    outline:0;
   }
 }
 

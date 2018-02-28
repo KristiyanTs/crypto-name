@@ -14,7 +14,7 @@
           = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-11 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
           = hidden_field_tag :type, 0
           button.search-btn.col-xs-1 type="submit"
-            .text-center = fa_icon "search"
+            .text-left = icon('fab', 'searchengin fa-2x')
   .col-xs-12.background-blue
 
     .benefits.col-xs-10.col-xs-offset-1.col-md-8.col-md-offset-2
@@ -121,7 +121,7 @@
     .title Company
     ul.links
       li 
-        a href="/pages/about" About
+        a href="/pages/contacts" Contacts
       li 
         a href="/pages/terms" Terms & Conditions
       li 
@@ -130,9 +130,9 @@
     .title Products
     ul.links
       li
-        a href="#" Domains
+        a href="/pages/prices" Domains
       li.hidden
-        a href="#" Web development
+        a href="/pages/web-dev" Web development
   .col-xs-12.col-md-2.group
     .title Support
     ul.links

@@ -2,9 +2,9 @@
 
 module TLDTypes
   POPULAR = ['.com', '.org', '.edu', '.gov', '.uk', '.net', '.info', '.biz', '.me', '.life'].freeze
-  CHEAP = ['.site', '.fun', '.info', '.agency', '.band', '.bike', '.business', '.city', '.cloud', '.coffee', '.company', '.cool',
+  CHEAP = ['.site', '.fun', '.info', '.online', '.life', '.live', '.band', '.agency', '.bike', '.business', '.city', '.cloud', '.coffee', '.company', '.cool',
            '.credit', '.dance', '.email', '.express', '.fyi', '.gold', '.group', '.institute',
-           '.international', '.life', '.live', '.ltd', '.network', '.ninja', '.online', '.photography',
+           '.international', '.ltd', '.network', '.ninja', '.photography',
            '.place', '.run'].freeze
 
   PROFESSIONAL = ['.art', '.academy', '.accountant', '.agency', '.biz', '.careers', '.company', '.deals', '.doctor', '.education', '.expert', '.legal', '.ltd', '.studio', '.study', '.work'].freeze

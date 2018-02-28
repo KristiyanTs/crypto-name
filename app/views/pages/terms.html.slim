@@ -55,7 +55,7 @@ hr
     h3
       | 8. Governing Law
     p
-      | These terms and conditions are governed by and construed in accordance with the laws of Bulgaria and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+      | These terms and conditions are governed by and construed in accordance with the laws of Bulgaria and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
 
     h3
       | 9. Moonhythe's rights 
@@ -73,15 +73,33 @@ hr
     p
       | Moonhythe has no obligation to monitor the Services, but reserves the right to do so. Moonhythe reserves the right to edit the descriptions and comments on listings. You acknowledge and agree that Moonhythe shall have the right to make public certain information in connection with the sale or purchase of domains on the website, including but not limited to (a) the name of the domain name sold or purchased, (b) the sale or purchase price of the domain name sold or purchased, and (c) information relating to the timing of the sale or purchase.
 
+    h3 Refund and Cancellation
+
+    p
+      | Moonhythe does not offer any refunds for the services it provides. 
+
+    p
+      | You can delete your account from our database at any time. This will:
+      ol
+        li Automatically delete all you personal data from our servers irreversibly. 
+        li Stop the services you have purchased from us in the cases it is possible.
+      p Note: Your domain names will remain active after account cancellation. To prevent that, you can transfer it/them before deleting your account.
+
+
   .content.col-xs-12.tab-pane.fade id="go-daddy"
     p Moonhythe is a registered GoDaddy reseller. As such, by using our services you also agree with GoDaddy's terms of use. You could find the latter on GoDaddy's official website:
-    a href="https://uk.godaddy.com/agreements/showdoc.aspx?pageid=UTOS&app_hdr=0" GoDaddy official website
+    a href="https://uk.godaddy.com/agreements/showdoc.aspx?pageid=UTOS&app_hdr=0" GoDaddy agreements
+
+  .content.col-xs-12.tab-pane.fade id="icann"
+    a href="https://www.icann.org/resources/pages/responsibilities-2014-03-14-en" Registrant Rights and Responsibilities
+    br
+    a href="https://www.icann.org/resources/pages/tdrp-2012-02-25-en" Registrar Transfer Dispute Resolution Policy
 
   .content.col-xs-12.tab-pane.fade id="top-domains"
     .description Enter a top-level domain to check its special Terms & Agreements
     = form_tag agreements_path, remote: true, method: 'get', class: 'agreements-search' do
       = text_field_tag :tld, params[:tld], placeholder: "Top-level domain", class: 'col-xs-10'
       button.col-xs-2 type="submit"
-        center.hidden-lg.hidden-md = fa_icon "search"
+        center.hidden-lg.hidden-md = icon('fab', 'searchengin fa-2x')
         .hidden-xs.hidden-sm Search
     .agreement

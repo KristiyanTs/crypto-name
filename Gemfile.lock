@@ -126,8 +126,8 @@ GEM
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.18)
-    font-awesome-rails (4.7.0.2)
-      railties (>= 3.2, < 5.2)
+    font-awesome-sass (5.0.6.2)
+      sass (>= 3.2)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     globalid (0.4.1)
@@ -326,7 +326,7 @@ DEPENDENCIES
   dotenv-rails
   faraday
   faraday_middleware
-  font-awesome-rails
+  font-awesome-sass (~> 5.0.6)
   friendly_id
   google-analytics-rails (= 1.1.1)
   jbuilder (~> 2.5)
@@ -353,4 +353,4 @@ DEPENDENCIES
   wordnik
 
 BUNDLED WITH
-   1.16.0.pre.3
+   1.16.1
