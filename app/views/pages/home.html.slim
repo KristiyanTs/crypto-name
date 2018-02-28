@@ -8,12 +8,12 @@
       .underline most advanced
       | &nbsp;domain name generator
   .col-xs-12
-  .search.col-xs-10.col-xs-offset-1.col-md-4.col-md-offset-4
+  .search.col-xs-10.col-xs-offset-1.col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
     .col-xs-12.domain-search
       = form_tag search_index_path, method: 'get', class: 'domain-search col-xs-12' do
-          = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-9 col-md-10 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
+          = text_field_tag :name, params[:name], placeholder: "Try with 2-3 keywords (e.g. moon hythe)", class: 'col-xs-11 autofocus', autocomplete: 'off', autocorrect: 'off', onfocus: "this.removeAttribute('readonly');"
           = hidden_field_tag :type, 0
-          button.search-btn.col-xs-3.col-md-2 type="submit"
+          button.search-btn.col-xs-1 type="submit"
             .text-center = fa_icon "search"
   .col-xs-12.background-blue
 
